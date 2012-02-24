@@ -1,6 +1,6 @@
 .DS_Store
-.vim/.netrwhist
-.vim/tmp
+dots/.vim/.netrwhist
+dots/.vim/tmp
 *.pyc
 *.swp
 tags/
