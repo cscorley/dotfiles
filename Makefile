@@ -18,11 +18,18 @@ update:
 
 symlinkforce:
 	for file in `ls -A $(CURDIR)/dots`; do \
+		if [[ -d ~/$$file ]] ; then \
+			rm -rf ~/$$file ; \
+		fi
 		ln -sf "$(CURDIR)/dots/$$file" ~/$$file ; \
 	done
 
 symlink:
 	for file in `ls -A $(CURDIR)/dots`; do \
+		if [[ -d ~/$$file ]] ; then \
+			echo "Directory ~/$$file exists, please remove it."; \
+			exit; \
+		fi ; \
 		ln -si "$(CURDIR)/dots/$$file" ~/$$file ; \
 	done
 
