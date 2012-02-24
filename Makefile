@@ -25,3 +25,8 @@ symlink:
 	for file in `ls -A $(CURDIR)/dots`; do \
 		ln -si "$(CURDIR)/dots/$$file" "~/$$file"; \
 	done
+
+test:
+	for file in `ls -A $(CURDIR)/dots`; do \
+		echo "ln -si" "$(CURDIR)/dots/$$file" "~/$$file"; \
+	done
