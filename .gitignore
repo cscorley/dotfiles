@@ -4,3 +4,10 @@ dots/.vim/tmp
 *.pyc
 *.swp
 tags/
+dots/.mpd/mpd.db
+dots/.mpd/mpd.log
+dots/.mpd/mpd.pid
+dots/.mpd/mpdstate
+dots/.mpd/music/*
+dots/.mpd/playlists/*
+dots/.mpd/sticker.sql
