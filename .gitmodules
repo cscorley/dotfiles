@@ -1,0 +1,15 @@
+[submodule "dots/.vim/bundle/vim-pathogen"]
+	path = dots/.vim/bundle/vim-pathogen
+	url = git://github.com/tpope/vim-pathogen.git
+[submodule "dots/.vim/bundle/vim-fugitive"]
+	path = dots/.vim/bundle/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "dots/.vim/bundle/molokai"]
+	path = dots/.vim/bundle/molokai
+	url = git://github.com/tomasr/molokai.git
+[submodule "dots/.vim/bundle/vim-powerline"]
+	path = dots/.vim/bundle/vim-powerline
+	url = git://github.com/Lokaltog/vim-powerline.git
+[submodule "dots/.vim/bundle/vim-markdown"]
+	path = dots/.vim/bundle/vim-markdown
+	url = git://github.com/cscorley/vim-markdown.git
