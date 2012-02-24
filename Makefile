@@ -18,15 +18,15 @@ update:
 
 symlinkforce:
 	for file in `ls -A $(CURDIR)/dots`; do \
-		ln -sf "$(CURDIR)/dots/$$file" "~/$$file"; \
+		ln -sf "$(CURDIR)/dots/$$file" ~/$$file ; \
 	done
 
 symlink:
 	for file in `ls -A $(CURDIR)/dots`; do \
-		ln -si "$(CURDIR)/dots/$$file" "~/$$file"; \
+		ln -si "$(CURDIR)/dots/$$file" ~/$$file ; \
 	done
 
 test:
 	for file in `ls -A $(CURDIR)/dots`; do \
-		echo "ln -si" "$(CURDIR)/dots/$$file" "~/$$file"; \
+		echo "ln -si" "$(CURDIR)/dots/$$file" "~/$$file" ; \
 	done

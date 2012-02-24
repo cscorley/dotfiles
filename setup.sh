@@ -9,7 +9,7 @@ fi
 if [ -e ~/.githubtoken ]
 then
     echo "Using ~/.githubtoken as .gitconfig's github.token value. Be sure your token actually exists there."
-elif
+else
     echo "Please put your github.token into ~/.githubtoken"
     touch ~/.githubtoken
 fi
