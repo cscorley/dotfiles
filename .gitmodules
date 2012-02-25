@@ -16,3 +16,6 @@
 [submodule "dots/.vim/bundle/vim-pandoc"]
 	path = dots/.vim/bundle/vim-pandoc
 	url = git://github.com/vim-scripts/vim-pandoc.git
+[submodule "dots/.vim/bundle/rainbow_parentheses"]
+	path = dots/.vim/bundle/rainbow_parentheses
+	url = git://github.com/kien/rainbow_parentheses.vim.git

@@ -112,7 +112,7 @@ set expandtab
 set wrap
 set textwidth=80
 set formatoptions=qrn1
-"set colorcolumn=+1
+set colorcolumn=+1
 
 " }}}
 " Backups {{{
@@ -126,8 +126,8 @@ set noswapfile                    " It's 2012, Vim.
 " }}}
 " Leader {{{
 
-let mapleader = ","
-let maplocalleader = "\\"
+let mapleader = "\\"
+let maplocalleader = ","
 
 " }}}
 " Color scheme {{{
@@ -355,17 +355,14 @@ augroup ft_java
 augroup END
 
 " }}}
-" Markdown {{{
+" Pandoc (Markdown) {{{
 
-augroup ft_markdown
+augroup ft_pandoc
     au!
-
-    au BufNewFile,BufRead *.m*down setlocal filetype=markdown wrap
-
     " Use <localleader>1/2/3 to add headings.
-    au Filetype markdown nnoremap <buffer> <localleader>1 yypVr=
-    au Filetype markdown nnoremap <buffer> <localleader>2 yypVr-
-    au Filetype markdown nnoremap <buffer> <localleader>3 I### <ESC>
+    au Filetype pandoc nnoremap <buffer> <localleader>1 yypVr=
+    au Filetype pandoc nnoremap <buffer> <localleader>2 yypVr-
+    au Filetype pandoc nnoremap <buffer> <localleader>3 I### <ESC>
 augroup END
 
 " }}}
