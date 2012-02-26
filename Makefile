@@ -20,7 +20,7 @@ symlinkforce:
 	for file in `ls -A $(CURDIR)/dots`; do \
 		if [[ -d ~/$$file ]] ; then \
 			rm -rf ~/$$file ; \
-		fi
+		fi ; \
 		ln -sf "$(CURDIR)/dots/$$file" ~/$$file ; \
 	done
 
