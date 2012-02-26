@@ -49,8 +49,6 @@ alias forecast='cursetheweather --nometric 35401'
 alias openscreen='screen -U -D -R'
 alias dirc='dtach -A /tmp/csc-irssi.socket irssi'
 alias dtorrent='dtach -A /tmp/csc-rtorrent.socket rtorrent'
-alias dsup='dtach -A /tmp/csc-sup.socket sup'
-alias wsup='rm -rf ~/.sup/lock; dtachsup'
 alias vi='vim'
 alias ffcastpulse='ffcast_filename=`date +ffcast-%Y%m%d-%H%M%S.mkv`; ffcast -s ffmpeg -f alsa -i pulse -vcodec libx264 ${ffcast_filename}'
 
