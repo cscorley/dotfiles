@@ -1,8 +1,16 @@
 #!/bin/sh
-#xbindkeys
+
+if [[ -e ~/.fehbg ]] ; then
+    sh ~/.fehbg
+fi
+
 start-pulseaudio-x11 &
-mpd ~/.mpd/mpd.conf &
-mpc stop &
+
+pidof mpd >& /dev/null
+if [ $? -ne 0 ]; then
+    mpd ~/.mpd/mpd.conf
+    mpc stop &
+fi
 
 pidof mpdscribble >& /dev/null
 if [ $? -ne 0 ]; then
@@ -11,36 +19,30 @@ fi
 
 dropboxd &
 gtk-redshift &
+parcellite &
+xmodmap ~/.xmodmaprc &
+#xbindkeys
+xset m 0 0 &
+/usr/bin/keychain --agents ssh -Q -q id_rsa &
 
-if [[ -e ~/.fehbg ]] ; then
-    sh ~/.fehbg
-fi
+urxvtcd &
+urxvtcd &
 
 case $1 in
-openbox)
-	exec openbox-session 
-	;;
-awesome)
-	exec awesome 
-	;;
-lxde)
-    exec ck-launch-session startlxde 
-    ;;
-awesomecfg)
-    exec awesome -c $2
-    ;;
-*)
-	exec awesome
-	;;
+    openbox)
+        exec openbox-session 
+        ;;
+    awesome)
+        exec awesome 
+        ;;
+    lxde)
+        exec ck-launch-session startlxde 
+        ;;
+    awesomecfg)
+        exec awesome -c $2
+        ;;
+    *)
+        exec awesome
+        ;;
 esac
-
-#twm)
-#	twm &
-#	xclock -geometry 50x50-1+1 &
-#	xterm -geometry 80x50+494+51 &
-#	xterm -geometry 80x20+494-0 &
-#	exec xterm -geometry 80x66+0+0 -name login
-#	;;
-#esac
-
 

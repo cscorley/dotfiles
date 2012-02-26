@@ -15,7 +15,7 @@ ZSH_THEME="mortalscumbag"
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -36,7 +36,12 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=/home/cscorley/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/share/java/apache-ant/bin:/usr/bin/core_perl:/opt/qt/bin
 export SDL_AUDIODRIVER="pulse"
-export EDITOR=vim
+export EDITOR=$(which vim)
+
+export HISTSIZE=10000
+
+# do not record commands that begin with space
+setopt hist_ignore_space
 
 #csc customs
 alias weather='pymetar ktcl'

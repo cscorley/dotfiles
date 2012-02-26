@@ -381,11 +381,5 @@ function run_once(prg)
     os.execute("x=" .. prg .. "; pgrep -u cscorley -x " .. prg .. " || (" .. prg .. " &)")
 end
 -- AUTORUN APPS!
-run_once("parcellite")
 run_once("chromium")
-run_once(terminal)
-run_once(terminal)
-run_once(terminal)
 
-os.execute("xset m 0 0 &")
-os.execute("/usr/bin/keychain --agents ssh -Q -q id_rsa &")
