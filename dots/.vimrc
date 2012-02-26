@@ -31,8 +31,9 @@ set backspace=indent,eol,start
 set number
 set laststatus=2
 set history=1000
-" set undofile
-" set undoreload=10000
+set undofile
+set undolevels=1000
+set undoreload=10000
 set cpoptions+=J
 set list
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
@@ -117,11 +118,11 @@ set colorcolumn=+1
 " }}}
 " Backups {{{
 
-set undodir=~/.vim/tmp/undo//     " undo files
-set backupdir=~/.vim/tmp/backup// " backups
-set directory=~/.vim/tmp/swap//   " swap files
-set backup                        " enable backups
-set noswapfile                    " It's 2012, Vim.
+set undodir=~/.vim/tmp/undo     " undo files
+set backupdir=~/.vim/tmp/backup " backups
+set directory=~/.vim/tmp/swap   " swap files
+set backup                      " enable backups
+set noswapfile                  " It's 2012, Vim.
 
 " }}}
 " Leader {{{
