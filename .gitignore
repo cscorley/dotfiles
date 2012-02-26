@@ -11,3 +11,4 @@ dots/.mpd/mpdstate
 dots/.mpd/music/*
 dots/.mpd/playlists/*
 dots/.mpd/sticker.sql
+dots/.config/chromium
