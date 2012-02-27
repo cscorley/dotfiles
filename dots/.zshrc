@@ -43,6 +43,9 @@ export HISTSIZE=10000
 # do not record commands that begin with space
 setopt hist_ignore_space
 
+# do not complain when a pattern fails
+setopt null_glob
+
 #csc customs
 alias weather='pymetar ktcl'
 alias forecast='cursetheweather --nometric 35401'
