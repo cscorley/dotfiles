@@ -12,3 +12,5 @@ dots/.mpd/music/*
 dots/.mpd/playlists/*
 dots/.mpd/sticker.sql
 dots/.config/chromium
+dots/.config/user-dirs.dirs
+dots/.config/user-dirs.locale
