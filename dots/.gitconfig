@@ -3,7 +3,7 @@
     email = cscorley@ua.edu
 [github]
     user = cscorley
-    token = !source ~/.githubtoken
+    token = !cat ~/.githubtoken
 [core]
     editor = vim
 [diff]

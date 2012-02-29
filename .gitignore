@@ -14,3 +14,6 @@ dots/.mpd/sticker.sql
 dots/.config/chromium
 dots/.config/user-dirs.dirs
 dots/.config/user-dirs.locale
+dots/.config/autostart
+dots/.config/dconf
+dots/.config/htop
