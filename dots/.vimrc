@@ -343,6 +343,8 @@ augroup END
 
 augroup ft_pandoc
     au!
+    " Autowrap the text into paragraphs and turn on spell checking
+    au FileType pandoc setlocal formatoptions+=ta spell
     " Use <localleader>1/2/3 to add headings.
     au Filetype pandoc nnoremap <buffer> <localleader>1 yypVr=
     au Filetype pandoc nnoremap <buffer> <localleader>2 yypVr-
