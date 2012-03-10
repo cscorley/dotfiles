@@ -17,6 +17,7 @@ set nocompatible
 
 " }}}
 " Basic options ----------------------------------------------------------- {{{
+
 set encoding=utf-8
 set modelines=0
 set autoindent
@@ -24,7 +25,6 @@ set showmode
 set showcmd
 set hidden
 set visualbell
-set cursorline
 set ttyfast
 set ruler
 set backspace=indent,eol,start
@@ -32,9 +32,7 @@ set number
 set laststatus=2
 set history=1000
 set undofile
-set undolevels=1000
 set undoreload=10000
-set cpoptions+=J
 set list
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set shell=/bin/bash
@@ -43,10 +41,7 @@ set matchtime=3
 set showbreak=↪
 set splitbelow
 set splitright
-set fillchars=diff:⣿
-set ttimeout
-set notimeout
-set nottimeout
+set fillchars=diff:⣿,vert:│
 set autowrite
 set shiftround
 set autoread
@@ -54,11 +49,17 @@ set title
 set linebreak
 set dictionary=/usr/share/dict/words
 
-" I still use a mouse to scroll. 
-set mouse=a
+" Time out on key codes but not mappings.
+" Basically this makes terminal Vim work sanely.
+set notimeout
+set ttimeout
+set ttimeoutlen=10
 
 " Make Vim able to edit crontab files again.
 set backupskip=/tmp/*,/private/tmp/*"
+
+" I still use a mouse to scroll.
+set mouse=a
 
 " Save when losing focus
 au FocusLost * :wa
@@ -66,6 +67,28 @@ au FocusLost * :wa
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
 
+" Cursorline {{{
+" Only show cursorline in the current window and in normal mode.
+
+augroup cline
+    au!
+    au WinLeave * set nocursorline
+    au WinEnter * set cursorline
+    au InsertEnter * set nocursorline
+    au InsertLeave * set cursorline
+augroup END
+
+" }}}
+" Trailing whitespace {{{
+" Only shown when not in insert mode so I don't go insane.
+
+augroup trailing
+    au!
+    au InsertEnter * :set listchars-=trail:⌴
+    au InsertLeave * :set listchars+=trail:⌴
+augroup END
+
+" }}}
 " Wildmenu completion {{{
 
 set wildmenu
@@ -78,17 +101,9 @@ set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
 set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store                       " OSX bullshit
-
 set wildignore+=*.luac                           " Lua byte code
-
-set wildignore+=migrations                       " Django migrations
 set wildignore+=*.pyc                            " Python byte code
-
 set wildignore+=*.orig                           " Merge resolution files
-
-" Clojure/Leiningen
-set wildignore+=classes
-set wildignore+=lib
 
 " }}}
 " Line Return {{{
@@ -167,13 +182,13 @@ noremap <leader><space> :noh<cr>:call clearmatches()<cr>
 " Made D behave
 nnoremap D d$
 
+" Don't move on *
+nnoremap * *<c-o>
+
 " Keep search matches in the middle of the window and pulse the line when moving
 " to them.
 nnoremap n nzzzv
 nnoremap N Nzzzv
-
-" Don't move on *
-nnoremap * *<c-o>
 
 " Same when jumping around
 nnoremap g; g;zz
@@ -189,23 +204,6 @@ nnoremap Vat vatV
 nnoremap Vab vabV
 nnoremap VaB vaBV
 
-" Error navigation {{{
-"
-"             Location List     QuickFix Window
-"            (e.g. Syntastic)     (e.g. Ack)
-"            ----------------------------------
-" Next      |     M-j               M-Down     |
-" Previous  |     M-k                M-Up      |
-"            ----------------------------------
-"
-nnoremap ∆ :lnext<cr>zvzz
-nnoremap ˚ :lprevious<cr>zvzz
-inoremap ∆ <esc>:lnext<cr>zvzz
-inoremap ˚ <esc>:lprevious<cr>zvzz
-nnoremap <m-Down> :cnext<cr>zvzz
-nnoremap <m-Up> :cprevious<cr>zvzz
-
-" }}}
 " Directional Keys {{{
 
 " It's 2011.
@@ -253,9 +251,6 @@ vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><c-o>
 
 set foldlevelstart=0
 
-" Make the current location sane.
-nnoremap <c-cr> zvzt
-
 " Space to toggle folds.
 nnoremap <Space> za
 vnoremap <Space> za
@@ -285,19 +280,7 @@ endfunction " }}}
 set foldtext=MyFoldText()
 
 " }}}
-" Destroy infuriating keys ------------------------------------------------ {{{
-
-" Fuck you, help key.
-noremap <F1> <nop>
-
-" Fuck you too, manual key.
-nnoremap K <nop>
-
-" Stop it, hash key.
-inoremap # X<BS>#
-
-" }}}
-" Various filetype-specific stuff ----------------------------------------- {{{
+" Filetype-specific stuff ------------------------------------------------- {{{
 
 " C {{{
 
@@ -381,7 +364,8 @@ augroup ft_python
     au FileType python if exists("python_space_error_highlight") | unlet python_space_error_highlight | endif
 
     " Jesus, Python.  Five characters of punctuation for a damn string?
-    au FileType python inoremap <buffer> <d-'> _(u'')<left><left>
+    au FileType python inoremap <buffer> <c-g> _(u'')<left><left>
+    au FileType python inoremap <buffer> <c-b> """"""<left><left><left>
 augroup END
 
 " }}}
@@ -414,50 +398,37 @@ augroup END
 " }}}
 
 " }}}
-" Shell ------------------------------------------------------------------- {{{
+" Convenience mappings ---------------------------------------------------- {{{
+" Destroy infuriating keys {{{
 
-function! s:ExecuteInShell(command) " {{{
-    let command = join(map(split(a:command), 'expand(v:val)'))
-    let winnr = bufwinnr('^' . command . '$')
-    silent! execute  winnr < 0 ? 'botright vnew ' . fnameescape(command) : winnr . 'wincmd w'
-    setlocal buftype=nowrite bufhidden=wipe nobuflisted noswapfile nowrap nonumber
-    echo 'Execute ' . command . '...'
-    silent! execute 'silent %!'. command
-    silent! redraw
-    silent! execute 'au BufUnload <buffer> execute bufwinnr(' . bufnr('#') . ') . ''wincmd w'''
-    silent! execute 'nnoremap <silent> <buffer> <LocalLeader>r :call <SID>ExecuteInShell(''' . command . ''')<CR>:AnsiEsc<CR>'
-    silent! execute 'nnoremap <silent> <buffer> q :q<CR>'
-    silent! execute 'AnsiEsc'
-    echo 'Shell command ' . command . ' executed.'
-endfunction " }}}
-command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
-nnoremap <leader>! :Shell
+" Fuck you, help key.
+noremap <F1> <nop>
+
+" Kill window
+nnoremap K :q<cr>
+
+" Stop it, hash key.
+inoremap # X<BS>#
 
 " }}}
-" Convenience mappings ---------------------------------------------------- {{{
-
-" Highlight Group
-nnoremap <F8> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+" Training keys {{{
+" To be a better human and vim user. Only doing this in normal mode for now.
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+" }}}
 
 " Clean trailing whitespace
 nnoremap <leader>w :%s/\s\+$//<cr>:let @/=''<cr>
 
 " Send visual selection to gist.github.com as a private, filetyped Gist
 " Requires the gist command line too (brew install gist)
-vnoremap <leader>G :w !gist -p -t %:e \| pbcopy<cr>
-vnoremap <leader>UG :w !gist -p \| pbcopy<cr>
+vnoremap <leader>G :w !gist -p -t %:e \| xsel<cr>
+vnoremap <leader>UG :w !gist -p \| xsel<cr>
 
 " Substitute
 nnoremap <leader>s :%s//<left>
-
-" Diffoff
-nnoremap <leader>D :diffoff!<cr>
-
-" Formatting, TextMate-style
-nnoremap Q gqip
-vnoremap Q gq
 
 " Easier linewise reselection
 nnoremap <leader>V V`]
@@ -465,9 +436,6 @@ nnoremap <leader>V V`]
 " Split line (sister to [J]oin lines)
 " The normal use of S is covered by cc, so don't worry about shadowing it.
 nnoremap S i<cr><esc><right>
-
-" HTML tag closing
-inoremap <C-_> <Space><BS><Esc>:call InsertCloseTag()<cr>a
 
 " Align text
 nnoremap <leader>Al :left<cr>
@@ -505,54 +473,9 @@ command! -bang WA wa<bang>
 command! -bang Wq wq<bang>
 command! -bang WQ wq<bang>
 
-" Easy filetype switching {{{
-nnoremap _md :set ft=markdown<CR>
-nnoremap _d  :set ft=diff<CR>
-" }}}
-
 " Toggle paste
 set pastetoggle=<F11>
 
-" Quickreturn
-inoremap <c-cr> <esc>A<cr>
-inoremap <s-cr> <esc>A:<cr>
-
-" Indent Guides {{{
-
-let g:indentguides_state = 0
-function! IndentGuides() " {{{
-    if g:indentguides_state
-        let g:indentguides_state = 0
-        2match None
-    else
-        let g:indentguides_state = 1
-        execute '2match IndentGuides /\%(\_^\s*\)\@<=\%(\%'.(0*&sw+1).'v\|\%'.(1*&sw+1).'v\|\%'.(2*&sw+1).'v\|\%'.(3*&sw+1).'v\|\%'.(4*&sw+1).'v\|\%'.(5*&sw+1).'v\|\%'.(6*&sw+1).'v\|\%'.(7*&sw+1).'v\)\s/'
-    endif
-endfunction " }}}
-nnoremap <leader>i :call IndentGuides()<cr>
-
-" }}}
-" Block Colors {{{
-
-let g:blockcolor_state = 0
-function! BlockColor() " {{{
-    if g:blockcolor_state
-        let g:blockcolor_state = 0
-        call matchdelete(77880)
-        call matchdelete(77881)
-        call matchdelete(77882)
-        call matchdelete(77883)
-    else
-        let g:blockcolor_state = 1
-        call matchadd("BlockColor1", '^ \{4}.*', 1, 77880)
-        call matchadd("BlockColor2", '^ \{8}.*', 2, 77881)
-        call matchadd("BlockColor3", '^ \{12}.*', 3, 77882)
-        call matchadd("BlockColor4", '^ \{16}.*', 4, 77883)
-    endif
-endfunction " }}}
-nnoremap <leader>B :call BlockColor()<cr>
-
-" }}}
 " Insert Mode Completion {{{
 
 inoremap <c-l> <c-x><c-l>
@@ -561,45 +484,11 @@ inoremap <c-f> <c-x><c-f>
 " }}}
 
 " }}}
-" CTags ------------------------------------------------------------------- {{{
-
-" For some reason ctags refuses to ignore Python variables, so I'll just hack
-" the tags file with sed and strip them out myself.
-"
-" Sigh.
-nnoremap <leader><cr> :silent !/usr/local/bin/ctags -R . && sed -i .bak -E -e '/^[^	]+	[^	]+.py	.+v$/d' tags<cr>
-
-" }}}
 " Plugin settings --------------------------------------------------------- {{{
 
-" Fugitive {{{
-
-nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>ga :Gadd<cr>
-nnoremap <leader>gb :Gblame<cr>
-nnoremap <leader>gco :Gcheckout<cr>
-nnoremap <leader>gci :Gcommit<cr>
-nnoremap <leader>gm :Gmove<cr>
-nnoremap <leader>gr :Gremove<cr>
-nnoremap <leader>gl :Shell git gl -18<cr>:wincmd \|<cr>
-
-augroup ft_fugitive
-    au!
-
-    au BufNewFile,BufRead .git/index setlocal nolist
-augroup END
-
-" "Hub"
-nnoremap <leader>H :Gbrowse<cr>
-vnoremap <leader>H :Gbrowse<cr>
-
-" }}}
 " Powerline {{{
 
 let g:Powerline_symbols = 'fancy'
-"let g:Powerline_theme = 'sjl'
 
 " }}}
 " Rainbox Parentheses {{{
@@ -627,105 +516,6 @@ let g:rbpt_max = 16
 
 
 " }}}
-
-" }}}
-" Error toggles ----------------------------------------------------------- {{{
-
-command! ErrorsToggle call ErrorsToggle()
-function! ErrorsToggle() " {{{
-  if exists("w:is_error_window")
-    unlet w:is_error_window
-    exec "q"
-  else
-    exec "Errors"
-    lopen
-    let w:is_error_window = 1
-  endif
-endfunction " }}}
-
-command! -bang -nargs=? QFixToggle call QFixToggle(<bang>0)
-function! QFixToggle(forced) " {{{
-  if exists("g:qfix_win") && a:forced == 0
-    cclose
-    unlet g:qfix_win
-  else
-    copen 10
-    let g:qfix_win = bufnr("$")
-  endif
-endfunction " }}}
-
-nmap <silent> <f3> :ErrorsToggle<cr>
-nmap <silent> <f4> :QFixToggle<cr>
-
-" }}}
-" Utils ------------------------------------------------------------------- {{{
-
-" Toggle whitespace in diffs {{{
-
-set diffopt-=iwhite
-let g:diffwhitespaceon = 1
-function! ToggleDiffWhitespace() "{{{
-    if g:diffwhitespaceon
-        set diffopt-=iwhite
-        let g:diffwhitespaceon = 0
-    else
-        set diffopt+=iwhite
-        let g:diffwhitespaceon = 1
-    endif
-    diffupdate
-endfunc "}}}
-
-nnoremap <leader>dw :call ToggleDiffWhitespace()<CR>
-
-" }}}
-
-" }}}
-" Hg ---------------------------------------------------------------------- {{{
-
-function! s:HgDiff()
-    diffthis
-
-    let fn = expand('%:p')
-    let ft = &ft
-
-    wincmd v
-    edit __hgdiff_orig__
-
-    setlocal buftype=nofile
-
-    normal ggdG
-    execute "silent r!hg cat --rev . " . fn
-    normal ggdd
-
-    execute "setlocal ft=" . ft
-
-    diffthis
-    diffupdate
-endf
-command! -nargs=0 HgDiff call s:HgDiff()
-nnoremap <leader>hd :HgDiff<cr>
-
-function! s:HgBlame()
-    let fn = expand('%:p')
-
-    wincmd v
-    wincmd h
-    edit __hgblame__
-    vertical resize 28
-
-    setlocal scrollbind winfixwidth nolist nowrap nonumber buftype=nofile ft=none
-
-    normal ggdG
-    execute "silent r!hg blame -undq " . fn
-    normal ggdd
-    execute ':%s/\v:.*$//'
-
-    wincmd l
-    setlocal scrollbind
-    syncbind
-endf
-command! -nargs=0 HgBlame call s:HgBlame()
-nnoremap <leader>hb :HgBlame<cr>
 
 " }}}
 " Environments (GUI/Console) ---------------------------------------------- {{{
