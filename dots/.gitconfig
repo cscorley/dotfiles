@@ -40,3 +40,4 @@
     dh1 = diff HEAD~1
     gr = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%hx09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
     ignore = "!source ~/.githelpers && add_ignore"
+    noignore = "!source ~/.githelpers && add_no_ignore"

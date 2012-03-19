@@ -39,3 +39,10 @@ add_ignore(){
         echo "${GIT_PREFIX}${filename}" >> .gitignore
     done
 }
+
+add_no_ignore(){
+    for each in "$@"; do
+        filename=${each// /\\ } # replace spaces with \ escaped space
+        echo "!${GIT_PREFIX}${filename}" >> .gitignore
+    done
+}
