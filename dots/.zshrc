@@ -10,8 +10,10 @@ source $ZSH/oh-my-zsh.sh
 export PATH="/home/cscorley/bin/:/home/cscorley/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/share/java/apache-ant/bin:/usr/bin/core_perl:/opt/qt/bin"
 export SDL_AUDIODRIVER='pulse'
 export EDITOR=$(which vim)
+export BROWSER=$(which chromium)
 export GREP_OPTIONS='--color=auto'
 export HISTSIZE=10000
+export PYTHONDONTWRITEBYTECODE=true
 
 # do not record commands that begin with space
 setopt hist_ignore_space
@@ -25,8 +27,8 @@ alias openscreen='screen -U -D -R'
 alias dirc='dtach -A /tmp/csc-irssi.socket irssi'
 alias dtorrent='dtach -A /tmp/csc-rtorrent.socket rtorrent'
 alias ffcastpulse='ffcast_filename=`date +ffcast-%Y%m%d-%H%M%S.mkv`; ffcast -s ffmpeg -f alsa -i pulse -vcodec libx264 ${ffcast_filename}'
-alias pacman='packer'
 
+alias open='xdg-open'
 alias vi='vim'
 alias c='clear'
 

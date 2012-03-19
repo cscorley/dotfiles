@@ -13,10 +13,12 @@
     tool = vimdiff
 [alias]
     st = status
+    s = status -s
     ci = commit
     co = checkout
     di = diff
     dc = diff --cached
+    do = diff origin/HEAD HEAD
     amend = commit --amend
     aa = add --all
     head = !git l -1
@@ -37,3 +39,4 @@
     ds = diff --stat=160,120
     dh1 = diff HEAD~1
     gr = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%hx09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
+    ignore = "!source ~/.githelpers && add_ignore"
