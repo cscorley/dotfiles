@@ -20,6 +20,9 @@ setopt hist_ignore_space
 # do not complain when a pattern fails
 setopt null_glob
 
+# update index before every attempt to autocomplete
+zstyle ":completion:*:commands" rehash 1
+
 #csc customs
 alias weather='pymetar ktcl'
 alias forecast='cursetheweather --nometric 35401'
