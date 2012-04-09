@@ -7,7 +7,8 @@ plugins=(git svn mercurial python zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH="/home/cscorley/bin/:/home/cscorley/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/share/java/apache-ant/bin:/usr/bin/core_perl:/opt/qt/bin"
+Add the following line to your PATH if you plan to install using gem
+export PATH="${HOME}/bin/:${HOME}/.cabal/bin:$(ruby -rubygems -e "puts Gem.user_dir")/bin::${PATH}"
 export SDL_AUDIODRIVER='pulse'
 export EDITOR=$(which vim)
 export BROWSER=$(which chromium)
