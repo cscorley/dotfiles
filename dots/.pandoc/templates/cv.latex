@@ -148,17 +148,18 @@ $endif$
   \item\relax
 }
 {\endlist}
+% adjust line spacing and indents for lists
+
+\usepackage{enumitem}
+
 
 % no bullets
 
 \renewcommand{\labelitemi}{}
 \renewcommand{\labelitemii}{}
 \renewcommand{\labelitemiii}{}
-
-% adjust line spacing and indents for lists
-
-\usepackage{enumitem}
 \setlist{nolistsep, itemindent=-2.5em}
+
 
 % adjust formatting of tables
 
@@ -167,9 +168,9 @@ $endif$
 
 \begin{document}
 
-\setromanfont[Mapping=tex-text]{Minion Pro} 
-\setsansfont[Mapping=tex-text]{Myriad Pro} 
-\setmonofont[Mapping=tex-text]{Inconsolata} 
+%\setromanfont[Mapping=tex-text]{Minion Pro} 
+%\setsansfont[Mapping=tex-text]{Myriad Pro} 
+%\setmonofont[Mapping=tex-text]{Inconsolata} 
 
 
 
