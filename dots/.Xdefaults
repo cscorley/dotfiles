@@ -12,7 +12,7 @@ urxvt*borderless: 1
 urxvt.buffered: true
 urxvt.underlineColor: yellow
 urxvt.transparent:   true
-urxvt.shading:       10
+urxvt.shading:       5
 urxvt.background: rgba:3f00/3f00/3f00/dddd
 
 urxvt.font: xft:Terminus:pixelsize=15, xft:Terminus (TTF) for Powerline:pixelsize=15, xft:Lohit Kannada:pixelsize=15, xft:unifont:pixelsize=15
