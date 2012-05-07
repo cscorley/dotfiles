@@ -49,3 +49,7 @@
 	sync = !legit sync \"$@\"
 	publish = !legit publish \"$@\"
 	graft = !legit graft \"$@\"
+[browser "gitscm"]
+	cmd = /bin/sh -c 'xdg-open http://git-scm.com/docs/$(basename $1 .html)' --
+[help]
+	browser = gitscm

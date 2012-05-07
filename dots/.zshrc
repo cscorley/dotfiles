@@ -84,6 +84,7 @@ extract () {
             *.gz)       gunzip $1       ;;
             *.tar)      tar xf $1       ;;
             *.tbz2)     tar xjf $1      ;;
+            *.tbz)     tar xjf $1      ;;
             *.tgz)      tar xzf $1      ;;
             *.zip)      unzip $1        ;;
             *.Z)        uncompress $1   ;;

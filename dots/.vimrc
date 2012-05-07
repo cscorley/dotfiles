@@ -349,6 +349,10 @@ augroup ft_pandoc
     au Filetype pandoc nnoremap <buffer> <localleader>1 yypVr=
     au Filetype pandoc nnoremap <buffer> <localleader>2 yypVr-
     au Filetype pandoc nnoremap <buffer> <localleader>3 I### <ESC>
+
+    " Use pandoc to compile the current file into a PDF & HTML
+    nnoremap <leader>p :!pandoc -s -o /tmp/output.pdf %<cr><cr>
+    nnoremap <leader>h :!pandoc -s -o /tmp/output.html %<cr><cr>
 augroup END
 
 " }}}

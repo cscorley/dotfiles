@@ -2,6 +2,7 @@
 \usepackage{fullpage}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
+\usepackage{setspace}
 \ifxetex
   \usepackage{fontspec,xltxtra,xunicode}
   \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
@@ -123,6 +124,9 @@ $if(toc)$
 \tableofcontents
 
 $endif$
+
+\doublespacing
+
 $body$
 
 $if(natbib)$
