@@ -24,8 +24,7 @@ setopt null_glob
 zstyle ":completion:*:commands" rehash 1
 
 #csc customs
-alias weather='pymetar ktcl'
-alias forecast='cursetheweather --nometric 35401'
+alias weather='cursetheweather --nometric 35401'
 alias openscreen='screen -U -D -R'
 alias dirc='dtach -A /tmp/csc-irssi.socket irssi'
 alias dtorrent='dtach -A /tmp/csc-rtorrent.socket rtorrent'
