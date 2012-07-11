@@ -1,2 +1,2 @@
 map <C-q> quit
-set font Terminus
+set font Meslo LG S DZ

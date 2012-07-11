@@ -15,9 +15,14 @@ urxvt.transparent:   true
 urxvt.shading:       5
 urxvt.background: rgba:3f00/3f00/3f00/dddd
 
-urxvt.font: xft:Terminus:pixelsize=15, xft:Terminus (TTF) for Powerline:pixelsize=15, xft:Lohit Kannada:pixelsize=15, xft:unifont:pixelsize=15
-urxvt.boldFont: xft:Terminus:Bold:pixelsize=15, xft:Terminus (TTF) for Powerline:BoldForPowerline:pixelsize=15, xft:Lohit Kannada:Bold:pixelsize=15, xft:unifont:pixelsize=15
+!urxvt.font: xft:Terminus:pixelsize=15, xft:Terminus (TTF) for Powerline:pixelsize=15, xft:Lohit Kannada:pixelsize=15, xft:unifont:pixelsize=15
+!urxvt.boldFont: xft:Terminus:Bold:pixelsize=15, xft:Terminus (TTF) for Powerline:BoldForPowerline:pixelsize=15, xft:Lohit Kannada:Bold:pixelsize=15, xft:unifont:pixelsize=15
 
+urxvt.font: xft:Meslo LG S DZ:Regular:size=10, xft:Meslo LG S DZ for Powerline:RegularForPowerline:size=10, xft:Lohit Kannada:Regular:size=10, xft:unifont:size=10
+urxvt.boldFont: xft:Meslo LG S DZ:Bold:size=10, xft:Meslo LG S DZ for Powerline:BoldForPowerline:size=10, xft:Lohit Kannada:Bold:size=10, xft:unifont:size=10
+urxvt.italicFont: xft:Meslo LG S DZ:Italic:size=10, xft:Meslo LG S DZ for Powerline:ItalicForPowerline:size=10, xft:Lohit Kannada:Italic:size=10, xft:unifont:pixelsize=10
+urxvt.letterSpace: -1
+!urxvt.lineSpace: 0
 
 !Plugin stuff
 urxvt*urlLauncher:chromium

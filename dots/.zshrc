@@ -14,6 +14,7 @@ export BROWSER=$(which chromium)
 export GREP_OPTIONS='--color=auto'
 export HISTSIZE=10000
 export PYTHONDONTWRITEBYTECODE=true
+export CHROMIUM_USER_FLAGS="--ppapi-flash-path=/usr/lib/PepperFlash/libpepflashplayer.so --ppapi-flash-version=11.3.31.103"
 
 # do not record commands that begin with space
 setopt hist_ignore_space
