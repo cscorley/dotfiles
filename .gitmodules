@@ -19,3 +19,6 @@
 [submodule "dots/.vim/bundle/rainbow_parentheses"]
 	path = dots/.vim/bundle/rainbow_parentheses
 	url = git://github.com/kien/rainbow_parentheses.vim.git
+[submodule "dots/.vim/bundle/nerdtree"]
+	path = dots/.vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
