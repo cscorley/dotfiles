@@ -26,9 +26,9 @@ urxvt.letterSpace: -1
 !urxvt.lineSpace: 0
 
 ! Yep.
-urxvt.font: xft:Menlo:Regular:size=10, xft:Menlo for Powerline:RegularForPowerline:size=10, xft:Lohit Kannada:Regular:size=10, xft:unifont:size=10
-urxvt.boldFont: xft:Menlo:Bold:size=10, xft:Menlo for Powerline:BoldForPowerline:size=10, xft:Lohit Kannada:Bold:size=10, xft:unifont:size=10
-urxvt.italicFont: xft:Menlo:Italic:size=10, xft:Menlo for Powerline:ItalicForPowerline:size=10, xft:Lohit Kannada:Italic:size=10, xft:unifont:pixelsize=10
+urxvt.font: xft:Menlo:Regular:size=10, xft:Menlo for Powerline:size=10, xft:Lohit Kannada:Regular:size=10, xft:unifont:size=10
+urxvt.boldFont: xft:Menlo:Bold:size=10, xft:Menlo for Powerline:size=10, xft:Lohit Kannada:Bold:size=10, xft:unifont:size=10
+urxvt.italicFont: xft:Menlo:Italic:size=10, xft:Menlo for Powerline:size=10, xft:Lohit Kannada:Italic:size=10, xft:unifont:pixelsize=10
 
 !Plugin stuff
 urxvt*urlLauncher:chromium
