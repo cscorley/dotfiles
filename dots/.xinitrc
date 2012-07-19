@@ -19,14 +19,13 @@ fi
 
 dropboxd &
 gtk-redshift &
-parcellite &
+clipit &
 xmodmap ~/.xmodmaprc &
 #xbindkeys
 xset m 0 0 &
 /usr/bin/keychain --agents ssh -Q -q id_rsa &
 
-urxvtcd &
-urxvtcd &
+xrdb -merge ~/.Xresources
 
 case $1 in
     openbox)

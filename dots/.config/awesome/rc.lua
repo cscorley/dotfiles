@@ -38,7 +38,9 @@ beautiful.init("/home/cscorley/.config/awesome/themes/blueish/theme.lua")
 --beautiful.init("/usr/share/awesome/themes/sky/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "urxvtcd"
+--terminal = "urxvtcd"
+terminal = os.getenv("TERMINAL")
+web_browser = os.getenv("BROWSER")
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -381,5 +383,5 @@ function run_once(prg)
     os.execute("x=" .. prg .. "; pgrep -u cscorley -x " .. prg .. " || (" .. prg .. " &)")
 end
 -- AUTORUN APPS!
-run_once("chromium")
+run_once(web_browser)
 

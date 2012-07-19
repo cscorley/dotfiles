@@ -16,10 +16,16 @@ export HISTSIZE=10000
 export PYTHONDONTWRITEBYTECODE=true
 export CHROMIUM_USER_FLAGS="--ppapi-flash-path=/usr/lib/PepperFlash/libpepflashplayer.so --ppapi-flash-version=11.3.31.103"
 
+# URxvt has screwed up for the last time.)
+export TERMINAL=$(which lilyterm)
+
 # do not record commands that begin with space
 setopt hist_ignore_space
 # do not complain when a pattern fails
 setopt null_glob
+
+setopt nocorrectall
+setopt correct
 
 # update index before every attempt to autocomplete
 zstyle ":completion:*:commands" rehash 1

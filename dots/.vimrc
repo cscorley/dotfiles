@@ -150,6 +150,8 @@ let maplocalleader = ","
 
 syntax on
 set background=dark
+" ugh.
+set t_Co=256
 colorscheme molokai
 
 " Highlight VCS conflict markers
@@ -527,7 +529,7 @@ let g:rbpt_max = 16
 " Environments (GUI/Console) ---------------------------------------------- {{{
 
 if has('gui_running')
-    set guifont=Terminus\ for\ Powerline:h16
+    set guifont=Menlo for Powerline:h10
 
     " Remove all the UI cruft
     set go-=T
