@@ -33,9 +33,27 @@ function symlink_force(){
 }
 
 if [ -d ~/.dotfiles ]; then
-    echo "A ~/.dotfiles directory already exists. Aborting."
-    exit
+    echo "A ~/.dotfiles directory already exists. Not cloning repo."
+    echo ">>> Please remove and re-run if necessary."
+else
+    echo "Cloning repo..."
+    /usr/bin/env git clone https://github.com/cscorley/dotfiles.git ~/.dotfiles
 fi
+
+echo "Installing..."
+
+cd ~/.dotfiles
+
+if [ "${1}" == "-f" ]; then
+    echo "Forcing symlink creation. Godspeed, brother!"
+    symlink_force
+else
+    echo "Interactively symlinking ~/.dotfiles..."
+    symlink_interactive
+fi
+
+echo "Setting up subrepos..."
+make install
 
 if [ -e ~/.githubtoken ]; then
     echo "Using ~/.githubtoken as .gitconfig's github.token value. Be sure your token actually exists there."
@@ -43,19 +61,5 @@ else
     echo "Please put your github.token into ~/.githubtoken"
     touch ~/.githubtoken
 fi
-
-echo "Cloning repo..."
-/usr/bin/env git clone https://github.com/cscorley/dotfiles.git ~/.dotfiles
-
-echo "Installing..."
-cd ~/.dotfiles
-
-if [ "${1}" == "-f" ]; then
-    symlink_force
-else
-    symlink_interactive
-fi
-
-make install
 
 echo "Done."
