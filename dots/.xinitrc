@@ -23,7 +23,6 @@ clipit &
 xmodmap ~/.xmodmaprc &
 #xbindkeys
 xset m 0 0 &
-/usr/bin/keychain --agents ssh -Q -q id_rsa &
 
 xrdb -merge ~/.Xresources
 

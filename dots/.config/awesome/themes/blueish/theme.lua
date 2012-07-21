@@ -1,7 +1,7 @@
 
 theme = {}
 
-theme.font          = "sans 8"
+theme.font          = "sans 10"
 
 theme.bg_normal     = "#000000"
 theme.bg_focus      = "#000000"
@@ -13,7 +13,7 @@ theme.fg_focus      = "#8BFF0B"
 theme.fg_urgent     = "#FFFFAF"
 theme.fg_minimize   = "#666666"
 
-theme.border_width  = "2"
+theme.border_width  = "3"
 theme.border_normal = "#333333"
 theme.border_focus  = "#75A807"
 theme.border_marked = "#D6156C"

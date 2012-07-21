@@ -162,7 +162,7 @@ for s = 1, screen.count() do
                                           end, mytasklist.buttons)
 
     -- Create the wibox
-    mywibox[s] = awful.wibox({ position = "bottom", height=16, screen = s })
+    mywibox[s] = awful.wibox({ position = "bottom", height=22, screen = s })
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {
@@ -338,7 +338,7 @@ awful.rules.rules = {
        properties = { tag = tags[1][2] } },
      { rule = { class = "Chromium" },
        properties = { 
-            tag = tags[1][2] ,
+            tag = tags[1][1] ,
             floating = false 
         } 
     }
@@ -383,5 +383,4 @@ function run_once(prg)
     os.execute("x=" .. prg .. "; pgrep -u cscorley -x " .. prg .. " || (" .. prg .. " &)")
 end
 -- AUTORUN APPS!
-run_once(web_browser)
 

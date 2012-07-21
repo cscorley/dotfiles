@@ -32,14 +32,12 @@ function symlink_force(){
     done
 }
 
-if [ -d ~/.dotfiles ]
-then
+if [ -d ~/.dotfiles ]; then
     echo "A ~/.dotfiles directory already exists. Aborting."
     exit
 fi
 
-if [ -e ~/.githubtoken ]
-then
+if [ -e ~/.githubtoken ]; then
     echo "Using ~/.githubtoken as .gitconfig's github.token value. Be sure your token actually exists there."
 else
     echo "Please put your github.token into ~/.githubtoken"
@@ -53,9 +51,9 @@ echo "Installing..."
 cd ~/.dotfiles
 
 if [ "${1}" == "-f" ]; then
-    symlink_force()
+    symlink_force
 else
-    symlink_interactive()
+    symlink_interactive
 fi
 
 make install

@@ -6,18 +6,7 @@ plugins=(git svn mercurial python zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export PATH="${HOME}/bin/:${HOME}/.cabal/bin:$(ruby -rubygems -e "puts Gem.user_dir")/bin::${PATH}"
-export SDL_AUDIODRIVER='pulse'
-export EDITOR=$(which vim)
-export BROWSER=$(which chromium)
-export GREP_OPTIONS='--color=auto'
 export HISTSIZE=10000
-export PYTHONDONTWRITEBYTECODE=true
-export CHROMIUM_USER_FLAGS="--ppapi-flash-path=/usr/lib/PepperFlash/libpepflashplayer.so --ppapi-flash-version=11.3.31.103"
-
-# URxvt has screwed up for the last time.)
-export TERMINAL=$(which lilyterm)
 
 # do not record commands that begin with space
 setopt hist_ignore_space
