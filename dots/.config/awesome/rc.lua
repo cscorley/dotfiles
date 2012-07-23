@@ -39,8 +39,8 @@ beautiful.init("/home/cscorley/.config/awesome/themes/blueish/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 --terminal = "urxvtcd"
-terminal = os.getenv("TERMINAL")
-web_browser = os.getenv("BROWSER")
+terminal = os.getenv("TERMINAL") or "gnome-terminal"
+web_browser = os.getenv("BROWSER") or "chromium"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -162,7 +162,7 @@ for s = 1, screen.count() do
                                           end, mytasklist.buttons)
 
     -- Create the wibox
-    mywibox[s] = awful.wibox({ position = "bottom", height=22, screen = s })
+    mywibox[s] = awful.wibox({ position = "bottom", height=16, screen = s })
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {
@@ -338,7 +338,7 @@ awful.rules.rules = {
        properties = { tag = tags[1][2] } },
      { rule = { class = "Chromium" },
        properties = { 
-            tag = tags[1][1] ,
+            -- tag = tags[1][1] ,
             floating = false 
         } 
     }

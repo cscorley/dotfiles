@@ -150,8 +150,6 @@ let maplocalleader = ","
 
 syntax on
 set background=dark
-" ugh.
-set t_Co=256
 colorscheme molokai
 
 " Highlight VCS conflict markers
@@ -346,7 +344,7 @@ augroup END
 augroup ft_pandoc
     au!
     " Wrap the text into paragraphs and turn on spell checking
-    au FileType pandoc setlocal formatoptions+=t spell
+    au FileType pandoc setlocal spell " formatoptions+=t
     " Use <localleader>1/2/3 to add headings.
     au Filetype pandoc nnoremap <buffer> <localleader>1 yypVr=
     au Filetype pandoc nnoremap <buffer> <localleader>2 yypVr-

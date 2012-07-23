@@ -22,11 +22,11 @@ URxvt.letterSpace: -1
 
 ! Yep.
 
-URxvt*font:                 xft:Menlo for Powerline:style=RegularForPowerline:size=10, xft:unifont:size=10
-URxvt*imFont:               xft:Menlo for Powerline:style=:RegularForPowerline:size=10, xft:unifont:size=10
-URxvt*boldFont:             xft:Menlo for Powerline:style=BoldForPowerline:size=10, xft:unifont:size=10
-URxvt*italicFont:           xft:Menlo for Powerline:style=ItalicForPowerline:size=10, xft:unifont:size=10
-URxvt*boldItalicFont:       xft:Menlo for Powerline:style=Bold Italic:size=10, xft:unifont:size=10
+URxvt*font:                 xft:DejaVu Sans Mono for Powerline:style=RegularForPowerline:size=11, xft:unifont:size=11
+URxvt*imFont:               xft:DejaVu Sans Mono for Powerline:style=:RegularForPowerline:size=11, xft:unifont:size=11
+URxvt*boldFont:             xft:DejaVu Sans Mono for Powerline:style=BoldForPowerline:size=11, xft:unifont:size=11
+URxvt*italicFont:           xft:DejaVu Sans Mono for Powerline:style=ItalicForPowerline:size=11, xft:unifont:size=11
+URxvt*boldItalicFont:       xft:DejaVu Sans Mono for Powerline:style=Bold Italic:size=11, xft:unifont:size=11
 
 
 !Plugin stuff
