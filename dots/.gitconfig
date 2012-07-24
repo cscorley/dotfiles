@@ -30,9 +30,6 @@
     noff = merge --no-ff
     l = "!source ~/.githelpers && pretty_git_log"
     la = !git l --all
-    div = divergence
-    gn = goodness
-    gnc = goodness --cached
     fa = fetch --all
     pom = push origin master
     b = branch
@@ -41,15 +38,7 @@
     gr = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%hx09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
     ignore = "!source ~/.githelpers && add_ignore"
     noignore = "!source ~/.githelpers && add_no_ignore"
-	switch = !legit switch \"$@\"
-	branches = !legit branches
-	sprout = !legit sprout \"$@\"
-	unpublish = !legit unpublish \"$@\"
-	harvest = !legit harvest \"$@\"
-	sync = !legit sync \"$@\"
-	publish = !legit publish \"$@\"
-	graft = !legit graft \"$@\"
 [browser "gitscm"]
-	cmd = /bin/sh -c 'xdg-open http://git-scm.com/docs/$(basename $1 .html)' --
+    cmd = /bin/sh -c 'xdg-open http://git-scm.com/docs/$(basename $1 .html)' --
 [help]
-	browser = gitscm
+    browser = gitscm

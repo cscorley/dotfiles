@@ -1,2 +1,2 @@
 map <C-q> quit
-set font Meslo LG S DZ
+set font DejaVu Sans Mono

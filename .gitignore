@@ -13,3 +13,5 @@ dots/.config/*
 !dots/.config/awesome
 !dots/.config/redshift.conf
 !dots/.config/zathura
+
+dots/.gconf/*
