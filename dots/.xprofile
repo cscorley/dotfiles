@@ -1,5 +1,7 @@
 #!/bin/sh
 
+[ -f ~/.zshenv ] && . ~/.zshenv
+
 rundat () {
     which ${1} > /dev/null 2>&1
     if [ $? -eq 0 ]; then
@@ -19,8 +21,9 @@ rundat mpd ~/.mpd/mpd.conf
 rundat mpc stop &
 rundat mpdscribble --conf ~/.mpdscribble/mpdscribble.conf &
 rundat dropboxd &
-rundat gtk-redshift &
+rundat gtk-redshift -l 33.21:-87.55 -t 5500:3700 &
 rundat clipit &
+rundat parcellite &
 rundat xset m 0 0 &
 
 #rundat xmodmap ~/.Xmodmap
