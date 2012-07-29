@@ -31,8 +31,7 @@ set backspace=indent,eol,start
 set number
 set laststatus=2
 set history=1000
-set undofile
-set undoreload=10000
+
 set list
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set shell=/bin/bash
@@ -128,12 +127,20 @@ set expandtab
 set wrap
 set textwidth=72
 set formatoptions=qrn1
-set colorcolumn=+1
+
+if version >= 703
+    set colorcolumn=+1
+endif
 
 " }}}
 " Backups {{{
 
-set undodir=~/.vim/tmp/undo     " undo files
+if version >= 703
+    set undofile
+    set undoreload=10000
+    set undodir=~/.vim/tmp/undo     " undo files
+endif
+
 set backupdir=~/.vim/tmp/backup " backups
 set directory=~/.vim/tmp/swap   " swap files
 set backup                      " enable backups
