@@ -341,6 +341,8 @@ augroup END
 " }}}
 " Pandoc (Markdown) {{{
 
+au BufRead, BufNewFile *.md set filetype=pandoc
+
 augroup ft_pandoc
     au!
     " Wrap the text into paragraphs and turn on spell checking
@@ -481,6 +483,9 @@ command! -bang WQ wq<bang>
 
 " Toggle paste
 set pastetoggle=<F11>
+
+" Make for the lazy (me)
+nnoremap <leader><leader> :make<cr><cr>
 
 " Insert Mode Completion {{{
 
