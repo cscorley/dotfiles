@@ -52,14 +52,9 @@ else
     symlink_interactive
 fi
 
+mkdir -p ~/.vim/tmp/{backup,swap,undo}
+
 echo "Setting up subrepos..."
 make install
-
-if [ -e ~/.githubtoken ]; then
-    echo "Using ~/.githubtoken as .gitconfig's github.token value. Be sure your token actually exists there."
-else
-    echo "Please put your github.token into ~/.githubtoken"
-    touch ~/.githubtoken
-fi
 
 echo "Done."
