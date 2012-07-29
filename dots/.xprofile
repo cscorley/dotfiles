@@ -1,0 +1,27 @@
+#!/bin/sh
+
+rundat () {
+    which ${1} > /dev/null 2>&1
+    if [ $? -eq 0 ]; then
+        pidof ${1} > /dev/null 2>&1
+        if [ $? -ne 0 ]; then
+            ${@}
+        fi
+    fi
+}
+
+if [ -e ~/.fehbg ] ; then
+    sh ~/.fehbg
+fi
+
+rundat start-pulseaudio-x11 &
+rundat mpd ~/.mpd/mpd.conf
+rundat mpc stop &
+rundat mpdscribble --conf ~/.mpdscribble/mpdscribble.conf &
+rundat dropboxd &
+rundat gtk-redshift &
+rundat clipit &
+rundat xset m 0 0 &
+
+#rundat xmodmap ~/.Xmodmap
+#rundat xrdb -merge ~/.Xresources

@@ -1,6 +1,7 @@
 #!/bin/sh
 
-. ~/.startup.sh
+[ -f /etc/xprofile ] && . /etc/xprofile
+[ -f ~/.xprofile ] && . ~/.xprofile
 
 case $1 in
     openbox)
