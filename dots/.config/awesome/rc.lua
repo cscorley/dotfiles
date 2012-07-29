@@ -82,7 +82,7 @@ end
 -- Create a laucher widget and a main menu
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
+--   { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
@@ -333,16 +333,7 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "wine" },
       properties = { floating = true } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
-     { rule = { class = "Namoroka" },
-       properties = { tag = tags[1][2] } },
-     { rule = { class = "Chromium" },
-       properties = { 
-            -- tag = tags[1][1] ,
-            floating = false 
-        } 
     }
-}
 -- }}}
 
 -- {{{ Signals
@@ -376,11 +367,5 @@ client.add_signal("focus", function(c) c.border_color = beautiful.border_focus e
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 --
-function run_once(prg)
-    if not prg then
-        do return nil end
-    end
-    os.execute("x=" .. prg .. "; pgrep -u cscorley -x " .. prg .. " || (" .. prg .. " &)")
-end
--- AUTORUN APPS!
 
+os.execute("bash ~/.startup.sh")

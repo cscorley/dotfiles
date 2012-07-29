@@ -1,30 +1,31 @@
 <?xml version="1.0"?>
 <gconf>
+	<entry name="alternate_screen_scroll" mtime="1343555490" type="bool" value="true"/>
 	<entry name="use_custom_default_size" mtime="1343052053" type="bool" value="false"/>
-	<entry name="scrollback_unlimited" mtime="1343516001" type="bool" value="true"/>
+	<entry name="scrollback_unlimited" mtime="1343555490" type="bool" value="true"/>
 	<entry name="allow_bold" mtime="1342676281" type="bool" value="true"/>
-	<entry name="scrollbar_position" mtime="1343516001" type="string">
+	<entry name="scrollbar_position" mtime="1343555490" type="string">
 		<stringvalue>hidden</stringvalue>
 	</entry>
-	<entry name="default_show_menubar" mtime="1343516001" type="bool" value="false"/>
-	<entry name="font" mtime="1343516001" type="string">
+	<entry name="default_show_menubar" mtime="1343555490" type="bool" value="false"/>
+	<entry name="font" mtime="1343555490" type="string">
 		<stringvalue>DejaVu Sans Mono for Powerline 11</stringvalue>
 	</entry>
-	<entry name="use_system_font" mtime="1343516001" type="bool" value="false"/>
-	<entry name="use_theme_colors" mtime="1343516001" type="bool" value="false"/>
-	<entry name="palette" mtime="1343516001" type="string">
+	<entry name="use_system_font" mtime="1343555490" type="bool" value="false"/>
+	<entry name="use_theme_colors" mtime="1343555490" type="bool" value="false"/>
+	<entry name="palette" mtime="1343555490" type="string">
 		<stringvalue>#101010101010:#96960000504F:#6666AAAA1110:#C4C47F7E2C2B:#303030309B9B:#7E7D4040A5A5:#8989B6B6E2E2:#99999999AAAA:#303030303030:#FFFF0000908F:#8080FFFF0000:#FFFFBAB96868:#5F5F5F5FEEEE:#BBBB8888DDDD:#4E4EB4B4FAFA:#D0D0D0D0D0D0</stringvalue>
 	</entry>
-	<entry name="background_color" mtime="1343516001" type="string">
+	<entry name="background_color" mtime="1343555490" type="string">
 		<stringvalue>#101010101010</stringvalue>
 	</entry>
-	<entry name="visible_name" mtime="1343516001" type="string">
+	<entry name="visible_name" mtime="1343555490" type="string">
 		<stringvalue>Default</stringvalue>
 	</entry>
-	<entry name="bold_color" mtime="1343516001" type="string">
+	<entry name="bold_color" mtime="1343555490" type="string">
 		<stringvalue>#000000000000</stringvalue>
 	</entry>
-	<entry name="foreground_color" mtime="1343516001" type="string">
+	<entry name="foreground_color" mtime="1343555490" type="string">
 		<stringvalue>#D0D0D0D0D0D0</stringvalue>
 	</entry>
 </gconf>
