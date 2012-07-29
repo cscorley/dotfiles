@@ -6,13 +6,12 @@ tags/
 dots/.vim/.netrwhist
 dots/.vim/tmp
 
-dots/.mpd/*
+dots/.mpd/
 !dots/.mpd/mpd.conf
 
-dots/.config/*
+dots/.config/
 !dots/.config/awesome
 !dots/.config/redshift.conf
 !dots/.config/zathura
 
-dots/.gconf/*
-dots/.gconf/apps/gnome-terminal/profiles/Default/%gconf.xml
+dots/.gconf/
