@@ -22,7 +22,8 @@ rundat mpd ~/.mpd/mpd.conf
 rundat mpc stop &
 rundat mpdscribble --conf ~/.mpdscribble/mpdscribble.conf &
 rundat dropboxd &
-rundat gtk-redshift -l 33.21:-87.55 -t 5500:3700 &
+rundat gtk-redshift -l 33.21:-87.55 -t 5500:3700 -m vidmode &
+rundat workrave &
 rundat clipit &
 rundat parcellite &
 rundat xset m 0 0 &
