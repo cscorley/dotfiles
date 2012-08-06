@@ -6,7 +6,13 @@ plugins=(git svn mercurial python zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-export HISTSIZE=10000
+HISTSIZE=20000
+SAVEHIST=20000
+
+setopt append_history
+setopt extended_history
+setopt hist_verify
+setopt inc_append_history
 
 # do not record commands that begin with space
 setopt hist_ignore_space
