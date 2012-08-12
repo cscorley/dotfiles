@@ -4,7 +4,7 @@ export SDL_AUDIODRIVER='pulse'
 # URxvt has screwed up for the last time.)
 export TERMINAL=$(which gnome-terminal)
 export EDITOR=$(which vim)
-export BROWSER=$(which chromium)
+export BROWSER=$(which google-chrome)
 
 if [[ ${TERM} == "xterm" ]]; then
     export TERM=xterm-256color

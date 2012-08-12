@@ -256,7 +256,7 @@ vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><c-o>
 " }}}
 " Folding ----------------------------------------------------------------- {{{
 
-set foldlevelstart=0
+set foldlevelstart=100
 
 " Space to toggle folds.
 nnoremap <Space> za
@@ -348,10 +348,12 @@ augroup END
 " }}}
 " Pandoc (Markdown) {{{
 
-au BufRead, BufNewFile *.md set filetype=pandoc
-
 augroup ft_pandoc
     au!
+
+    au BufNewFile,BufRead *.md setlocal filetype=pandoc
+
+
     " Wrap the text into paragraphs and turn on spell checking
     au FileType pandoc setlocal spell " formatoptions+=t
     " Use <localleader>1/2/3 to add headings.
