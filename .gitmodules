@@ -18,7 +18,7 @@
 	url = git://github.com/kien/rainbow_parentheses.vim.git
 [submodule "dots/.vim/bundle/nerdtree"]
 	path = dots/.vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
+	url = git://github.com/scrooloose/nerdtree.git
 [submodule "dots/.vim/bundle/vim-pantondoc"]
 	path = dots/.vim/bundle/vim-pantondoc
-	url = https://github.com/fmoralesc/vim-pantondoc
+	url = git://github.com/cscorley/vim-pantondoc.git
