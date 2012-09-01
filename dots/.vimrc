@@ -562,7 +562,7 @@ let g:rbpt_max = 16
 " Environments (GUI/Console) ---------------------------------------------- {{{
 
 if has('gui_running')
-    set guifont=Menlo for Powerline:h10
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
     " Remove all the UI cruft
     set go-=T
