@@ -19,7 +19,7 @@ set nocompatible
 " Basic options ----------------------------------------------------------- {{{
 
 set encoding=utf-8
-set modelines=0
+set modelines=1
 set autoindent
 set showmode
 set showcmd
@@ -434,6 +434,15 @@ augroup ft_vim
 augroup END
 
 " }}}
+" EBNF {{{
+augroup ft_ebnf
+    au!
+
+    au BufNewFile,BufRead *.bnf setlocal filetype=ebnf
+    au BufNewFile,BufRead *.ebnf setlocal filetype=ebnf
+
+
+"}}}
 
 " }}}
 " Convenience mappings ---------------------------------------------------- {{{
@@ -515,7 +524,7 @@ command! -bang WQ wq<bang>
 set pastetoggle=<F11>
 
 " Make for the lazy (me)
-nnoremap <leader><leader> :make<cr><cr>
+nnoremap <leader><leader> :make<cr>
 
 " Insert Mode Completion {{{
 
