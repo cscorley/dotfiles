@@ -1,5 +1,5 @@
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="mortalscumbag"
+ZSH_THEME="mortalscumbag-light"
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
 plugins=(git svn mercurial python zsh-syntax-highlighting)

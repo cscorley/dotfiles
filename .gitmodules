@@ -22,3 +22,6 @@
 [submodule "dots/.vim/bundle/vim-pantondoc"]
 	path = dots/.vim/bundle/vim-pantondoc
 	url = git://github.com/cscorley/vim-pantondoc.git
+[submodule "subrepos/tomorrow-theme"]
+	path = subrepos/tomorrow-theme
+	url = https://github.com/chriskempson/tomorrow-theme
