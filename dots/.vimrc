@@ -444,6 +444,14 @@ augroup ft_ebnf
 
 "}}}
 
+" Mutt {{{
+augroup ft_mail_
+    au!
+
+    au BufNewFile,BufRead *mutt-* setlocal tw=72
+
+
+"}}}
 " }}}
 " Convenience mappings ---------------------------------------------------- {{{
 " Destroy infuriating keys {{{
