@@ -156,9 +156,9 @@ let maplocalleader = ","
 " Color scheme {{{
 
 syntax on
-set background=dark
+"set background=dark
 "colorscheme molokai
-colorscheme Tomorrow
+colorscheme summerfruit256 
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'

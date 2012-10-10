@@ -25,3 +25,6 @@
 [submodule "subrepos/tomorrow-theme"]
 	path = subrepos/tomorrow-theme
 	url = https://github.com/chriskempson/tomorrow-theme
+[submodule "dots/.vim/bundle/summerfruit256.vim"]
+	path = dots/.vim/bundle/summerfruit256.vim
+	url = git@github.com:cscorley/summerfruit256.vim
