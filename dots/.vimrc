@@ -424,6 +424,14 @@ augroup ft_ruby
 augroup END
 
 " }}}
+" Scheme {{{
+
+augroup ft_scheme
+    au!
+    au Filetype scheme RainbowParenthesesToggle
+augroup END
+
+" }}}
 " Vim {{{
 
 augroup ft_vim
@@ -444,7 +452,6 @@ augroup ft_ebnf
 
 
 "}}}
-
 " Mutt {{{
 augroup ft_mail_
     au!
