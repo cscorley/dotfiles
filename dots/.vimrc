@@ -429,6 +429,7 @@ augroup END
 augroup ft_scheme
     au!
     au Filetype scheme RainbowParenthesesToggle
+    au Filetype scheme setlocal tabstop=2 shiftwidth=2 softtabstop=2
 augroup END
 
 " }}}
