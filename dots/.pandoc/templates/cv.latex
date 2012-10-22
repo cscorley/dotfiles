@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -156,14 +156,16 @@ $endif$
 % no bullets
 
 \renewcommand{\labelitemi}{}
-\renewcommand{\labelitemii}{}
-\renewcommand{\labelitemiii}{}
-\setlist{nolistsep, itemindent=-2.5em}
+%\renewcommand{\labelitemii}{}
+%\renewcommand{\labelitemiii}{}
+%\setlist{nolistsep, itemindent=-2.5em}
+\setlist{nolistsep, itemindent=-1em}
+%\setlist{nolistsep, itemindent=-2.5em}
 
 
 % adjust formatting of tables
 
-%\renewcommand{\arraystretch}{-.1}
+\renewcommand{\arraystretch}{-.1}
 
 
 \begin{document}
