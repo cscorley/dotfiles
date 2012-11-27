@@ -27,6 +27,7 @@ rundat workrave &
 rundat clipit &
 rundat parcellite &
 rundat xset m 0 0 &
+rundat wmname LG3D &
 
 #rundat xmodmap ~/.Xmodmap
 #rundat xrdb -merge ~/.Xresources

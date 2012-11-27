@@ -42,3 +42,5 @@
     cmd = "/bin/sh -c 'xdg-open http://git-scm.com/docs/$(basename $1 .html)' --"
 [help]
     browser = gitscm
+[push]
+	default = simple

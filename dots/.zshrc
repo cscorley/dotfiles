@@ -5,6 +5,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git svn mercurial python zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.autoenv/activate.sh
 
 HISTSIZE=20000
 SAVEHIST=20000

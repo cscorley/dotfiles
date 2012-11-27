@@ -5,13 +5,16 @@
 
 case $1 in
     openbox)
-        exec openbox-session 
+        exec openbox-session
         ;;
     awesome)
-        exec awesome 
+        exec awesome
         ;;
     lxde)
-        exec ck-launch-session startlxde 
+        exec ck-launch-session startlxde
+        ;;
+    qtile)
+        exec qtile
         ;;
     awesomecfg)
         exec awesome -c $2

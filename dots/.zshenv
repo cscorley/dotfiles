@@ -11,5 +11,4 @@ if [[ ${TERM} == "xterm" ]]; then
 fi
 
 export GREP_OPTIONS='--color=auto'
-export PYTHONDONTWRITEBYTECODE=true
 export CHROMIUM_USER_FLAGS="--ppapi-flash-path=/usr/lib/PepperFlash/libpepflashplayer.so --ppapi-flash-version=11.3.31.103"
