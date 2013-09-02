@@ -13,9 +13,7 @@ rundat () {
     fi
 }
 
-if [ -e ~/.fehbg ] ; then
-    sh ~/.fehbg
-fi
+#xrandr --output DVI-I-2 --right-of DVI-I-3
 
 rundat start-pulseaudio-x11 &
 #rundat pulseaudio --start &
@@ -30,6 +28,11 @@ rundat parcellite &
 rundat xset m 0 0 &
 rundat xset r rate 200 40 &
 rundat wmname LG3D &
+
+if [ -e ~/.fehbg ] ; then
+    sh ~/.fehbg
+fi
+
 
 #rundat xmodmap ~/.Xmodmap
 #rundat xrdb -merge ~/.Xresources

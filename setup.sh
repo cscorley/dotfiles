@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+#set -e
 
 # I haven't tested any of these functions. No fucks given.
 function symlink_interactive(){

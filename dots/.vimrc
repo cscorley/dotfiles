@@ -9,6 +9,7 @@
 " Preamble ---------------------------------------------------------------- {{{
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
+filetype on " fix bad exit status with OSX vim
 filetype off
 call pathogen#infect()
 call pathogen#helptags()
@@ -47,6 +48,8 @@ set autoread
 set title
 set linebreak
 set dictionary=/usr/share/dict/words
+
+set clipboard=unnamed
 
 " Time out on key codes but not mappings.
 " Basically this makes terminal Vim work sanely.
@@ -156,9 +159,13 @@ let maplocalleader = ","
 " Color scheme {{{
 
 syntax on
-"set background=dark
+if ! has("gui_running")
+    set t_Co=256
+endif
+
+set background=light
 "colorscheme molokai
-colorscheme summerfruit256 
+colorscheme summerfruit256
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -189,6 +196,9 @@ noremap <leader><space> :noh<cr>:call clearmatches()<cr>
 
 " Made D behave
 nnoremap D d$
+
+" Made Y behave
+nnoremap Y y$
 
 " Don't move on *
 nnoremap * *<c-o>
@@ -298,45 +308,6 @@ augroup ft_c
 augroup END
 
 " }}}
-" CSS and LessCSS {{{
-
-augroup ft_css
-    au!
-
-    au BufNewFile,BufRead *.less setlocal filetype=less
-
-    au Filetype less,css setlocal foldmethod=marker
-    au Filetype less,css setlocal foldmarker={,}
-    au Filetype less,css setlocal omnifunc=csscomplete#CompleteCSS
-    au Filetype less,css setlocal iskeyword+=-
-
-    " Use <leader>S to sort properties.  Turns this:
-    "
-    "     p {
-    "         width: 200px;
-    "         height: 100px;
-    "         background: red;
-    "
-    "         ...
-    "     }
-    "
-    " into this:
-
-    "     p {
-    "         background: red;
-    "         height: 100px;
-    "         width: 200px;
-    "
-    "         ...
-    "     }
-    au BufNewFile,BufRead *.less,*.css nnoremap <buffer> <localleader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
-
-    " Make {<cr> insert a pair of brackets in such a way that the cursor is correctly
-    " positioned inside of them AND the following code doesn't get unfolded.
-    au BufNewFile,BufRead *.less,*.css inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
-augroup END
-
-" }}}
 " Java {{{
 
 augroup ft_java
@@ -356,7 +327,7 @@ augroup ft_pandoc
 
 
     " Wrap the text into paragraphs and turn on spell checking
-    au FileType pandoc setlocal spell " formatoptions+=t
+    au FileType pandoc setlocal spell tw=72 " formatoptions+=t
     " Use <localleader>1/2/3 to add headings.
     au Filetype pandoc nnoremap <buffer> <localleader>1 yypVr=
     au Filetype pandoc nnoremap <buffer> <localleader>2 yypVr-
@@ -467,6 +438,9 @@ augroup ft_mail_
 
 " Fuck you, help key.
 noremap <F1> <nop>
+nnoremap <F1> <nop>
+inoremap <F1> <nop>
+vnoremap <F1> <nop>
 
 " Kill window
 nnoremap K :q<cr>
@@ -523,10 +497,24 @@ nnoremap vv ^vg_
 " Better Completion
 set completeopt=longest,menuone,preview
 
+" Gary Bernhardt's Multipurpose Tab Key {{{
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-n>
+"}}}
+
+
 " Sudo to write
 cnoremap w!! w !sudo tee % >/dev/null
 
-" Typos
+" Typos {{{
 command! -bang E e<bang>
 command! -bang Q q<bang>
 command! -bang W w<bang>
@@ -538,24 +526,37 @@ command! -bang Wq wq<bang>
 command! -bang WQ wq<bang>
 
 " Toggle paste
-set pastetoggle=<F11>
+set pastetoggle=<F9>
 
 " Make for the lazy (me)
 nnoremap <leader><leader> :make<cr>
 
-" Insert Mode Completion {{{
-
-inoremap <c-l> <c-x><c-l>
-inoremap <c-f> <c-x><c-f>
-
-" }}}
-
 " }}}
 " Plugin settings --------------------------------------------------------- {{{
 
-" Powerline {{{
+" NERDTree {{{
 
-let g:Powerline_symbols = 'fancy'
+nnoremap <F10> NERDTreeToggle
+
+let NERDChristmasTree=1
+let NERDTreeIgnore=['\.pyc$'] " blah
+
+
+function! StartUp()
+    if 0 == argc()
+        NERDTree
+    end
+endfunction
+
+autocmd VimEnter * call StartUp()
+
+" }}}
+" Airline / Powerline {{{
+
+"let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
 
 " }}}
 " Rainbox Parentheses {{{
@@ -588,7 +589,7 @@ let g:rbpt_max = 16
 " Environments (GUI/Console) ---------------------------------------------- {{{
 
 if has('gui_running')
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
 
     " Remove all the UI cruft
     set go-=T

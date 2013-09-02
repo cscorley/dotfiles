@@ -2,10 +2,16 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="mortaldouchebag"
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git svn mercurial python zsh-syntax-highlighting)
+plugins=(
+    git git-extras svn mercurial
+    python pip
+    brew
+    zsh-syntax-highlighting
+)
+
 
 # Customize to your needs...
-export PATH="${HOME}/bin/:${HOME}/.cabal/bin:$(ruby -rubygems -e "puts Gem.user_dir")/bin::${PATH}"
+export PATH="${HOME}/bin/:${HOME}/.cabal/bin:$(ruby -rubygems -e "puts Gem.user_dir")/bin:${HOME}/.rbenv/bin:${PATH}"
 export SDL_AUDIODRIVER='pulse'
 # URxvt has screwed up for the last time.)
 export TERMINAL=$(which gnome-terminal)
@@ -18,6 +24,9 @@ fi
 
 export GREP_OPTIONS='--color=auto'
 #export PYTHONDONTWRITEBYTECODE=true
+#
+
+eval "$(rbenv init -)"
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.autoenv/activate.sh
@@ -48,6 +57,8 @@ alias dirc='dtach -A /tmp/csc-irssi.socket irssi'
 alias dtorrent='dtach -A /tmp/csc-rtorrent.socket rtorrent'
 alias ffcastpulse='ffcast_filename=`date +ffcast-%Y%m%d-%H%M%S.mkv`; ffcast -s ffmpeg -f alsa -i pulse -vcodec libx264 ${ffcast_filename}'
 
+alias winboot='sudo grub-reboot 2 && sudo reboot'
+
 open(){
     xdg-open $@ &
 }
@@ -60,25 +71,11 @@ alias rm='rm -i'
 alias cp='cp -iv'
 alias mv='mv -i'
 alias ll='ls -lhav'
-alias ls='ls -v --color=auto'
+alias ls='ls -vG --color=auto'
 alias df='df -h'
 alias du='du -hc'
 alias mv='mv -iv'
 alias cp='cp -v'
-
-pacsyu (){
-    sudo pacman -Syu
-}
-
-# coloured pacman output
-alias pacs="pacsearch"
-pacsearch () {
-       echo -e "$(pacman -Ss $@ | sed \
-       -e 's#current/.*#\\033[1;31m&\\033[0;37m#g' \
-       -e 's#extra/.*#\\033[0;32m&\\033[0;37m#g' \
-       -e 's#community/.*#\\033[1;35m&\\033[0;37m#g' \
-       -e 's#^.*/.* [0-9].*#\\033[0;36m&\\033[0;37m#g' )"
-}
 
 #dirsize - finds directory sizes and lists them for the current directory
 dirsize ()

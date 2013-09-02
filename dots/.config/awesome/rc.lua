@@ -65,7 +65,7 @@ local layouts =
 --    awful.layout.suit.fair.horizontal,
     awful.layout.suit.spiral,
     awful.layout.suit.spiral.dwindle,
---    awful.layout.suit.max,
+    awful.layout.suit.max,
 --    awful.layout.suit.max.fullscreen,
 --    awful.layout.suit.magnifier,
     awful.layout.suit.floating
@@ -364,6 +364,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "Pidgin" },
       properties = { floating = true} },
+    { rule = { class = "Gitk" },
+      properties = { tag = tags[1][2] }},
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { tag = tags[1][2] } },
