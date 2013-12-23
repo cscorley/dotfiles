@@ -1,0 +1,20 @@
+#!/bin/sh
+
+runonce () {
+    which ${1} > /dev/null 2>&1
+    if [ $? -eq 0 ]; then
+        pidof ${1} > /dev/null 2>&1
+        if [ $? -ne 0 ]; then
+            ${@}
+        fi
+    fi
+}
+
+runif () {
+    os=`uname -s`
+    cmd=(${@})
+    if [ ${1} = ${os} ]; then
+        ${cmd[@]:1}
+    fi
+}
+

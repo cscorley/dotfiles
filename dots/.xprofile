@@ -1,38 +1,29 @@
 #!/bin/sh
 
+[ -f ~/.profileutil ] && . ~/.profileutil
+
 [ -f ~/.zshenv ] && . ~/.zshenv
 [ -f ~/.zprofile ] && . ~/.zprofile
 
-rundat () {
-    which ${1} > /dev/null 2>&1
-    if [ $? -eq 0 ]; then
-        pidof ${1} > /dev/null 2>&1
-        if [ $? -ne 0 ]; then
-            ${@}
-        fi
-    fi
-}
-
 #xrandr --output DVI-I-2 --right-of DVI-I-3
 
-rundat start-pulseaudio-x11 &
-#rundat pulseaudio --start &
-rundat mpd ~/.mpd/mpd.conf
-rundat mpc stop &
-rundat mpdscribble --conf ~/.mpdscribble/mpdscribble.conf &
-rundat dropboxd &
-rundat gtk-redshift -l 33.21:-87.55 -t 5500:3700 -m vidmode &
-rundat workrave &
-rundat clipit &
-rundat parcellite &
-rundat xset m 0 0 &
-rundat xset r rate 200 40 &
-rundat wmname LG3D &
+runif Linux runonce start-pulseaudio-x11 & #runif Linux runonce pulseaudio --start &
+runif Linux runonce mpd ~/.mpd/mpd.conf
+runif Linux runonce mpc stop &
+runif Linux runonce mpdscribble --conf ~/.mpdscribble/mpdscribble.conf &
+runif Linux runonce dropboxd &
+runif Linux runonce gtk-redshift -l 33.21:-87.55 -t 5500:3700 -m vidmode &
+runif Linux runonce workrave &
+runif Linux runonce clipit &
+runif Linux runonce parcellite &
+runif Linux runonce xset m 0 0 &
+runif Linux runonce xset r rate 200 40 &
+runif Linux runonce wmname LG3D &
 
 if [ -e ~/.fehbg ] ; then
-    sh ~/.fehbg
+    runif Linux sh ~/.fehbg
 fi
 
 
-#rundat xmodmap ~/.Xmodmap
-#rundat xrdb -merge ~/.Xresources
+#runif Linux runonce xmodmap ~/.Xmodmap
+#runif Linux runonce xrdb -merge ~/.Xresources

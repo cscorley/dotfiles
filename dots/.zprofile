@@ -1,4 +1,7 @@
+#!/bin/sh
 
-# SSH key
-eval $(/usr/bin/keychain --eval --agents ssh -Q -q id_rsa &)
+[ -f ~/.profileutil ] && . ~/.profileutil
+
+runif Linux eval $(/usr/bin/keychain --eval --agents ssh -Q -q id_rsa &)
+
 
