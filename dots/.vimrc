@@ -3,9 +3,6 @@
 " Author: Steve Losh <steve@stevelosh.com>
 " Source: http://bitbucket.org/sjl/dotfiles/src/tip/vim/
 "
-" This file changes a lot.  I'll try to document pieces of it whenever I have
-" a few minutes to kill.
-
 " Preamble ---------------------------------------------------------------- {{{
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -35,7 +32,7 @@ set history=1000
 
 set list
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
-set shell=/bin/bash
+set shell=/bin/zsh
 set lazyredraw
 set matchtime=3
 set showbreak=↪
@@ -82,12 +79,11 @@ augroup END
 
 " }}}
 " Trailing whitespace {{{
-" Only shown when not in insert mode so I don't go insane.
 
 augroup trailing
     au!
-    au InsertEnter * :set listchars-=trail:⌴
-    au InsertLeave * :set listchars+=trail:⌴
+    au InsertEnter * :set listchars-=trail:·
+    au InsertLeave * :set listchars+=trail:·
 augroup END
 
 " }}}
@@ -242,14 +238,6 @@ noremap ` <C-^>
 
 
 " }}}
-" Highlight word {{{
-
-nnoremap <silent> <leader>hh :execute 'match InterestingWord1 /\<<c-r><c-w>\>/'<cr>
-nnoremap <silent> <leader>h1 :execute 'match InterestingWord1 /\<<c-r><c-w>\>/'<cr>
-nnoremap <silent> <leader>h2 :execute '2match InterestingWord2 /\<<c-r><c-w>\>/'<cr>
-nnoremap <silent> <leader>h3 :execute '3match InterestingWord3 /\<<c-r><c-w>\>/'<cr>
-
-" }}}
 " Visual Mode */# from Scrooloose {{{
 
 function! s:VSetSearch()
@@ -267,7 +255,7 @@ vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><c-o>
 " }}}
 " Folding ----------------------------------------------------------------- {{{
 
-set foldlevelstart=100
+"set foldlevelstart=100
 
 " Space to toggle folds.
 nnoremap <Space> za
@@ -415,15 +403,6 @@ augroup ft_vim
 augroup END
 
 " }}}
-" EBNF {{{
-augroup ft_ebnf
-    au!
-
-    au BufNewFile,BufRead *.bnf setlocal filetype=ebnf
-    au BufNewFile,BufRead *.ebnf setlocal filetype=ebnf
-
-
-"}}}
 " Mutt {{{
 augroup ft_mail_
     au!
@@ -441,9 +420,6 @@ noremap <F1> <nop>
 nnoremap <F1> <nop>
 inoremap <F1> <nop>
 vnoremap <F1> <nop>
-
-" Kill window
-nnoremap K :q<cr>
 
 " Stop it, hash key.
 inoremap # X<BS>#
@@ -486,10 +462,6 @@ vnoremap <leader>Ar :right<cr>
 " Less chording
 nnoremap ; :
 
-" Cmdheight switching
-nnoremap <leader>1 :set cmdheight=1<cr>
-nnoremap <leader>2 :set cmdheight=2<cr>
-
 " Select (charwise) the contents of the current line, excluding indentation.
 " Great for pasting Python lines into REPLs.
 nnoremap vv ^vg_
@@ -510,10 +482,6 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 "}}}
 
-
-" Sudo to write
-cnoremap w!! w !sudo tee % >/dev/null
-
 " Typos {{{
 command! -bang E e<bang>
 command! -bang Q q<bang>
@@ -529,6 +497,7 @@ command! -bang WQ wq<bang>
 set pastetoggle=<F9>
 
 " Make for the lazy (me)
+nnoremap <F8> :make<cr>
 nnoremap <leader><leader> :make<cr>
 
 " }}}
@@ -536,7 +505,7 @@ nnoremap <leader><leader> :make<cr>
 
 " NERDTree {{{
 
-nnoremap <F10> NERDTreeToggle
+nnoremap <F10> :NERDTreeToggle<cr>
 
 let NERDChristmasTree=1
 let NERDTreeIgnore=['\.pyc$'] " blah
@@ -554,8 +523,11 @@ autocmd VimEnter * call StartUp()
 " Airline / Powerline {{{
 
 "let g:Powerline_symbols = 'fancy'
+
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+
+let g:airline_theme = 'light'
 
 
 " }}}
