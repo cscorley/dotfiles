@@ -9,7 +9,7 @@ plugins=(
     zsh-syntax-highlighting
 )
 
-export PATH="${HOME}/bin/:${HOME}/.cabal/bin:$(ruby -rubygems -e "puts Gem.user_dir")/bin:${PATH}"
+export PATH="${HOME}/bin:${HOME}/.cabal/bin:$(/usr/local/bin/ruby -rubygems -e "puts Gem.user_dir")/bin:/usr/local/bin:${PATH}"
 export SDL_AUDIODRIVER='pulse'
 export TERMINAL=$(which gnome-terminal)
 export EDITOR=$(which vim)
@@ -64,11 +64,12 @@ alias rm='rm -i'
 alias cp='cp -iv'
 alias mv='mv -i'
 alias ll='ls -lhav'
-alias ls='ls -vG --color=auto'
+alias ls='ls -vG' # --color=auto'
 alias df='df -h'
 alias du='du -hc'
 alias mv='mv -iv'
 alias cp='cp -v'
+alias which='which -a'
 
 #dirsize - finds directory sizes and lists them for the current directory
 dirsize ()
