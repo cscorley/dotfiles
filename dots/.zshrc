@@ -9,11 +9,8 @@ plugins=(
     zsh-syntax-highlighting
 )
 
-
-# Customize to your needs...
-export PATH="${HOME}/bin/:${HOME}/.cabal/bin:$(ruby -rubygems -e "puts Gem.user_dir")/bin:${HOME}/.rbenv/bin:${PATH}"
+export PATH="${HOME}/bin/:${HOME}/.cabal/bin:$(ruby -rubygems -e "puts Gem.user_dir")/bin:${PATH}"
 export SDL_AUDIODRIVER='pulse'
-# URxvt has screwed up for the last time.)
 export TERMINAL=$(which gnome-terminal)
 export EDITOR=$(which vim)
 export BROWSER=$(which firefox)
@@ -24,9 +21,8 @@ fi
 
 export GREP_OPTIONS='--color=auto'
 #export PYTHONDONTWRITEBYTECODE=true
-#
 
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.autoenv/activate.sh
@@ -50,13 +46,10 @@ setopt correct
 # update index before every attempt to autocomplete
 zstyle ":completion:*:commands" rehash 1
 
-#csc customs
-alias weather='cursetheweather --nometric 35401'
 alias openscreen='screen -U -D -R'
 alias dirc='dtach -A /tmp/csc-irssi.socket irssi'
 alias dtorrent='dtach -A /tmp/csc-rtorrent.socket rtorrent'
 alias ffcastpulse='ffcast_filename=`date +ffcast-%Y%m%d-%H%M%S.mkv`; ffcast -s ffmpeg -f alsa -i pulse -vcodec libx264 ${ffcast_filename}'
-
 alias winboot='sudo grub-reboot 2 && sudo reboot'
 
 open(){
@@ -87,9 +80,6 @@ egrep '^ *[0-9.]*M' /tmp/list
 egrep '^ *[0-9.]*G' /tmp/list
 rm -rf /tmp/list
 }
-
-#bu - Back Up a file. Usage "bu filename.txt"
-bu () { cp $1 ${1}-`date +%Y%m%d%H%M`.backup ; }
 
 extract () {
     if [ -f $1 ] ; then
