@@ -18,6 +18,7 @@ if [ -e ~/.fehbg ] ; then
 fi
 
 rundat start-pulseaudio-x11 &
+#rundat pulseaudio --start &
 rundat mpd ~/.mpd/mpd.conf
 rundat mpc stop &
 rundat mpdscribble --conf ~/.mpdscribble/mpdscribble.conf &
@@ -27,6 +28,7 @@ rundat workrave &
 rundat clipit &
 rundat parcellite &
 rundat xset m 0 0 &
+rundat xset r rate 200 40 &
 rundat wmname LG3D &
 
 #rundat xmodmap ~/.Xmodmap

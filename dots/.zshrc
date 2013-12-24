@@ -4,6 +4,21 @@ DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
 plugins=(git svn mercurial python zsh-syntax-highlighting)
 
+# Customize to your needs...
+export PATH="${HOME}/bin/:${HOME}/.cabal/bin:$(ruby -rubygems -e "puts Gem.user_dir")/bin::${PATH}"
+export SDL_AUDIODRIVER='pulse'
+# URxvt has screwed up for the last time.)
+export TERMINAL=$(which gnome-terminal)
+export EDITOR=$(which vim)
+export BROWSER=$(which firefox)
+
+if [[ ${TERM} == "xterm" ]]; then
+    export TERM=xterm-256color
+fi
+
+export GREP_OPTIONS='--color=auto'
+#export PYTHONDONTWRITEBYTECODE=true
+
 source $ZSH/oh-my-zsh.sh
 source $HOME/.autoenv/activate.sh
 
@@ -33,9 +48,12 @@ alias dirc='dtach -A /tmp/csc-irssi.socket irssi'
 alias dtorrent='dtach -A /tmp/csc-rtorrent.socket rtorrent'
 alias ffcastpulse='ffcast_filename=`date +ffcast-%Y%m%d-%H%M%S.mkv`; ffcast -s ffmpeg -f alsa -i pulse -vcodec libx264 ${ffcast_filename}'
 
-alias open='xdg-open'
+open(){
+    xdg-open $@ &
+}
 alias vi='vim'
 alias c='clear'
+alias l='ll'
 
 # safety copy, delete & colour
 alias rm='rm -i'
