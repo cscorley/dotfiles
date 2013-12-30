@@ -9,7 +9,7 @@ plugins=(
     zsh-syntax-highlighting
 )
 
-export PATH="${HOME}/bin:${HOME}/.cabal/bin:$(/usr/local/bin/ruby -rubygems -e "puts Gem.user_dir")/bin:/usr/local/bin:${PATH}"
+export PATH="${HOME}/bin:${HOME}/.cabal/bin:$(ruby -rubygems -e "puts Gem.user_dir")/bin:/usr/local/bin:${PATH}"
 export SDL_AUDIODRIVER='pulse'
 export TERMINAL=$(which gnome-terminal)
 export EDITOR=$(which vim)
