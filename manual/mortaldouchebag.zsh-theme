@@ -46,13 +46,14 @@ function ssh_connection() {
   fi
 }
 
-PROMPT=$'\n$(ssh_connection)%{$fg[green]%}%n@%m%{$reset_color%}$(my_git_prompt) : %~\n%# '
+PROMPT=$'\n$(ssh_connection)%{$fg[green]%}%n@%m%{$reset_color%}$(my_git_prompt): %~\n%# '
+RPROMPT="%(?..%{$fg_bold[red]%}%? ↵ )[%*]%{$reset_color%}"
 
 ZSH_THEME_PROMPT_RETURNCODE_PREFIX="%{$fg_bold[red]%}"
-ZSH_THEME_GIT_PROMPT_PREFIX=" $fg[black]‹ $bg[cyan]%{$fg_bold[yellow]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX=" $fg[black]‹$bg[cyan]%{$fg_bold[yellow]%}"
 ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg[magenta]%}↑"
 ZSH_THEME_GIT_PROMPT_STAGED="%{$fg_bold[green]%}●"
 ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg_bold[red]%}●"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[white]%}●"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg_bold[red]%}✕"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}$fg[black] ›%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}$fg[black]›%{$reset_color%}"

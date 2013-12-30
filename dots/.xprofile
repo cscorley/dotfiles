@@ -12,7 +12,7 @@ runif Linux runonce mpd ~/.mpd/mpd.conf
 runif Linux runonce mpc stop &
 runif Linux runonce mpdscribble --conf ~/.mpdscribble/mpdscribble.conf &
 runif Linux runonce dropboxd &
-runif Linux runonce gtk-redshift -l 33.21:-87.55 -t 5500:3700 -m vidmode &
+runif Linux runonce redshift-gtk -l 33.21:-87.55 -t 5500:3700 -m vidmode &
 runif Linux runonce workrave &
 runif Linux runonce clipit &
 runif Linux runonce parcellite &
