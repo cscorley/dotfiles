@@ -4,20 +4,18 @@
 [ -f ~/.xprofile ] && . ~/.xprofile
 
 case $1 in
-    openbox)
-        exec openbox-session
-        ;;
     awesome)
         exec awesome
         ;;
-    lxde)
-        exec ck-launch-session startlxde
+    twm)
+        twm &
+        xclock -geometry 50x50-1+1 &
+        xterm -geometry 80x50+494+51 &
+        xterm -geometry 80x20+494-0 &
+        exec xterm -geometry 80x66+0+0 -name login
         ;;
-    qtile)
-        exec qtile
-        ;;
-    awesomecfg)
-        exec awesome -c $2
+    xmonad)
+        exec xmonad
         ;;
     *)
         exec awesome

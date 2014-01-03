@@ -2,6 +2,6 @@
 
 [ -f ~/.profileutil ] && . ~/.profileutil
 
-runif Linux eval "/usr/bin/keychain --eval --agents ssh -Q -q id_rsa &"
+runif Linux eval "/usr/bin/keychain --eval --agents ssh -Q -q id_rsa > /dev/null & disown"
 
 
