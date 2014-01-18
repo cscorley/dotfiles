@@ -30,6 +30,10 @@ export GREP_OPTIONS='--color=auto'
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.autoenv/activate.sh
+if [ -f /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
+    source /usr/local/opt/chruby/share/chruby/chruby.sh
+    source /usr/local/opt/chruby/share/chruby/auto.sh
+fi
 
 HISTSIZE=20000
 SAVEHIST=20000
@@ -56,9 +60,8 @@ alias dtorrent='dtach -A /tmp/csc-rtorrent.socket rtorrent'
 alias ffcastpulse='ffcast_filename=`date +ffcast-%Y%m%d-%H%M%S.mkv`; ffcast -s ffmpeg -f alsa -i pulse -vcodec libx264 ${ffcast_filename}'
 alias winboot='sudo grub-reboot 2 && sudo reboot'
 
-open(){
-    xdg-open $@ &
-}
+alias sup='chruby ruby-1.9.3 && sup'
+
 alias vi='vim'
 alias c='clear'
 alias l='ll'
@@ -74,6 +77,7 @@ alias mv='mv -iv'
 alias cp='cp -v'
 alias which='which -a'
 
+runif Linux alias open='xdg-open'
 runif Linux alias ls='ls -v --color=auto'
 runif Darwin alias ls='ls -vG' # --color=auto'
 
