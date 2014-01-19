@@ -15,4 +15,8 @@ dots/.config/
 !dots/.config/zathura
 
 dots/.gconf/
-dots/.offlineimaprc
+
+dots/.sup/
+!dots/.sup/config.yaml
+!dots/.sup/sources.yaml
+!dots/.sup/hooks/
