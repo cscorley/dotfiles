@@ -510,15 +510,6 @@ nnoremap <F10> :NERDTreeToggle<cr>
 let NERDChristmasTree=1
 let NERDTreeIgnore=['\.pyc$'] " blah
 
-
-function! StartUp()
-    if 0 == argc()
-        NERDTree
-    end
-endfunction
-
-autocmd VimEnter * call StartUp()
-
 " }}}
 " Airline / Powerline {{{
 
@@ -561,13 +552,13 @@ let g:rbpt_max = 16
 " Environments (GUI/Console) ---------------------------------------------- {{{
 
 if has('gui_running')
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
+    set guifont=Ubuntu\ Mono\ 11
 
     " Remove all the UI cruft
     set go-=T
     set go-=l
     set go-=L
-    set go-=r
+    set go-=rfor
     set go-=R
 
     highlight SpellBad term=underline gui=undercurl guisp=Orange

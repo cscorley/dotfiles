@@ -18,5 +18,4 @@ dots/.gconf/
 
 dots/.sup/
 !dots/.sup/config.yaml
-!dots/.sup/sources.yaml
 !dots/.sup/hooks/
