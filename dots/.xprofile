@@ -14,7 +14,8 @@ runif Linux runonce mpdscribble --conf ~/.mpdscribble/mpdscribble.conf &
 runif Linux runonce dropboxd &
 #runif Linux runonce redshift-gtk -l 33.21:-87.55 -t 5500:3700 -m vidmode &
 runif Linux runonce clipit &
-runif Linux runonce xset m 0 0 &
+runif Linux runonce xset m 1 0 &
+runif Linux runonce xinput --set-prop 8 'Device Accel Constant Deceleration' 5 &
 runif Linux runonce xset r rate 200 40 &
 runif Linux runonce wmname LG3D &
 

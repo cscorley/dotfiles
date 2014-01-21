@@ -13,6 +13,8 @@ call pathogen#helptags()
 filetype plugin indent on
 set nocompatible
 
+set runtimepath^=bundle/ctrlp.vim
+
 " }}}
 " Basic options ----------------------------------------------------------- {{{
 
