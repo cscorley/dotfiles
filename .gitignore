@@ -18,4 +18,4 @@ dots/.gconf/
 
 dots/.sup/
 !dots/.sup/config.yaml
-!dots/.sup/hooks/
+!dots/.sup/hooks/*

@@ -6,8 +6,8 @@
     :alternates:
     - cscorley@crimson.ua.edu
     :hidden_alternates: []
-    :sendmail: /home/cscorley/bin/send.py --readfrommsg
-    :signature: /home/cscorley/.signature
+    :sendmail: send.py --readfrommsg
+    :signature: ~/.signature
     :gpgkey: ''
 :editor: /usr/bin/vim
 :thread_by_subject: false
