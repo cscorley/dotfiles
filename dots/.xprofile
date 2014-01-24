@@ -14,10 +14,19 @@ runif Linux runonce mpdscribble --conf ~/.mpdscribble/mpdscribble.conf &
 runif Linux runonce dropboxd &
 #runif Linux runonce redshift-gtk -l 33.21:-87.55 -t 5500:3700 -m vidmode &
 runif Linux runonce clipit &
-runif Linux runonce xset m 1 0 &
-runif Linux runonce xinput --set-prop 8 'Device Accel Constant Deceleration' 5 &
-runif Linux runonce xset r rate 200 40 &
 runif Linux runonce wmname LG3D &
+
+runif Linux xset m 1 0 &
+runif Linux xset r rate 200 40 &
+
+function sens(){
+    for each in `xinput --list | grep -E 'Razer' | grep -E 'pointer' | sed -e 's/^.*id=//g' -e 's/\t.*$//g'`; do
+        xinput --set-prop $each 265 5 # 'Device Accel Constant Deceleration'
+    done
+}
+runif Linux sens
 
 #runif Linux runonce xmodmap ~/.Xmodmap
 #runif Linux runonce xrdb -merge ~/.Xresources
+
+
