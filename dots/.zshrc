@@ -13,7 +13,15 @@ plugins=(
 
 
 typeset -U path
-path=(~/bin ~/.cabal/bin $(ruby -rubygems -e "puts Gem.user_dir")/bin /usr/local/bin /opt/java/bin $path)
+path=(
+    ~/bin
+    ~/.cabal/bin
+    $(ruby -rubygems -e "puts Gem.user_dir")/bin
+    /usr/local/bin
+    /opt/java/bin
+    /usr/local/texlive/2013/bin/x86_64-darwin
+    $path
+    )
 export SDL_AUDIODRIVER='pulse'
 export TERMINAL=$(which gnome-terminal)
 export EDITOR=$(which vim)
