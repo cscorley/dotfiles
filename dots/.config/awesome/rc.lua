@@ -239,8 +239,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Tab", function () awful.screen.focus_relative(-1) end),
     awful.key({ "Mod1",           }, "Tab",
         function ()
-            awful.client.focus.byidx(-1)
-            if client.focus then
+            for c in awful.client.iterate(function (x) return true end) do
+                client.focus = c
                 client.focus:raise()
             end
         end),

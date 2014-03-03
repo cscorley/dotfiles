@@ -4,8 +4,9 @@
     :name: Christopher Corley
     :email: cscorley@crimson.ua.edu
     :alternates:
-    - cscorley@gmail.com
-    :hidden_alternates: []
+        - cscorley@gmail.com
+    :hidden_alternates:
+        - cscorley@ua.edu
     :sendmail: send.py --readfrommsg
     :signature: ~/.signature
     :gpgkey: ''
