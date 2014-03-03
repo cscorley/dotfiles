@@ -2,9 +2,9 @@
 :accounts:
   :default:
     :name: Christopher Corley
-    :email: cscorley@gmail.com
+    :email: cscorley@crimson.ua.edu
     :alternates:
-    - cscorley@crimson.ua.edu
+    - cscorley@gmail.com
     :hidden_alternates: []
     :sendmail: send.py --readfrommsg
     :signature: ~/.signature

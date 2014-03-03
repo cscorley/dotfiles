@@ -359,9 +359,11 @@ augroup ft_python
     au FileType python setlocal define=^\s*\\(def\\\\|class\\)
     au FileType man nnoremap <buffer> <cr> :q<cr>
 
+    au FileType nnoremap <leader><leader> :!clear && python3 %<cr>
+
     " Jesus tapdancing Christ, built-in Python syntax, you couldn't let me
     " override this in a normal way, could you?
-    au FileType python if exists("python_space_error_highlight") | unlet python_space_error_highlight | endif
+    "au FileType python if exists("python_space_error_highlight") | unlet python_space_error_highlight | endif
 
     " Jesus, Python.  Five characters of punctuation for a damn string?
     au FileType python inoremap <buffer> <c-g> _(u'')<left><left>

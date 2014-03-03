@@ -65,6 +65,13 @@ setopt correct
 # update index before every attempt to autocomplete
 zstyle ":completion:*:commands" rehash 1
 
+export BLOG_DIR="/Users/cscorley/git/cscorley.github.io"
+nbconvert(){
+    ipython nbconvert --config jekyll.py $@
+    find ${BLOG_DIR}/notebooks/ -name '*.md' -exec mv {} ${BLOG_DIR}/_drafts/ \;
+    cp $@ ${BLOG_DIR}/notebooks/
+}
+
 alias openscreen='screen -U -D -R'
 alias dirc='dtach -A /tmp/csc-irssi.socket irssi'
 alias dtorrent='dtach -A /tmp/csc-rtorrent.socket rtorrent'
@@ -91,6 +98,7 @@ alias which='which -a'
 runif Linux alias open='xdg-open'
 runif Linux alias ls='ls -v --color=auto'
 runif Darwin alias ls='ls -vG' # --color=auto'
+runif Darwin alias sha1sum='shasum'
 
 #dirsize - finds directory sizes and lists them for the current directory
 dirsize ()
