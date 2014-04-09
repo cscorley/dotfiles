@@ -33,3 +33,4 @@
 :col_jump: 2
 :stem_language: english
 :sync_back_to_maildir: true
+:continuous_scroll: true

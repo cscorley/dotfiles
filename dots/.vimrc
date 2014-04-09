@@ -1,7 +1,5 @@
 " .vimrc
-" Original .vimrc by
-" Author: Steve Losh <steve@stevelosh.com>
-" Source: http://bitbucket.org/sjl/dotfiles/src/tip/vim/
+" a bunch of garbage
 "
 " Preamble ---------------------------------------------------------------- {{{
 
@@ -37,17 +35,18 @@ set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set shell=/bin/zsh
 set lazyredraw
 set matchtime=3
-set showbreak=↪
+set showbreak=↪\ 
 set splitbelow
 set splitright
 set fillchars=diff:⣿,vert:│
 set autowrite
-set shiftround
 set autoread
+set shiftround
 set title
 set linebreak
 set dictionary=/usr/share/dict/words
 
+" Make the yank buffer copy into the clipboard
 set clipboard=unnamed
 
 " Time out on key codes but not mappings.
@@ -89,36 +88,6 @@ augroup trailing
 augroup END
 
 " }}}
-" Wildmenu completion {{{
-
-set wildmenu
-set wildmode=list:longest
-
-set wildignore+=.hg,.git,.svn                    " Version control
-set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
-set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
-set wildignore+=*.spl                            " compiled spelling word lists
-set wildignore+=*.sw?                            " Vim swap files
-set wildignore+=*.DS_Store                       " OSX bullshit
-set wildignore+=*.luac                           " Lua byte code
-set wildignore+=*.pyc                            " Python byte code
-set wildignore+=*.orig                           " Merge resolution files
-
-" }}}
-" Line Return {{{
-
-" Make sure Vim returns to the same line when you reopen a file.
-" Thanks, Amit
-augroup line_return
-    au!
-    au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \     execute 'normal! g`"zvzz' |
-        \ endif
-augroup END
-
-" }}}
 " Tabs, spaces, wrapping {{{
 
 set tabstop=4
@@ -143,9 +112,8 @@ if version >= 703
 endif
 
 set backupdir=~/.vim/tmp/backup " backups
-set directory=~/.vim/tmp/swap   " swap files
 set backup                      " enable backups
-set noswapfile                  " It's 2012, Vim.
+set noswapfile
 
 " }}}
 " Leader {{{
@@ -174,8 +142,8 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " Searching and movement -------------------------------------------------- {{{
 
 " Use sane regexes.
-"nnoremap / /\v
-"vnoremap / /\v
+nnoremap / /\v
+vnoremap / /\v
 
 set ignorecase
 set smartcase
@@ -222,7 +190,6 @@ nnoremap VaB vaBV
 
 " Directional Keys {{{
 
-" It's 2011.
 noremap j gj
 noremap k gk
 
@@ -238,19 +205,6 @@ noremap <C-Left> :bp<CR>
 noremap <C-Right> :bn<CR>
 noremap ` <C-^>
 
-
-" }}}
-" Visual Mode */# from Scrooloose {{{
-
-function! s:VSetSearch()
-  let temp = @@
-  norm! gvy
-  let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
-  let @@ = temp
-endfunction
-
-vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><c-o>
-vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><c-o>
 
 " }}}
 
@@ -334,19 +288,11 @@ augroup END
 augroup ft_python
     au!
 
-    " au FileType python setlocal omnifunc=pythoncomplete#Complete
+    au FileType python setlocal omnifunc=pythoncomplete#Complete
     au FileType python setlocal define=^\s*\\(def\\\\|class\\)
     au FileType man nnoremap <buffer> <cr> :q<cr>
 
-    au FileType nnoremap <leader><leader> :!clear && python3 %<cr>
-
-    " Jesus tapdancing Christ, built-in Python syntax, you couldn't let me
-    " override this in a normal way, could you?
-    "au FileType python if exists("python_space_error_highlight") | unlet python_space_error_highlight | endif
-
-    " Jesus, Python.  Five characters of punctuation for a damn string?
-    au FileType python inoremap <buffer> <c-g> _(u'')<left><left>
-    au FileType python inoremap <buffer> <c-b> """"""<left><left><left>
+    au FileType python nnoremap <leader><leader> :!clear && python3 %<cr>
 augroup END
 
 " }}}
@@ -386,14 +332,6 @@ augroup ft_vim
 augroup END
 
 " }}}
-" Mutt {{{
-augroup ft_mail_
-    au!
-
-    au BufNewFile,BufRead *mutt-* setlocal tw=72
-
-
-"}}}
 " }}}
 " Convenience mappings ---------------------------------------------------- {{{
 " Destroy infuriating keys {{{
@@ -484,6 +422,7 @@ nnoremap <F8> :make<cr>
 nnoremap <leader><leader> :make<cr>
 
 " }}}
+" }}}
 " Plugin settings --------------------------------------------------------- {{{
 
 " NERDTree {{{
@@ -502,31 +441,6 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 let g:airline_theme = 'light'
-
-
-" }}}
-" Rainbox Parentheses {{{
-
-nnoremap <leader>R :RainbowParenthesesToggle<cr>
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 16
 
 
 " }}}
