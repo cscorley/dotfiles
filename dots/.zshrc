@@ -73,7 +73,7 @@ nbconvert(){
 }
 
 alias openscreen='screen -U -D -R'
-alias dirc='dtach -A /tmp/csc-irssi.socket irssi'
+alias dirc='dtach -A /tmp/csc-irc.socket weechat'
 alias dtorrent='dtach -A /tmp/csc-rtorrent.socket rtorrent'
 alias ffcastpulse='ffcast_filename=`date +ffcast-%Y%m%d-%H%M%S.mkv`; ffcast -s ffmpeg -f alsa -i pulse -vcodec libx264 ${ffcast_filename}'
 alias winboot='sudo grub-reboot 2 && sudo reboot'

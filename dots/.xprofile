@@ -15,6 +15,7 @@ runif Linux runonce dropboxd &
 #runif Linux runonce redshift-gtk -l 33.21:-87.55 -t 5500:3700 -m vidmode &
 runif Linux runonce clipit &
 runif Linux runonce wmname LG3D &
+runif Linux runonce xflux -z 35401
 
 runif Linux xset m 1 0 &
 runif Linux xset r rate 200 40 &
