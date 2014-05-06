@@ -92,7 +92,7 @@ augroup END
 
 set tabstop=4
 set shiftwidth=4
-set softtabstop=4
+set softtabstop=4 " for expandtab
 set expandtab
 set wrap
 set textwidth=72
@@ -292,7 +292,8 @@ augroup ft_python
     au FileType python setlocal define=^\s*\\(def\\\\|class\\)
     au FileType man nnoremap <buffer> <cr> :q<cr>
 
-    au FileType python nnoremap <leader><leader> :!clear && python3 %<cr>
+    au FileType python nnoremap <leader><leader> :!clear && python %<cr>
+    au FileType python nnoremap <leader>r :!clear && python3 __test.py &> report.txt<cr>
 augroup END
 
 " }}}
