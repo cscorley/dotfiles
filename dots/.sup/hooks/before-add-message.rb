@@ -1,23 +1,30 @@
 if message.has_label? :deleted and message.has_label? :inbox
-    mesage.remove_label :deleted
+    meseage.remove_label :deleted
 end
 
 if message.list_address
     addr = message.list_address
+elsif message.list_subscribe or message.list_unsubscribe
+    addr = message.replyto
+else
+    addr = nil
+end
+
+if addr
     if addr.is_a? Person
         addr = message.list_address.email
     end
 
     return unless addr.is_a? String
 
-    is_junk = False
+    is_junk = false
     addr = addr.downcase
-    subj = message.subject.downcase
+    subj = message.subj.downcase
 
-    if addr.ends_with? '@listserv.ieee.org'
+    if addr.end_with? '@listserv.ieee.org'
         message.add_label :ieee
         message.add_label :likely_junk
-    elsif addr.ends_with? '@listserv.acm.org'
+    elsif addr.end_with? '@listserv.acm.org'
         message.add_label :acm
         message.add_label :likely_junk
     end
@@ -39,8 +46,8 @@ if message.list_address
         message.remove_label :likely_junk
     end
 
-    is_junk ||= subj.starts_with? 'celebrating achievement:'
-    is_junk ||= subj.starts_with? 'ua student news for '
+    is_junk ||= subj.start_with? 'celebrating achievement:'
+    is_junk ||= subj.start_with? 'ua student news for '
     is_junk ||= addr == 'coe-all-students@listserv.ua.edu'
 
 
@@ -52,8 +59,3 @@ if message.list_address
 
 end
 
-#sup-heliotrope/sup <sup@noreply.github.com>
-
-if message.recipients.any? { |person| person.email =~ /.*@noreply\.github\.com/i }
-    message.add_label :github
-end
