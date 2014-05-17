@@ -35,7 +35,7 @@ set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set shell=/bin/zsh
 set lazyredraw
 set matchtime=3
-set showbreak=↪\ 
+set showbreak=↪\   " that extra space be important
 set splitbelow
 set splitright
 set fillchars=diff:⣿,vert:│
@@ -264,11 +264,13 @@ augroup END
 " }}}
 " Pandoc (Markdown) {{{
 "
+"
 
 augroup ft_pandoc
     au!
 
     au BufNewFile,BufRead *.md setlocal filetype=pandoc
+
 
     " Wrap the text into paragraphs and turn on spell checking
     au FileType pandoc setlocal spell tw=72 formatoptions+=t
@@ -282,7 +284,7 @@ augroup ft_pandoc
     nnoremap <leader>h :!pandoc -s -o /tmp/output.html %<cr><cr>
 
     " requires fugitive
-    nnoremap <leader>a :au BufWrite *.md :Gcommit -am "Autosave"<cr> 
+    nnoremap <leader>a :au BufWrite *.md :Git add % | Gcommit -m 'Autosave'<cr>
 augroup END
 
 " }}}
