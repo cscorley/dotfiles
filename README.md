@@ -11,3 +11,4 @@ Or automagically:
 
     curl -L https://github.com/cscorley/dotfiles/raw/master/setup.sh | sh
 
+test
