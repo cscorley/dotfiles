@@ -263,12 +263,13 @@ augroup END
 
 " }}}
 " Pandoc (Markdown) {{{
+"
 
 augroup ft_pandoc
     au!
 
     au BufNewFile,BufRead *.md setlocal filetype=pandoc
-
+    au BufWrite *.md :Gcommit -am "Autosave"
 
     " Wrap the text into paragraphs and turn on spell checking
     au FileType pandoc setlocal spell tw=72 formatoptions+=t
@@ -280,6 +281,8 @@ augroup ft_pandoc
     " Use pandoc to compile the current file into a PDF & HTML
     nnoremap <leader>p :!pandoc -s -o /tmp/output.pdf %<cr><cr>
     nnoremap <leader>h :!pandoc -s -o /tmp/output.html %<cr><cr>
+
+
 augroup END
 
 " }}}
