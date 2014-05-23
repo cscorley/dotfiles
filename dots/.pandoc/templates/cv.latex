@@ -1,6 +1,7 @@
 \documentclass[11pt]{article}
 
 \usepackage{amssymb,amsmath}
+\usepackage{longtable}
 \usepackage{ifxetex,ifluatex}
 \ifxetex
   \usepackage{fontspec,xltxtra,xunicode}
