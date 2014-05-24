@@ -12,7 +12,7 @@ end
 
 if addr
     if addr.is_a? Person
-        addr = message.list_address.email
+        addr = addr.email
     end
 
     return unless addr.is_a? String
