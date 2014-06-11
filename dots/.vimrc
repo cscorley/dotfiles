@@ -284,7 +284,7 @@ augroup ft_pandoc
     nnoremap <leader>h :!pandoc -s -o /tmp/output.html %<cr><cr>
 
     " requires fugitive
-  "  nnoremap <leader>a :au BufWrite *.md :Git add % | Gcommit -m 'Autosave'<cr>
+    " nnoremap <leader>a :au BufWrite *.md :Git add % | Git commit -m 'Autosave'<cr>
 augroup END
 
 " }}}
