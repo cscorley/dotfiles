@@ -284,7 +284,7 @@ augroup ft_pandoc
     nnoremap <leader>h :!pandoc -s -o /tmp/output.html %<cr><cr>
 
     " requires fugitive
-    nnoremap <leader>a :au BufWrite *.md :Git add % | Gcommit -m 'Autosave'<cr>
+  "  nnoremap <leader>a :au BufWrite *.md :Git add % | Gcommit -m 'Autosave'<cr>
 augroup END
 
 " }}}
@@ -338,6 +338,13 @@ augroup ft_vim
 augroup END
 
 " }}}
+" Mail {{{
+
+augroup ft_mail
+    au!
+
+    au Filetype mail setlocal spell textwidth=78
+augroup END
 " }}}
 " Convenience mappings ---------------------------------------------------- {{{
 " Destroy infuriating keys {{{

@@ -34,3 +34,6 @@
 [submodule "dots/.vim/bundle/ctrlp.vim"]
 	path = dots/.vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule "dots/.vim/bundle/vim-localvimrc"]
+	path = dots/.vim/bundle/vim-localvimrc
+	url = https://github.com/embear/vim-localvimrc.git
