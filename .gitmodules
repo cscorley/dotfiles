@@ -37,3 +37,6 @@
 [submodule "dots/.vim/bundle/vim-localvimrc"]
 	path = dots/.vim/bundle/vim-localvimrc
 	url = https://github.com/embear/vim-localvimrc.git
+[submodule "dots/.vim/bundle/vim-virutalenv"]
+	path = dots/.vim/bundle/vim-virutalenv
+	url = https://github.com/jmcantrell/vim-virtualenv

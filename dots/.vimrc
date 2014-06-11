@@ -111,8 +111,8 @@ if version >= 703
     set undodir=~/.vim/tmp/undo     " undo files
 endif
 
-set backupdir=~/.vim/tmp/backup " backups
-set backup                      " enable backups
+set nobackup  " fuck backups, yolo
+set nowritebackup
 set noswapfile
 
 " }}}
@@ -437,6 +437,13 @@ nnoremap <leader><leader> :make<cr>
 " }}}
 " }}}
 " Plugin settings --------------------------------------------------------- {{{
+
+" Localvimrc {{{
+let g:localvimrc_sandbox=0
+"let g:localvimrc_ask=0
+let g:localvimrc_persistent=1
+
+" }}}
 
 " NERDTree {{{
 
