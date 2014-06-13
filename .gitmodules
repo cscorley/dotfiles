@@ -13,9 +13,6 @@
 [submodule "dots/.vim/bundle/nerdtree"]
 	path = dots/.vim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
-[submodule "dots/.vim/bundle/summerfruit256.vim"]
-	path = dots/.vim/bundle/summerfruit256.vim
-	url = git@github.com:cscorley/summerfruit256.vim
 [submodule "dots/.vim/bundle/vim-gitgutter"]
 	path = dots/.vim/bundle/vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
@@ -40,3 +37,6 @@
 [submodule "dots/.vim/bundle/vim-virutalenv"]
 	path = dots/.vim/bundle/vim-virutalenv
 	url = https://github.com/jmcantrell/vim-virtualenv
+[submodule "dots/.vim/bundle/summerfruit256.vim"]
+	path = dots/.vim/bundle/summerfruit256.vim
+	url = git://github.com/cscorley/summerfruit256.vim.git
