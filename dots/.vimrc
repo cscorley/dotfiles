@@ -461,6 +461,8 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 let g:airline_theme = 'light'
+let g:airline#extensions#tmuxline#enabled = 1
+" airline#extensions#tmuxline#snapshot_file = "~/.tmux-statusline-colors.conf"
 
 
 " }}}
