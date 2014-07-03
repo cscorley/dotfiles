@@ -22,7 +22,8 @@ runif Linux xset r rate 200 40 &
 
 function sens(){
     for each in `xinput --list | grep -E 'Razer' | grep -E 'pointer' | sed -e 's/^.*id=//g' -e 's/\t.*$//g'`; do
-        xinput --set-prop $each 265 5 # 'Device Accel Constant Deceleration'
+        propid=`xinput list-props $each | grep 'Device Accel Constant Deceleration' | sed -r 's/.*\(([0-9]+)\).*$/\1/g'`
+        xinput --set-prop $each $propid 5 # 'Device Accel Constant Deceleration'
     done
 }
 runif Linux sens
