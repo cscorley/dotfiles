@@ -1,18 +1,12 @@
 #!/bin/sh
 
 [ -f ~/.profileutil ] && . ~/.profileutil
-#[ -f ~/.zprofile ] && . ~/.zprofile
-
-[ -f ~/.fehbg ] && runif Linux sh ~/.fehbg
-
-#xrandr --output DVI-I-2 --right-of DVI-I-3
-#runif Linux runonce pulseaudio --start
+[ -f ~/.fehbg ] && sh ~/.fehbg
 
 runif Linux runonce start-pulseaudio-x11 &
 runif Linux runonce mpd ~/.mpd/mpd.conf && mpc stop &
 runif Linux runonce mpdscribble --conf ~/.mpdscribble/mpdscribble.conf &
 runif Linux runonce dropboxd &
-#runif Linux runonce redshift-gtk -l 33.21:-87.55 -t 5500:3700 -m vidmode &
 runif Linux runonce clipit &
 runif Linux runonce wmname LG3D &
 runif Linux runonce xflux -z 35401
@@ -23,12 +17,8 @@ runif Linux xset r rate 200 40 &
 function sens(){
     for each in `xinput --list | grep -E 'Razer' | grep -E 'pointer' | sed -e 's/^.*id=//g' -e 's/\t.*$//g'`; do
         propid=`xinput list-props $each | grep 'Device Accel Constant Deceleration' | sed -r 's/.*\(([0-9]+)\).*$/\1/g'`
-        xinput --set-prop $each $propid 5 # 'Device Accel Constant Deceleration'
+        xinput --set-prop $each $propid 5
     done
 }
 runif Linux sens
-
-#runif Linux runonce xmodmap ~/.Xmodmap
-#runif Linux runonce xrdb -merge ~/.Xresources
-
 
