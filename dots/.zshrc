@@ -65,7 +65,7 @@ setopt correct
 # update index before every attempt to autocomplete
 zstyle ":completion:*:commands" rehash 1
 
-export BLOG_DIR="/Users/cscorley/git/cscorley.github.io"
+export BLOG_DIR="${HOME}/git/cscorley.github.io"
 nbconvert(){
     ipython nbconvert --config jekyll.py $@
     find ${BLOG_DIR}/notebooks/ -name '*.md' -exec mv {} ${BLOG_DIR}/_drafts/ \;

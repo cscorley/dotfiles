@@ -1,5 +1,5 @@
 if message.has_label? :deleted and message.has_label? :inbox
-    meseage.remove_label :deleted
+    message.remove_label :deleted
 end
 
 if message.list_address
