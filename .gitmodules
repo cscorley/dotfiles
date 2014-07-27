@@ -40,3 +40,6 @@
 [submodule "dots/.vim/bundle/tmuxline.vim"]
 	path = dots/.vim/bundle/tmuxline.vim
 	url = https://github.com/edkolev/tmuxline.vim
+[submodule "dots/.vim/bundle/python-mode"]
+	path = dots/.vim/bundle/python-mode
+	url = git://github.com/klen/python-mode.git
