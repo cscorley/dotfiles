@@ -27,9 +27,13 @@ if addr
     elsif addr.end_with? '@listserv.acm.org'
         message.add_label :acm
         message.add_label :likely_junk
+    elsif addr.end_with? '@noreply.github.com'
+        message.add_label :github
     end
 
     if addr == 'gensim@googlegroups.com'
+        message.add_label :gensim
+    elsif addr == 'gensim@noreply.github.com'
         message.add_label :gensim
     elsif addr == 'arch-announce@archlinux.org'
         message.add_label :archlinux

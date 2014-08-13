@@ -284,7 +284,6 @@ augroup ft_pandoc
     nnoremap <leader>h :!pandoc -s -o /tmp/output.html %<cr><cr>
 
     " requires fugitive
-    " nnoremap <leader>a :au BufWrite *.md :Git add % | Git commit -m 'Autosave'<cr>
 augroup END
 
 " }}}
@@ -437,6 +436,9 @@ nnoremap <leader><leader> :make<cr>
 " }}}
 " }}}
 " Plugin settings --------------------------------------------------------- {{{
+" virtualenv {{{
+let g:virtualenv_directory='.'
+" }}}
 
 " Localvimrc {{{
 let g:localvimrc_sandbox=0
