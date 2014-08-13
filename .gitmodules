@@ -43,3 +43,9 @@
 [submodule "dots/.vim/bundle/python-mode"]
 	path = dots/.vim/bundle/python-mode
 	url = git://github.com/klen/python-mode.git
+[submodule "dots/.vim/bundle/vim-pandoc"]
+	path = dots/.vim/bundle/vim-pandoc
+	url = https://github.com/vim-pandoc/vim-pandoc.git
+[submodule "dots/.vim/bundle/vim-pandoc-syntax"]
+	path = dots/.vim/bundle/vim-pandoc-syntax
+	url = https://github.com/vim-pandoc/vim-pandoc-syntax.git
