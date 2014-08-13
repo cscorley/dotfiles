@@ -283,6 +283,8 @@ augroup ft_pandoc
     nnoremap <leader>p :!pandoc -s -o /tmp/output.pdf %<cr><cr>
     nnoremap <leader>h :!pandoc -s -o /tmp/output.html %<cr><cr>
 
+    let g:pandoc#modules#disabled = ['chdir']
+
     " requires fugitive
 augroup END
 
