@@ -96,7 +96,7 @@ set softtabstop=4 " for expandtab
 set expandtab
 set wrap
 set textwidth=72
-set formatoptions=qrn1
+set formatoptions=croqj12
 
 if version >= 703
     set colorcolumn=+1
@@ -270,7 +270,7 @@ augroup ft_pandoc
     au!
 
     " Wrap the text into paragraphs and turn on spell checking
-    au FileType pandoc setlocal spell
+    au FileType pandoc setlocal spell formatoptions+=ta
 
     let g:pandoc#modules#disabled = ['chdir']
     let g:pandoc#syntax#conceal#blacklist = ['subscript', 'superscript', 'ellipses']
