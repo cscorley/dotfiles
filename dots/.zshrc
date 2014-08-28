@@ -11,6 +11,7 @@ plugins=(
     zsh-syntax-highlighting
 )
 
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 typeset -U path
 path=(
@@ -18,7 +19,7 @@ path=(
     ~/.cabal/bin
     $(ruby -rubygems -e "puts Gem.user_dir")/bin
     /usr/local/bin
-    /opt/java/bin
+    $JAVA_HOME/bin
     /usr/local/texlive/2013/bin/x86_64-darwin
     $path
     )

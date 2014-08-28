@@ -270,7 +270,7 @@ augroup ft_pandoc
     au!
 
     " Wrap the text into paragraphs and turn on spell checking
-    au FileType pandoc setlocal spell formatoptions+=ta
+    au FileType pandoc setlocal spell formatoptions+=t
 
     let g:pandoc#modules#disabled = ['chdir']
     let g:pandoc#syntax#conceal#blacklist = ['subscript', 'superscript', 'ellipses']
