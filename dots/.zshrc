@@ -19,7 +19,8 @@ path=(
     ~/.cabal/bin
     $(ruby -rubygems -e "puts Gem.user_dir")/bin
     /usr/local/bin
-    $JAVA_HOME/bin
+    ${JAVA_HOME}/bin
+    /opt/java/bin
     /usr/local/texlive/2013/bin/x86_64-darwin
     $path
     )
@@ -74,8 +75,8 @@ nbconvert(){
 }
 
 alias openscreen='screen -U -D -R'
-alias dirc='dtach -A /tmp/csc-irc.socket weechat'
-alias dtorrent='dtach -A /tmp/csc-rtorrent.socket rtorrent'
+alias dirc='tmux new-session -A -s irc weechat'
+alias dtorrent='tmux new-session -A -s torrent rtorrent'
 alias ffcastpulse='ffcast_filename=`date +ffcast-%Y%m%d-%H%M%S.mkv`; ffcast -s ffmpeg -f alsa -i pulse -vcodec libx264 ${ffcast_filename}'
 alias winboot='sudo grub-reboot 2 && sudo reboot'
 
