@@ -437,17 +437,22 @@ nnoremap <leader><leader> :make<cr>
 " }}}
 " }}}
 " Plugin settings --------------------------------------------------------- {{{
+" ctrlp{{{
+
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+
+" }}}
 " virtualenv {{{
 let g:virtualenv_directory='.'
 " }}}
-
 " Localvimrc {{{
 let g:localvimrc_sandbox=0
 "let g:localvimrc_ask=0
 let g:localvimrc_persistent=1
 
 " }}}
-
 " NERDTree {{{
 
 nnoremap <F10> :NERDTreeToggle<cr>
@@ -468,6 +473,9 @@ let g:airline#extensions#tmuxline#enabled = 1
 " airline#extensions#tmuxline#snapshot_file = "~/.tmux-statusline-colors.conf"
 
 
+" }}}
+" Pymode {{{
+let g:pymode_lint = 0
 " }}}
 
 " }}}
