@@ -288,20 +288,6 @@ let g:tex_conceal = "abdmg"
 "}}}
 
 " }}}
-" Python {{{
-
-augroup ft_python
-    au!
-
-    au FileType python setlocal omnifunc=pythoncomplete#Complete
-    au FileType python setlocal define=^\s*\\(def\\\\|class\\)
-    au FileType man nnoremap <buffer> <cr> :q<cr>
-
-    au FileType python nnoremap <leader><leader> :!clear && python %<cr>
-    au FileType python nnoremap <leader>r :!clear && python3 __test.py &> report.txt<cr>
-augroup END
-
-" }}}
 " QuickFix {{{
 
 augroup ft_quickfix
@@ -475,7 +461,17 @@ let g:airline#extensions#tmuxline#enabled = 1
 
 " }}}
 " Pymode {{{
-let g:pymode_lint = 0
+    let g:pymode_lint = 0
+  "  let g:pymode_doc = 0
+    let g:pymode_syntax_print_as_function = 1
+    let g:pymode_rope_lookup_project = 0
+  "  let g:pymode_rope = 0
+    let g:pymode_warnings = 0
+  "  let g:pymode_rope_autoimport = 0
+  "
+    if getcwd() == $HOME
+        let g:pymode = 0
+    endif
 " }}}
 
 " }}}
