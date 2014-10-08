@@ -45,7 +45,7 @@ echo "Installing..."
 cd ~/.dotfiles
 
 if [ "${1}" == "-f" ]; then
-    echo "Forcing symlink creation. Godspeed, brother!"
+    echo "Forcing symlink creation. Godspeed!"
     symlink_force
 else
     echo "Interactively symlinking ~/.dotfiles..."
@@ -58,6 +58,9 @@ echo "Setting up subrepos..."
 make install
 
 echo "Copying files in manual"
-cp manual/mortaldouchebag.zsh_theme ~/.oh-my-zsh/themes/
+cp manual/mortaldouchebag.zsh-theme ~/.oh-my-zsh/themes/
+
+echo "Building base16 themes"
+cd ~/.config/base16-builder/ && ./base16 &> /dev/null
 
 echo "Done."

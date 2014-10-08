@@ -131,11 +131,13 @@ endif
 
 if $BASE16_SHADE == "dark"
     set background=dark
+elseif $BASE16_SHADE == "light"
+    set background=light
 endif
 
 let base16colorspace=256  " Access colors present in 256 colorspace
 "colorscheme molokai
-colorscheme base16-default
+colorscheme base16-$BASE16_SCHEME
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
