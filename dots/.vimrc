@@ -466,17 +466,16 @@ let g:airline#extensions#tmuxline#enabled = 1
 " }}}
 " Pymode {{{
     let g:pymode_lint = 0
-  "  let g:pymode_doc = 0
-    let g:pymode_syntax_print_as_function = 1
-    let g:pymode_rope_lookup_project = 0
-  "  let g:pymode_rope = 0
     let g:pymode_warnings = 0
-  "  let g:pymode_rope_autoimport = 0
-  "
+    let g:pymode_syntax = 1
+    let g:pymode_syntax_all = 1
+    let g:pymode_syntax_print_as_function = 1
+
     if getcwd() == $HOME
         let g:pymode = 0
     endif
 " }}}
+"
 
 " }}}
 " Environments (GUI/Console) ---------------------------------------------- {{{
