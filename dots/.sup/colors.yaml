@@ -1,152 +1,352 @@
 ---
+# Original color scheme file from Markus Klinik's wombat, used as template
+# https://github.com/mklinik/sup-colorscheme-wombat.git
+#
+# Sup color scheme based on vim's Molokai
+#https://github.com/tomasr/molokai
+# 
+# Requires running sup in a 256-color terminal.
+#
+# Usage: put the file at ~/.sup/colors.yaml
+
+# ======================================
+# globals
+
 :status:
-  :fg: white
-  :bg: blue
-  :attrs:
-  - bold
-:index_old:
-  :fg: default
-  :bg: default
-:index_new:
-  :fg: default
-  :bg: default
-  :attrs:
-  - bold
-:index_starred:
-  :fg: yellow
-  :bg: default
-  :attrs:
-  - bold
-:index_draft:
-  :fg: red
-  :bg: default
-  :attrs:
-  - bold
-:labellist_old:
-  :fg: default
-  :bg: default
-:labellist_new:
-  :fg: default
-  :bg: default
-  :attrs:
-  - bold
+  :fg: 81
+  :bg: 236
+
 :twiddle:
-  :fg: blue
-  :bg: default
-:label:
-  :fg: yellow
-  :bg: default
-:message_patina:
-  :fg: black
-  :bg: green
-:alternate_patina:
-  :fg: black
-  :bg: blue
-:missing_message:
-  :fg: black
-  :bg: red
-:attachment:
-  :fg: cyan
-  :bg: default
-:cryptosig_valid:
-  :fg: yellow
-  :bg: default
-  :attrs:
-  - bold
-:cryptosig_valid_untrusted:
-  :fg: yellow
-  :bg: blue
-  :attrs:
-  - bold
-:cryptosig_unknown:
-  :fg: cyan
-  :bg: default
-:cryptosig_invalid:
-  :fg: yellow
-  :bg: red
-  :attrs:
-  - bold
-:generic_notice_patina:
-  :fg: cyan
-  :bg: default
-:quote_patina:
-  :fg: yellow
-  :bg: default
-:sig_patina:
-  :fg: yellow
-  :bg: default
-:quote:
-  :fg: yellow
-  :bg: default
-:sig:
-  :fg: yellow
-  :bg: default
-:to_me:
-  :fg: green
-  :bg: default
-:starred:
-  :fg: yellow
-  :bg: default
-  :attrs:
-  - bold
-:starred_patina:
-  :fg: yellow
-  :bg: green
-  :attrs:
-  - bold
-:alternate_starred_patina:
-  :fg: yellow
-  :bg: blue
-  :attrs:
-  - bold
-:snippet:
-  :fg: cyan
-  :bg: default
-:option:
-  :fg: default
-  :bg: default
-:tagged:
-  :fg: yellow
-  :bg: default
-  :attrs:
-  - bold
-:draft_notification:
-  :fg: red
-  :bg: default
-  :attrs:
-  - bold
-:completion_character:
-  :fg: default
-  :bg: default
-  :attrs:
-  - bold
-:horizontal_selector_selected:
-  :fg: yellow
-  :bg: default
-  :attrs:
-  - bold
-:horizontal_selector_unselected:
-  :fg: cyan
-  :bg: default
-:search_highlight:
-  :fg: black
-  :bg: yellow
-  :attrs:
-  - bold
-:system_buf:
-  :fg: blue
-  :bg: default
-:regular_buf:
-  :fg: default
-  :bg: default
-:modified_buffer:
-  :fg: yellow
-  :bg: default
-  :attrs:
-  - bold
+  :fg: 60
+  :bg: 233
+
+# default text color, if nothing else is specified
+:text:
+  :fg: 252
+  :bg: 233
+  :highlight: default_highlight
+
+# the default cursor line
+# doesn't do anything on its own, we have to refer to it explicitly
+:default_highlight:
+  :fg: 252
+  :bg: 234
+
+# ======================================
+# thread-index-mode
+
 :date:
-  :fg: default
-  :bg: default
+  :fg: 252
+  :bg: 233
+  :highlight: default_highlight
+
+# the single '>' character displayed when a message is directly to me (as
+# opposed to say a mailing list that I subscribed to)
+:to_me:
+  :fg: 244
+  :bg: 233
+  :highlight: to_me_highlight
+:to_me_highlight:
+  :fg: 244
+  :bg: 234
+
+# in index views the @ symbol
+:with_attachment:
+    :fg: 208
+    :bg: 233
+    :highlight: with_attachment_highlight
+:with_attachment_highlight:
+    :fg: 208
+    :bg: 234
+
 :size_widget:
-  :fg: default
-  :bg: default
+  :fg: 81
+  :bg: 233
+  :highlight: size_highlight
+
+:size_highlight:
+  :fg: 81
+  :bg: 234
+
+# email subject of read messages
+:index_old:
+  :fg: 252
+  :bg: 233
+  :highlight: default_highlight
+
+# email subject of unread messages
+:index_new:
+  :fg: 118
+  :bg: 233
+  :highlight: index_new_highlight
+:index_new_highlight:
+  :fg: 118
+  :bg: 234
+
+# text snipped displayed next to the subject
+:snippet:
+  :fg: 59
+  :bg: 233
+  :highlight: snippet_highlight
+:snippet_highlight:
+  :fg: 59
+  :bg: 234
+
+# labels of an email
+:label:
+  :fg: 161
+  :bg: 233
+  :highlight: label_highlight
+:label_highlight:
+  :fg: 161
+  :bg: 234
+
+# the '>' character that gets displayed when a message is tagged
+:tagged:
+  :fg: 199
+  :bg: 233
+  :highlight: tagged_highlight
+:tagged_highlight:
+  :fg: 199
+  :bg: 234
+# the one-character widget '*' that gets displayed when a message is starred
+:starred:
+  :fg: 135
+  :bg: 233
+  :highlight: starred_highlight
+:starred_highlight:
+  :fg: 135
+  :bg: 234
+
+# subject of a starred message
+:index_starred:
+  :fg: 135
+  :bg: 233
+  :highlight: index_starred_highlight
+:index_starred_highlight:
+  :fg: 135
+  :bg: 234
+
+# subject of draft messages in index mode
+:index_draft:
+  :fg: 208
+  :bg: 233
+  :highlight: index_draft_highlight
+:index_draft_highlight:
+  :fg: 208
+  :bg: 234
+
+# ======================================
+# thread-view-mode
+
+# message header
+:message_patina:
+  :fg: 81
+  :bg: 233
+  :highlight: message_patina_highlight
+:message_patina_highlight:
+  :fg: 81
+  :bg: 234
+
+# message header, alternating color
+:alternate_patina:
+  :fg: 161
+  :bg: 233
+  :highlight: alternate_patina_highlight
+:alternate_patina_highlight:
+  :fg: 161
+  :bg: 234
+
+# the single star character
+:starred_patina:
+  :fg: 135
+  :bg: 233
+  :highlight: starred_patina_highlight
+:starred_patina_highlight:
+  :fg: 135
+  :bg: 234
+
+# the single star character, alternating color
+:alternate_starred_patina:
+  :fg: 135
+  :bg: 233
+  :highlight: alternate_starred_patina_highlight
+:alternate_starred_patina_highlight:
+  :fg: 135
+  :bg: 234
+
+# line that says "an unreceived message" in thread-view-mode
+:missing_message:
+  :fg: 67
+  :bg: 233
+  :highlight: missing_message_highlight
+:missing_message_highlight:
+  :fg: 67
+  :bg: 234
+
+# quoted text in a message body
+:quote:
+  :fg: 59
+  :bg: 233
+  :highlight: quote_highlight
+:quote_highlight:
+  :fg: 59
+  :bg: 234
+
+# the line of text that says "+ (n quoted lines)"
+:quote_patina:
+  :fg: 244
+  :bg: 233
+  :highlight: quote_patina_highlight
+:quote_patina_highlight:
+  :fg: 244
+  :bg: 234
+
+# email signatures inside an email body
+:sig:
+  :fg: 144
+  :bg: 233
+  :highlight: sig_highlight
+:sig_highlight:
+  :fg: 144
+  :bg: 234
+
+# the line of text that says "+ (n-line signature)"
+:sig_patina:
+  :fg: 67
+  :bg: 233
+  :highlight: sig_patina_highlight
+:sig_patina_highlight:
+  :fg: 67
+  :bg: 234
+
+# attachments at the end of an email
+:attachment:
+  :fg: 118
+  :bg: 232
+  :highlight: attachment_highlight
+:attachment_highlight:
+  :fg: 118
+  :bg: 234
+
+
+# valid cryptographic signature
+:cryptosig_valid:
+  :fg: 193
+  :bg: 233
+  :highlight: default_highlight
+
+# signature from someone whose public key we do have, but haven't verified
+:cryptosig_valid_untrusted:
+  :fg: 166
+  :bg: 233
+  :highlight: cryptosig_valid_untrusted_highlight
+:cryptosig_valid_untrusted_highlight:
+  :fg: 166
+  :bg: 234
+
+# signature from someone whose public key we don't have
+:cryptosig_unknown:
+  :fg: 53
+  :bg: 233
+  :highlight: cryptosig_unknown_highlight
+:cryptosig_unknown_highlight:
+  :fg: 53
+  :bg: 234
+
+# I don't have a message with an invalid crypto signature, so this is untested
+:cryptosig_invalid:
+  :fg: 53
+  :bg: 233
+
+# ======================================
+# label list (the thing you get by pressing L then <enter>)
+
+:labellist_old:
+  :fg: 252
+  :bg: 233
+  :highlight: default_highlight
+
+:labellist_new:
+  :fg: 118
+  :bg: 233
+  :highlight: labellist_new_highlight
+:labellist_new_highlight:
+  :fg: 118
+  :bg: 234
+
+# ======================================
+# misc
+
+:regular_buf:
+  :fg: 252
+  :bg: 233
+  :highlight: default_highlight
+
+:system_buf:
+  :fg: 252
+  :bg: 233
+  :highlight: default_highlight
+
+:modified_buffer:
+  :fg: 252
+  :bg: 233
+  :highlight: default_highlight
+
+:search_highlight:
+  :fg: 16
+  :bg: 193
+  :highlight: search_highlight_highlight
+:search_highlight_highlight:
+  :fg: 16
+  :bg: 193
+
+# in thread-view-mode, the text saying "This message is a draft. Hit 'e' to edit, 'y' to send."
+:draft_notification:
+  :fg: 199
+  :bg: 233
+  :highlight: draft_notification_highlight
+:draft_notification_highlight:
+  :fg: 199
+  :bg: 234
+
+# currently only used for enclosed messages. It's a line that says "Begin enclosed message sent on..."
+# We color it the same as attachments.
+:generic_notice_patina:
+  :fg: 59
+  :bg: 233
+  :highlight: attachment_highlight
+
+
+# ======================================
+# selector widgets (the things that let you choose Account, Crypto, Reply to, etc.)
+
+:horizontal_selector_selected:
+  :fg: 199
+  :bg: 233
+  :highlight: horizontal_selector_selected_highlight
+:horizontal_selector_selected_highlight:
+  :fg: 199
+  :bg: 234
+
+:horizontal_selector_unselected:
+  :fg: 252
+  :bg: 233
+  :highlight: default_highlight
+
+
+# ======================================
+# completion-mode: the screen you get when you press <Tab> in the To: prompt
+
+:completion_character:
+  :fg: 233
+  :bg: 199
+
+
+# ======================================
+# not yet finished
+
+# what's an option?
+:option:
+  :fg: 252
+  :bg: 233

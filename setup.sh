@@ -57,4 +57,7 @@ mkdir -p ~/.vim/tmp/{backup,swap,undo}
 echo "Setting up subrepos..."
 make install
 
+echo "Copying files in manual"
+cp manual/mortaldouchebag.zsh_theme ~/.oh-my-zsh/themes/
+
 echo "Done."

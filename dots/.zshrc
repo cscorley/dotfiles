@@ -11,7 +11,11 @@ plugins=(
     zsh-syntax-highlighting
 )
 
-export JAVA_HOME=$(/usr/libexec/java_home)
+# Base16 Shell
+export BASE16_SCHEME="monokai"
+export BASE16_SHADE="dark"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.$BASE16_SHADE.sh"
+[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
 typeset -U path
 path=(
@@ -181,4 +185,3 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     zle -N zle-line-init
     zle -N zle-line-finish
 fi
-

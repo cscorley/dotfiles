@@ -129,9 +129,13 @@ if ! has("gui_running")
     set t_Co=256
 endif
 
-set background=light
+if $BASE16_SHADE == "dark"
+    set background=dark
+endif
+
+let base16colorspace=256  " Access colors present in 256 colorspace
 "colorscheme molokai
-colorscheme summerfruit256
+colorscheme base16-default
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -454,7 +458,7 @@ let NERDTreeIgnore=['\.pyc$'] " blah
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-let g:airline_theme = 'light'
+let g:airline_theme = 'base16'
 let g:airline#extensions#tmuxline#enabled = 1
 " airline#extensions#tmuxline#snapshot_file = "~/.tmux-statusline-colors.conf"
 
