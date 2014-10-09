@@ -135,6 +135,8 @@ elseif $BASE16_SHADE == "light"
     set background=light
 endif
 
+let g:base16_shell_path="~/.config/base16-builder/output/shell/"
+
 let base16colorspace=256  " Access colors present in 256 colorspace
 "colorscheme molokai
 colorscheme base16-$BASE16_SCHEME
