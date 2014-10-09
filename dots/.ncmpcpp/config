@@ -203,7 +203,7 @@ alternative_header_second_line_format = "{{$6$b%a$/b$9}{ - $7%b$9}{ ($6%y$9)}}|{
 ##   not available.
 ##
 
-song_columns_list_format = "(7f)[green]{l} (25)[cyan]{a} (40)[white]{t|f} (30)[red]{b}"
+song_columns_list_format = "(7f)[green]{l} (25)[cyan]{a} (40)[black]{t|f} (30)[red]{b}"
 
 ##### various settings #####
 
@@ -342,18 +342,18 @@ enable_window_title = "yes"
 ##### colors definitions #####
 colors_enabled = "yes"
 empty_tag_color = "cyan"
-header_window_color = "white"
-volume_color = "white"
-state_line_color = "white"
-state_flags_color = "white"
+header_window_color = "black"
+volume_color = "black"
+state_line_color = "black"
+state_flags_color = "black"
 main_window_color = "magenta"
-color1 = "white"
+color1 = "black"
 color2 = "green"
 main_window_highlight_color = "magenta"
-progressbar_color = "white"
-progressbar_elapsed_color = green
-statusbar_color = "white"
-alternative_ui_separator_color = "white"
+progressbar_color = "black"
+progressbar_elapsed_color = "green"
+statusbar_color = "black"
+alternative_ui_separator_color = "black"
 active_column_color = "red"
 visualizer_color = "green"
 window_border_color = "green"

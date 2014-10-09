@@ -37,7 +37,7 @@
   :fg: blue
   :bg: default
 :label:
-  :fg: yellow
+  :fg: 161
   :bg: default
 :message_patina:
   :fg: black
@@ -106,7 +106,7 @@
   :attrs:
   - bold
 :snippet:
-  :fg:  green
+  :fg: cyan
   :bg: default
 :option:
   :fg: default
