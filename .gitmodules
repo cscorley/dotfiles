@@ -46,6 +46,3 @@
 [submodule "dots/.vim/bundle/python-mode"]
 	path = dots/.vim/bundle/python-mode
 	url = git://github.com/klen/python-mode.git
-[submodule "dots/.config/base16-builder"]
-	path = dots/.config/base16-builder
-	url = git@github.com:cscorley/base16-builder.git
