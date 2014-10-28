@@ -61,6 +61,14 @@ echo "Copying files in manual"
 cp manual/mortaldouchebag.zsh-theme ~/.oh-my-zsh/themes/
 
 echo "Building base16 themes"
-cd ~/.config/base16-builder/ && ./base16 &> /dev/null
+cd ~/.config/base16/ && ./base16 &> /dev/null
+mkdir ~/.vim/bundle/base16
+ln -s ~/.config/base16/output/vim ~/.vim/bundle/base16/colors
+
+echo "Installing powerline font"
+mkdir -p ~/.fonts/
+cd ~/.fonts
+curl -O https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
+fc-cache -vf ~/.fonts/
 
 echo "Done."

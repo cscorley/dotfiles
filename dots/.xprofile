@@ -7,7 +7,6 @@
 runif Linux runonce start-pulseaudio-x11 &
 runif Linux runonce mpd ~/.mpd/mpd.conf && mpc stop &
 runif Linux runonce mpdscribble --conf ~/.mpdscribble/mpdscribble.conf &
-runif Linux runonce dropboxd &
 runif Linux runonce clipit &
 runif Linux runonce wmname LG3D &
 runif Linux runonce xflux -z 35401
