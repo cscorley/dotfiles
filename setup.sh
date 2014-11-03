@@ -62,8 +62,6 @@ cp manual/mortaldouchebag.zsh-theme ~/.oh-my-zsh/themes/
 
 echo "Building base16 themes"
 cd ~/.config/base16/ && ./base16 &> /dev/null
-mkdir ~/.vim/bundle/base16
-ln -s ~/.config/base16/output/vim ~/.vim/bundle/base16/colors
 
 echo "Installing powerline font"
 mkdir -p ~/.fonts/
