@@ -83,6 +83,7 @@ alias dirc='tmux new-session -A -s irc weechat'
 alias dtorrent='tmux new-session -A -s torrent rtorrent'
 alias ffcastpulse='ffcast_filename=`date +ffcast-%Y%m%d-%H%M%S.mkv`; ffcast -s ffmpeg -f alsa -i pulse -vcodec libx264 ${ffcast_filename}'
 alias winboot='sudo grub-reboot 2 && sudo reboot'
+alias beep='paplay /usr/share/sounds/freedesktop/stereo/complete.oga'
 
 alias sup='chruby ruby-1.9.3 && sup'
 
