@@ -1,16 +1,29 @@
 class Redwood::ThreadIndexMode
-  def toggle_archived_and_deleted
-    t = cursor_thread or return
-    multi_toggle_new [t]
-    multi_toggle_archived [t]
-    multi_toggle_deleted [t]
-  end
-end
-
-class Redwood::InboxMode
   def archive_and_delete
     t = cursor_thread or return
     multi_read_and_archive [t]
     multi_toggle_deleted [t]
   end
+end
+
+class Redwood::ThreadViewMode
+    def archive_and_delete
+        archive_and_delete_and_then :next
+    end
+    def archive_and_delete_and_then op
+        dispatch op do
+            @thread.remove_label :inbox
+            @thread.apply_label :deleted
+            UpdateManager.relay self, :archived, @thread.first
+            UpdateManager.relay self, :deleted, @thread.first
+            Index.save_thread @thread
+            UndoManager.register "archiving and delting 1 thread" do
+                @thread.apply_label :inbox
+                @thread.remove_label :deleted
+                Index.save_thread @thread
+                UpdateManager.relay self, :undeleted, @thread.first
+                UpdateManager.relay self, :unarchived, @thread.first
+            end
+        end
+    end
 end

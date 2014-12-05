@@ -46,7 +46,7 @@
  * @namespace IPython
  * @class customjs
  * @static
- */
 $.getScript('/static/components/codemirror/keymap/vim.js');
 IPython.CodeCell.options_default.cm_config.keyMap = 'vim'
+ */
 IPython.Cell.options_default.cm_config.lineNumbers = true;

@@ -37,7 +37,6 @@ if [[ ${TERM} == "xterm" ]]; then
     export TERM=xterm-256color
 fi
 
-export GREP_OPTIONS='--color=auto'
 #export PYTHONDONTWRITEBYTECODE=true
 
 #eval "$(rbenv init -)"
@@ -100,6 +99,7 @@ alias df='df -h'
 alias du='du -hc'
 alias mv='mv -iv'
 alias cp='cp -v'
+alias grep='grep --color=auto'
 alias which='which -a'
 
 runif Linux alias open='xdg-open'

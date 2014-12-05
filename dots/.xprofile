@@ -5,8 +5,7 @@
 [ -f ~/.Xmodmap ] && [ "$(hostname)" == "aquarius" ] && xmodmap ~/.Xmodmap
 
 runif Linux runonce start-pulseaudio-x11 &
-runif Linux runonce mpd ~/.mpd/mpd.conf && mpc stop &
-runif Linux runonce mpdas -d -c ~/.mpdasrc &
+runif Linux runonce mpd ~/.mpd/mpd.conf && mpc stop && mpdas -d -c ~/.mpdasrc &
 runif Linux runonce clipit &
 runif Linux runonce wmname LG3D &
 runif Linux runonce xflux -z 35401
