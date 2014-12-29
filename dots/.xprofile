@@ -6,8 +6,9 @@
 
 runif Linux runonce start-pulseaudio-x11 &
 runif Linux runonce mpd ~/.mpd/mpd.conf && mpc stop && mpdas -d -c ~/.mpdasrc &
+
 runif Linux runonce clipit &
-runif Linux runonce wmname LG3D &
+runif Linux runonce syncthing-gtk &
 runif Linux runonce xflux -z 35401
 
 runif Linux xset m 1 0 &
