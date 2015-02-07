@@ -9,7 +9,7 @@ runif Linux runonce mpd ~/.mpd/mpd.conf && mpc stop && mpdas -d -c ~/.mpdasrc &
 
 runif Linux runonce clipit &
 runif Linux runonce syncthing-gtk &
-runif Linux runonce xflux -z 35401
+runif Linux runonce xflux -z 27606
 
 runif Linux xset m 1 0 &
 runif Linux xset r rate 200 40 &

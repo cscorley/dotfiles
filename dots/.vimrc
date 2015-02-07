@@ -95,7 +95,7 @@ set shiftwidth=4
 set softtabstop=4 " for expandtab
 set expandtab
 set wrap
-set textwidth=72
+set textwidth=80
 set formatoptions=croqj12
 
 if version >= 703
@@ -338,7 +338,10 @@ augroup ft_mail
     au!
 
     au Filetype mail setlocal spell textwidth=78
+    au FileType mail map <F8> :%g/^> >/d<CR>
+
 augroup END
+
 " }}}
 " Convenience mappings ---------------------------------------------------- {{{
 " Destroy infuriating keys {{{
