@@ -29,7 +29,7 @@ path=(
     $path
     )
 export SDL_AUDIODRIVER='pulse'
-export TERMINAL=$(which gnome-terminal)
+export TERMINAL=$(which roxterm)
 export EDITOR=$(which vim)
 export BROWSER=$(which firefox)
 
@@ -84,7 +84,9 @@ alias ffcastpulse='ffcast_filename=`date +ffcast-%Y%m%d-%H%M%S.mkv`; ffcast -s f
 alias winboot='sudo grub-reboot 2 && sudo reboot'
 alias beep='paplay /usr/share/sounds/freedesktop/stereo/complete.oga'
 
-alias sup='chruby ruby-1.9.3 && sup'
+alias addon-sdk="cd /opt/addon-sdk && source bin/activate; cd -"
+
+# alias sup='chruby ruby-1.9.3 && sup'
 
 alias vi='vim'
 alias c='clear'

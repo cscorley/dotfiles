@@ -22,3 +22,9 @@ function sens(){
 }
 runif Linux sens
 
+runif Linux xrandr --output HDMI-0 i --right-of DP-1 #--panning 1920x1080+0+0
+sleep 1
+runif Linux xrandr --output DP-1 --left-of HDMI-0 #--panning 1920x1080+1920+0
+sleep 1
+runif Linux xrandr --output HDMI-0 --primary
+sleep 1
