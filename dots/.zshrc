@@ -86,9 +86,10 @@ alias beep='paplay /usr/share/sounds/freedesktop/stereo/complete.oga'
 
 alias addon-sdk="cd /opt/addon-sdk && source bin/activate; cd -"
 
+
 # alias sup='chruby ruby-1.9.3 && sup'
 
-alias vi='vim'
+alias vi='nvim'
 alias c='clear'
 alias l='ll'
 

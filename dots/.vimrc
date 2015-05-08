@@ -477,6 +477,12 @@ let g:airline#extensions#tmuxline#enabled = 1
     let g:pymode_syntax = 1
     let g:pymode_syntax_all = 1
     let g:pymode_syntax_print_as_function = 1
+    let g:pymode_doc = 0
+    let g:pymode_virutalenv = 1
+    let g:pymode_rope_complete_on_dot = 0
+    let g:pymode_rope_completion_bind = '<tab>'
+    let g:pymode_rope_autoimport = 0
+    let g:pymode_rope_show_doc_bind = '<nop>'
 
     if getcwd() == $HOME
         let g:pymode = 0

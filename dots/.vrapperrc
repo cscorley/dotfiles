@@ -1,0 +1,126 @@
+" .vimrc
+" a bunch of garbage
+"
+" Preamble ---------------------------------------------------------------- {{{
+
+" }}}
+" Basic options ----------------------------------------------------------- {{{
+
+set encoding=utf-8
+set modelines=1
+set autoindent
+set showmode
+set showcmd
+set hidden
+set visualbell
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set number
+set laststatus=2
+set history=1000
+
+set list
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set shell=/bin/zsh
+set lazyredraw
+set matchtime=3
+set showbreak=↪\   " that extra space be important
+set splitbelow
+set splitright
+set fillchars=diff:⣿,vert:│
+set autowrite
+set autoread
+set shiftround
+set title
+set linebreak
+set dictionary=/usr/share/dict/words
+
+" Make the yank buffer copy into the clipboard
+set clipboard=unnamed
+
+" Time out on key codes but not mappings.
+" Basically this makes terminal Vim work sanely.
+set notimeout
+set ttimeout
+set ttimeoutlen=10
+
+" I still use a mouse to scroll.
+set mouse=a
+
+" }}}
+" Tabs, spaces, wrapping {{{
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4 " for expandtab
+set expandtab
+set wrap
+set textwidth=80
+set formatoptions=croqj12
+
+if version >= 703
+    set colorcolumn=+1
+endif
+
+" }}}
+
+set ignorecase
+set smartcase
+set incsearch
+set showmatch
+set hlsearch
+set gdefault
+
+set scrolloff=3
+set sidescroll=1
+set sidescrolloff=10
+
+
+noremap <leader><space> :noh<cr>:call clearmatches()<cr>
+
+" Made D behave
+nnoremap D d$
+
+" Made Y behave
+nnoremap Y y$
+
+" Don't move on *
+nnoremap * *<c-o>
+
+" Keep search matches in the middle of the window and pulse the line when moving
+" to them.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Same when jumping around
+nnoremap g; g;zz
+nnoremap g, g,zz
+
+" Open a Quickfix window for the last search.
+nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
+
+" Fix linewise visual selection of various text objects
+nnoremap VV V
+nnoremap Vit vitVkoj
+nnoremap Vat vatV
+nnoremap Vab vabV
+nnoremap VaB vaBV
+
+" }}}
+
+" }}}
+" Folding ----------------------------------------------------------------- {{{
+
+" Space to toggle folds.
+nnoremap <Space> za
+vnoremap <Space> za
+
+" Make zO recursively open whatever top level fold we're in, no matter where the
+" cursor happens to be.
+nnoremap zO zCzO
+
+" Use ,z to "focus" the current fold.
+nnoremap <leader>z zMzvzz
+
+" }}}

@@ -3,6 +3,7 @@
     email = cscorley@ua.edu
 [core]
     editor = vim -c vsplit -c'e SCRATCH' -c'setlocal bt=nofile ft=diff' -c'r!git diff --cached' -c 1
+    excludesfile = ~/.gitignore
 [diff]
     tool = vimdiff
     guitool = meld
