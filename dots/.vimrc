@@ -260,6 +260,15 @@ augroup ft_c
 augroup END
 
 " }}}
+" Rust {{{
+
+augroup ft_rust
+    au!
+    au FileType rust setlocal foldmethod=syntax
+    au FileType rust nnoremap <leader><leader> :!cargo run<cr>
+augroup END
+
+" }}}
 " Java {{{
 
 augroup ft_java
@@ -439,7 +448,6 @@ nnoremap <leader><leader> :make<cr>
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-
 " }}}
 " virtualenv {{{
 let g:virtualenv_directory='.'
@@ -479,8 +487,6 @@ let g:airline#extensions#tmuxline#enabled = 1
     let g:pymode_syntax_print_as_function = 1
     let g:pymode_doc = 0
     let g:pymode_virutalenv = 1
-    let g:pymode_rope_complete_on_dot = 0
-    let g:pymode_rope_completion_bind = '<tab>'
     let g:pymode_rope_autoimport = 0
     let g:pymode_rope_show_doc_bind = '<nop>'
 

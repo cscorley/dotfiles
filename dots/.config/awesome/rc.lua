@@ -11,6 +11,8 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 
+local cyclefocus = require('cyclefocus')
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -244,15 +246,23 @@ globalkeys = awful.util.table.join(
                 client.focus:raise()
             end
         end),
-
+--
+--    cyclefocus.key({ "Mod1", }, "Tab", 1, {
+--        -- cycle_filters as a function callback:
+--        -- cycle_filters = { function (c, source_c) return c.screen == source_c.screen end },
+--
+--        -- cycle_filters from the default filters:
+--        cycle_filters = { cyclefocus.filters.same_screen, cyclefocus.filters.common_tag },
+--    }),
+--
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
     awful.key({ "Control",           }, "Next", function () awful.util.spawn("mpc toggle") end),
-    awful.key({ modkey,           }, "z", function () awful.util.spawn("xlock -mode blank") end),
-    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
+    awful.key({ modkey,           }, "l", function () awful.util.spawn("xlock -mode blank") end),
+    --awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),

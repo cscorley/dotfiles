@@ -49,3 +49,15 @@
 [submodule "dots/.vim/bundle/vim-easy-align"]
 	path = dots/.vim/bundle/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align
+[submodule "dots/.config/awesome/cyclefocus"]
+	path = dots/.config/awesome/cyclefocus
+	url = https://github.com/blueyed/awesome-cyclefocus
+[submodule "dots/.vim/bundle/rust.vim"]
+	path = dots/.vim/bundle/rust.vim
+	url = https://github.com/rust-lang/rust.vim
+[submodule "dots/.vim/bundle/syntastic"]
+	path = dots/.vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic
+[submodule "dots/.vim/bundle/vim-commentary"]
+	path = dots/.vim/bundle/vim-commentary
+	url = https://github.com/tpope/vim-commentary
