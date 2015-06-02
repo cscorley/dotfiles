@@ -352,6 +352,7 @@ augroup ft_mail
 augroup END
 
 " }}}
+" }}}
 " Convenience mappings ---------------------------------------------------- {{{
 " Destroy infuriating keys {{{
 
@@ -443,6 +444,17 @@ nnoremap <leader><leader> :make<cr>
 " }}}
 " }}}
 " Plugin settings --------------------------------------------------------- {{{
+"
+" syntastic {{{
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" }}}
 " ctrlp{{{
 
 let g:ctrlp_clear_cache_on_exit = 0
