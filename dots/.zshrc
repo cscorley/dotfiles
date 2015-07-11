@@ -30,8 +30,11 @@ path=(
     )
 export SDL_AUDIODRIVER='pulse'
 export TERMINAL=$(which roxterm)
-export EDITOR=$(which vim)
+export EDITOR=$(which emacs)
 export BROWSER=$(which firefox)
+
+export SHELL="/bin/zsh"
+export ESHELL="/bin/zsh"
 
 if [[ ${TERM} == "xterm" ]]; then
     export TERM=xterm-256color
@@ -70,12 +73,17 @@ setopt correct
 # update index before every attempt to autocomplete
 zstyle ":completion:*:commands" rehash 1
 
+
 export BLOG_DIR="${HOME}/git/cscorley.github.io"
+
+
 nbconvert(){
     ipython nbconvert --config jekyll.py $@
     find ${BLOG_DIR}/notebooks/ -name '*.md' -exec mv {} ${BLOG_DIR}/_drafts/ \;
     cp $@ ${BLOG_DIR}/notebooks/
 }
+
+
 
 alias openscreen='screen -U -D -R'
 alias dirc='tmux new-session -A -s irc weechat'
@@ -83,6 +91,7 @@ alias dtorrent='tmux new-session -A -s torrent rtorrent'
 alias ffcastpulse='ffcast_filename=`date +ffcast-%Y%m%d-%H%M%S.mkv`; ffcast -s ffmpeg -f alsa -i pulse -vcodec libx264 ${ffcast_filename}'
 alias winboot='sudo grub-reboot 2 && sudo reboot'
 alias beep='paplay /usr/share/sounds/freedesktop/stereo/complete.oga'
+alias emacs='emacs -nw'
 
 alias addon-sdk="cd /opt/addon-sdk && source bin/activate; cd -"
 

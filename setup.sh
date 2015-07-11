@@ -36,8 +36,8 @@ if [ -d ~/.dotfiles ]; then
     echo "A ~/.dotfiles directory already exists. Not cloning repo."
     echo ">>> Please remove and re-run if necessary."
 else
-    echo "Cloning repo..."
-    /usr/bin/env git clone https://github.com/cscorley/dotfiles.git ~/.dotfiles
+    echo "Cloning main dotfile repo..."
+    git clone https://github.com/cscorley/dotfiles.git ~/.dotfiles
 fi
 
 echo "Installing..."
@@ -56,6 +56,9 @@ mkdir -p ~/.vim/tmp/{backup,swap,undo}
 
 echo "Setting up subrepos..."
 make install
+
+echo "Cloning some repos manually"
+git clone --recursive https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 echo "Copying files in manual"
 cp manual/mortaldouchebag.zsh-theme ~/.oh-my-zsh/themes/
