@@ -22,7 +22,6 @@
      emacs-lisp
      git
      ipython-notebook
-     markdown
      org
      pandoc
      python
@@ -34,7 +33,7 @@
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '(ethan-wspace)
+   dotspacemacs-additional-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -60,15 +59,18 @@ before layers configuration."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed.
-   dotspacemacs-startup-banner 'random
+   dotspacemacs-startup-banner 'official
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects'."
    dotspacemacs-startup-lists '(recents projects)
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(hemisu-light
-                         hemisu-dark)
+   dotspacemacs-themes '(
+                         espresso
+                         spacemacs-light
+                         spacemacs-dark
+                        )
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -153,6 +155,9 @@ before layers configuration."
    )
   ;; User initialization goes here
 
+  ;; https://github.com/syl20bnr/spacemacs/issues/192
+  (setq ad-redefinition-action 'accept)
+
   (custom-set-faces
    '(variable-pitch ((t (:family "Liberation Sans")))))
 
@@ -168,17 +173,21 @@ before layers configuration."
  layers configuration."
 
   ;; some junk
-  (setq delete-by-moving-to-trash nil
+  (setq
+        neo-show-hidden-files nil
+        delete-by-moving-to-trash nil
+        vc-follow-symlinks t
+        sentence-end-double-space t ;; THATS RIGHT FUCKBOIS
         explicit-shell-file-name "/bin/zsh")
-
-  ;; line numbers all the time!
-  (add-hook 'prog-mode-hook #'linum-mode)
 
   (defun start-term () (interactive) (term "/bin/zsh"))
   (evil-leader/set-key "at" 'start-term)
 
+  ;; line numbers all the time!
+  (add-hook 'prog-mode-hook #'linum-mode)
+
   ;; add a space if we're the terminal
-  (if window-system (setq linum-format "%4d") (setq linum-format "%4d "))
+  (if (not window-system) (setq linum-format "%4d "))
 
   ;; something similar to terminal mode, but a different enough to notice
   (if window-system (setq powerline-default-separator 'arrow-fade))
@@ -190,6 +199,7 @@ before layers configuration."
   (unless (file-exists-p (concat spacemacs-cache-directory "undo"))
     (make-directory (concat spacemacs-cache-directory "undo")))
 
+  ;; keybind stuff
   ;; esc quits
   (defun minibuffer-keyboard-quit ()
     "Abort recursive edit.
@@ -209,7 +219,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
   (global-set-key [escape] 'evil-exit-emacs-state)
 
-
   ;; Make evil-mode up/down operate in screen lines instead of logical lines
   (define-key evil-motion-state-map "j" 'evil-next-visual-line)
   (define-key evil-motion-state-map "k" 'evil-previous-visual-line)
@@ -219,7 +228,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
   ;; maybe copy and paste can work from a terminal, too.
   ;; https://hugoheden.wordpress.com/2009/03/08/copypaste-with-emacs-in-terminal/
-
   (setq x-select-enable-clipboard t)
 
   ;; If emacs is run in a terminal, the clipboard- functions have no
@@ -254,6 +262,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
       ;; http://www.mail-archive.com/help-gnu-emacs@gnu.org/msg03577.html
       ))
 
+
+  ;; utils
   (defun sum-column (start end)
     "Adds numbers in a rectangle"
     (interactive "r")
@@ -270,3 +280,26 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ahs-case-fold-search nil)
+ '(ahs-default-range (quote ahs-range-whole-buffer))
+ '(ahs-idle-interval 0.25)
+ '(ahs-idle-timer 0 t)
+ '(ahs-inhibit-face-list nil)
+ '(custom-safe-themes
+   (quote
+    ("2718ddd12fd4fbe5e8cbe965b53228e303a1a3ee2817037ff2e54b66b598fc72" "25e82a772786ff0bdbd123761c8427cc9b0d9be66702ca6a3161abb645480322" "c18172c869f8ad26927f43b558606298b249aa5b2512537faf3290327a87fbf0" default)))
+ '(ring-bell-function (quote ignore) t)
+ '(truncate-lines t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
+ '(variable-pitch ((t (:family "Liberation Sans")))))
