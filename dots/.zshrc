@@ -31,9 +31,9 @@ path=(
 export SDL_AUDIODRIVER='pulse'
 
 export TERMINAL=$(which roxterm)
-export ALTERNATE_EDITOR=$(which emacs)
-export EDITOR=$(which emacsclient)
-export VISUAL=$(which emacsclient)
+export ALTERNATE_EDITOR=$(which vim)
+export EDITOR=$(which vim)
+export VISUAL=$(which gvim)
 export BROWSER=$(which firefox)
 
 export SHELL="/bin/zsh"
@@ -81,7 +81,7 @@ setopt correct
 zstyle ":completion:*:commands" rehash 1
 
 
-export BLOG_DIR="${HOME}/git/cscorley.github.io"
+export BLOG_DIR="${HOME}/git/christop.club"
 
 
 nbconvert(){
@@ -95,22 +95,7 @@ nbconvert(){
 alias openscreen='screen -U -D -R'
 alias dirc='tmux new-session -A -s irc weechat'
 alias dtorrent='tmux new-session -A -s torrent rtorrent'
-alias ffcastpulse='ffcast_filename=`date +ffcast-%Y%m%d-%H%M%S.mkv`; ffcast -s ffmpeg -f alsa -i pulse -vcodec libx264 ${ffcast_filename}'
-alias winboot='sudo grub-reboot 2 && sudo reboot'
 alias beep='paplay /usr/share/sounds/freedesktop/stereo/complete.oga'
-
-# uh oh
-alias realemacs=$(which emacs)
-alias realvim=$(which vim)
-alias vim='realemacs -nw'
-
-emacsdisown(){
-    emacs ${@} &
-    disown
-}
-
-alias emacs='emacsdisown'
-
 alias addon-sdk="cd /opt/addon-sdk && source bin/activate; cd -"
 
 
@@ -139,12 +124,12 @@ runif Darwin alias sha1sum='shasum'
 #dirsize - finds directory sizes and lists them for the current directory
 dirsize ()
 {
-du -shx * .[a-zA-Z0-9_]* 2> /dev/null | \
-egrep '^ *[0-9.]*[MGK]' | sort -n > /tmp/list
-egrep '^ *[0-9.]*K' /tmp/list
-egrep '^ *[0-9.]*M' /tmp/list
-egrep '^ *[0-9.]*G' /tmp/list
-rm -rf /tmp/list
+    du -shx * .[a-zA-Z0-9_]* 2> /dev/null | \
+    egrep '^ *[0-9.]*[MGK]' | sort -n > /tmp/list
+    egrep '^ *[0-9.]*K' /tmp/list
+    egrep '^ *[0-9.]*M' /tmp/list
+    egrep '^ *[0-9.]*G' /tmp/list
+    rm -rf /tmp/list
 }
 
 extract () {
@@ -157,10 +142,11 @@ extract () {
             *.gz)       gunzip $1       ;;
             *.tar)      tar xf $1       ;;
             *.tbz2)     tar xjf $1      ;;
-            *.tbz)     tar xjf $1      ;;
+            *.tbz)      tar xjf $1      ;;
             *.tgz)      tar xzf $1      ;;
             *.zip)      unzip $1        ;;
             *.Z)        uncompress $1   ;;
+            *.7z)       7z x $1         ;;
             *)          echo "'$1' cannot be extracted via extract()" ;;
         esac
     else
