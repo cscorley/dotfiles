@@ -45,6 +45,7 @@ fi
 
 # virtual envvvvvvvvvvvvv
 export WORKON_HOME="${HOME}/envs/"
+export PROJECT_HOME="${HOME}/git/"
 source $(which virtualenvwrapper.sh)
 
 #export PYTHONDONTWRITEBYTECODE=true
@@ -97,6 +98,7 @@ alias dirc='tmux new-session -A -s irc weechat'
 alias dtorrent='tmux new-session -A -s torrent rtorrent'
 alias beep='paplay /usr/share/sounds/freedesktop/stereo/complete.oga'
 alias addon-sdk="cd /opt/addon-sdk && source bin/activate; cd -"
+alias pdflatex="pdflatex -halt-on-error"
 
 
 # alias sup='chruby ruby-1.9.3 && sup'

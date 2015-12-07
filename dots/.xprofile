@@ -3,6 +3,7 @@
 [ -f ~/.profileutil ] && . ~/.profileutil
 [ -f ~/.fehbg ] && sh ~/.fehbg
 [ -f ~/.Xmodmap ] && [ "$(hostname)" == "aquarius" ] && xmodmap ~/.Xmodmap
+#[ -f ~/.Xmodmap ] && [ "$(hostname)" == "twoism" ] && xmodmap ~/.Xmodmap
 
 runif Linux runonce start-pulseaudio-x11 &
 runif Linux runonce mpd ~/.mpd/mpd.conf && mpc stop && mpdas -d -c ~/.mpdasrc &

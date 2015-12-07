@@ -45,6 +45,7 @@ set shiftround
 set title
 set linebreak
 set dictionary=/usr/share/dict/words
+set joinspaces " HI HATERS
 
 " Make the yank buffer copy into the clipboard
 set clipboard=unnamed
@@ -287,7 +288,7 @@ augroup ft_pandoc
     au!
 
     " Wrap the text into paragraphs and turn on spell checking
-    au FileType pandoc setlocal spell formatoptions+=t
+    au FileType pandoc setlocal joinspaces spell formatoptions+=t formatoptions-=j
 
     let g:pandoc#modules#disabled = ['chdir']
     let g:pandoc#syntax#conceal#blacklist = ['subscript', 'superscript', 'ellipses']
@@ -346,7 +347,7 @@ augroup END
 augroup ft_mail
     au!
 
-    au Filetype mail setlocal spell textwidth=78
+    au Filetype mail setlocal spell joinspaces textwidth=78
     au FileType mail map <F8> :%g/^> >/d<CR>
 
 augroup END
@@ -462,7 +463,8 @@ let g:localvimrc_persistent=1
 " }}}
 " NERDTree {{{
 
-nnoremap <F10> :NERDTreeToggle<cr>
+nnoremap ft :NERDTreeToggle<cr>
+nnoremap ff :NERDTreeFocus<cr>
 
 let NERDChristmasTree=1
 let NERDTreeIgnore=['\.pyc$'] " blah
