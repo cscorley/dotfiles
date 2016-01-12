@@ -380,7 +380,8 @@ awful.rules.rules = {
     { rule = { class = "net-sf-jabref-JabRefMain" },
       properties = { floating = true} },
     -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
+     --{ rule = { class = "Firefox" },
+      --properties = { floating = false, ontop = false } },
     --   properties = { tag = tags[1][2] } },
 }
 -- }}}

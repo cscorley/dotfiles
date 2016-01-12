@@ -58,3 +58,6 @@
 [submodule "dots/.vim/bundle/vim-commentary"]
 	path = dots/.vim/bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary
+[submodule "dots/.vim/bundle/vim-racer"]
+	path = dots/.vim/bundle/vim-racer
+	url = https://github.com/racer-rust/vim-racer

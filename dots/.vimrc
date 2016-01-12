@@ -266,7 +266,7 @@ augroup END
 augroup ft_rust
     au!
     au FileType rust setlocal foldmethod=syntax
-    au FileType rust nnoremap <leader><leader> :!cargo run<cr>
+    au FileType rust nnoremap <leader><leader> :!cargo test<cr>
 augroup END
 
 " }}}
