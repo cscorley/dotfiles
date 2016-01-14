@@ -58,7 +58,7 @@ echo "Setting up subrepos..."
 make install
 
 echo "Cloning some repos manually"
-git clone --recursive https://github.com/syl20bnr/spacemacs ~/.emacs.d
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 echo "Copying files in manual"
 cp manual/mortaldouchebag.zsh-theme ~/.oh-my-zsh/themes/

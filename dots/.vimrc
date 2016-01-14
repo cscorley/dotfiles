@@ -3,13 +3,54 @@
 "
 " Preamble ---------------------------------------------------------------- {{{
 
-runtime bundle/vim-pathogen/autoload/pathogen.vim
+set nocompatible
 filetype on " fix bad exit status with OSX vim
 filetype off
-call pathogen#infect()
-call pathogen#helptags()
-filetype plugin indent on
-set nocompatible
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'airblade/vim-gitgutter'
+Plugin 'bling/vim-airline'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'embear/vim-localvimrc'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'kien/ctrlp.vim'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'rust-lang/rust.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tomasr/molokai'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+"Plugin 'klen/python-mode'
+"Plugin 'racer-rust/vim-racer'
+
+
+" plugin from http://vim-scripts.org/vim/scripts.html
+"Plugin 'L9'
+" Git plugin not hosted on GitHub
+"Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Avoid a name conflict with L9
+"Plugin 'user/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 set runtimepath^=bundle/ctrlp.vim
 
@@ -130,17 +171,12 @@ if ! has("gui_running")
     set t_Co=256
 endif
 
-if $BASE16_SHADE == "dark"
-    set background=dark
-elseif $BASE16_SHADE == "light"
-    set background=light
-endif
-
 let g:base16_shell_path="~/.config/base16/output/shell/"
 
 let base16colorspace=256  " Access colors present in 256 colorspace
 "colorscheme molokai
-colorscheme base16-$BASE16_SCHEME
+colorscheme base16-summerfruit
+set background=light
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -267,6 +303,7 @@ augroup ft_rust
     au!
     au FileType rust setlocal foldmethod=syntax
     au FileType rust nnoremap <leader><leader> :!cargo test<cr>
+    au FileType rust setlocal hidden
 augroup END
 
 " }}}

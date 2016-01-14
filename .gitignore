@@ -5,6 +5,7 @@
 tags/
 dots/.vim/.netrwhist
 dots/.vim/tmp
+dots/.vim/bundle
 
 dots/.mpd/*
 !dots/.mpd/mpd.conf
