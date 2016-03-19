@@ -21,6 +21,7 @@ typeset -U path
 path=(
     ~/bin
     ~/.cabal/bin
+    ~/.cargo/bin
     $(ruby -rubygems -e "puts Gem.user_dir")/bin
     /usr/local/bin
     ${JAVA_HOME}/bin
@@ -28,6 +29,8 @@ path=(
     /usr/local/texlive/2013/bin/x86_64-darwin
     $path
     )
+
+export RUST_SRC_PATH="${HOME}/.rust/src"
 export SDL_AUDIODRIVER='pulse'
 
 export TERMINAL=$(which roxterm)

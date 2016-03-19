@@ -302,7 +302,7 @@ augroup END
 augroup ft_rust
     au!
     au FileType rust setlocal foldmethod=syntax
-    au FileType rust nnoremap <leader><leader> :!cargo test<cr>
+    au FileType rust nnoremap <leader><leader> :!clear && bash -c 'cargo test'<cr>
     au FileType rust setlocal hidden
 augroup END
 
