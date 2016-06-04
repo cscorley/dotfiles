@@ -2,18 +2,18 @@
 
 [ -f ~/.profileutil ] && . ~/.profileutil
 [ -f ~/.fehbg ] && sh ~/.fehbg
-[ -f ~/.Xmodmap ] && [ "$(hostname)" == "aquarius" ] && xmodmap ~/.Xmodmap
-#[ -f ~/.Xmodmap ] && [ "$(hostname)" == "twoism" ] && xmodmap ~/.Xmodmap
 
-runif Linux runonce start-pulseaudio-x11 &
-runif Linux runonce mpd ~/.mpd/mpd.conf && mpc stop && mpdas -d -c ~/.mpdasrc &
 
-runif Linux runonce clipit &
-runif Linux runonce syncthing-gtk &
-runif Linux runonce xflux -z 27606
+#runifos Linux runonce start-pulseaudio-x11 &
+#runifos Linux runonce clipit &
+#runifos Linux runonce syncthing-gtk &
+#runifos Linux runonce xflux -z 37402
 
-runif Linux xset m 1 0 &
-runif Linux xset r rate 200 40 &
+runifhost twoism runonce mpd ~/.mpd/mpd.conf && mpc stop && mpdas -d -c ~/.mpdasrc &
+runifhost twoism runonce tmux new-session -d -s torrent rtorrent &
+
+runifos Linux xset m 1 0 &
+runifos Linux xset r rate 200 40 &
 
 function sens(){
     for each in `xinput --list | grep -E 'Razer' | grep -E 'pointer' | sed -e 's/^.*id=//g' -e 's/\t.*$//g'`; do
@@ -21,11 +21,12 @@ function sens(){
         xinput --set-prop $each $propid 5
     done
 }
-runif Linux sens
 
-runif Linux xrandr --output HDMI-0 i --right-of DP-1 #--panning 1920x1080+0+0
-sleep 1
-runif Linux xrandr --output DP-1 --left-of HDMI-0 #--panning 1920x1080+1920+0
-sleep 1
-runif Linux xrandr --output HDMI-0 --primary
-sleep 1
+#runifos Linux sens
+#
+#runifos Linux xrandr --output HDMI-0 i --right-of DP-1 #--panning 1920x1080+0+0
+#sleep 1
+#runifos Linux xrandr --output DP-1 --left-of HDMI-0 #--panning 1920x1080+1920+0
+#sleep 1
+#runifos Linux xrandr --output HDMI-0 --primary
+#sleep 1

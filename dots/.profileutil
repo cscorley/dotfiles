@@ -10,12 +10,18 @@ runonce () {
     fi
 }
 
-runif () {
+runifos() {
     os=`uname -s`
     cmd=(${@})
-#    echo "'${1}' '${os}' '${cmd}'"
     if [ ${1} = ${os} ]; then
         ${cmd[@]:1}
     fi
 }
 
+runifhost () {
+    os=`hostname`
+    cmd=(${@})
+    if [ ${1} = ${os} ]; then
+        ${cmd[@]:1}
+    fi
+}

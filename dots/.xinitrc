@@ -26,6 +26,9 @@ case $1 in
     xmonad)
         exec xmonad
         ;;
+    wtftw)
+        exec wtftw
+        ;;
     *)
         exec awesome
         ;;

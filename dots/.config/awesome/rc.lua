@@ -44,9 +44,9 @@ end
 beautiful.init("/home/cscorley/.config/awesome/themes/blueish/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = os.getenv("TERMINAL") or "xterm"
-web_browser = os.getenv("BROWSER") or "chromium"
-editor = os.getenv("EDITOR") or "nano"
+terminal = os.getenv("TERMINAL") or "roxterm"
+web_browser = os.getenv("BROWSER") or "firefox"
+editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -380,8 +380,8 @@ awful.rules.rules = {
     { rule = { class = "net-sf-jabref-JabRefMain" },
       properties = { floating = true} },
     -- Set Firefox to always map on tags number 2 of screen 1.
-     --{ rule = { class = "Firefox" },
-      --properties = { floating = false, ontop = false } },
+     { rule = { class = "Firefox" },
+      properties = { floating = false, ontop = false } },
     --   properties = { tag = tags[1][2] } },
 }
 -- }}}

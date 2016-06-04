@@ -33,6 +33,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'valloric/YouCompleteMe'
 "Plugin 'klen/python-mode'
 "Plugin 'racer-rust/vim-racer'
 
@@ -77,7 +78,7 @@ set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set shell=/bin/zsh
 set lazyredraw
 set matchtime=3
-set showbreak=↪\   " that extra space be important
+"set showbreak=↪\   " that extra space be important
 set splitbelow
 set splitright
 set fillchars=diff:⣿,vert:│
@@ -544,6 +545,12 @@ vmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
 nmap <Leader>a <Plug>(EasyAlign)
+
+" }}}
+
+" YouCompleteMe {{{
+
+let g:ycm_rust_src_path = '/usr/src/rust/src'
 
 " }}}
 
