@@ -121,10 +121,10 @@ alias cp='cp -v'
 alias grep='grep --color=auto'
 alias which='which -a'
 
-runif Linux alias open='xdg-open'
-runif Linux alias ls='ls -v --color=auto'
-runif Darwin alias ls='ls -vG' # --color=auto'
-runif Darwin alias sha1sum='shasum'
+runifos Linux alias open='xdg-open'
+runifos Linux alias ls='ls -v --color=auto'
+runifos Darwin alias ls='ls -vG' # --color=auto'
+runifos Darwin alias sha1sum='shasum'
 
 #dirsize - finds directory sizes and lists them for the current directory
 dirsize ()
