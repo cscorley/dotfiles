@@ -17,3 +17,4 @@ update:
 	git submodule foreach git checkout master
 	git submodule foreach git pull origin master
 	vim +PluginInstall +qall
+	cd ~/.vim/bundle/YouCompleteMe/ && ./install.py --all
