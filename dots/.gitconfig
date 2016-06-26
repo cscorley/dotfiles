@@ -49,5 +49,3 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
-[remote "origin"]
-	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*

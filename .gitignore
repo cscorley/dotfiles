@@ -21,5 +21,4 @@ dots/.sup/*
 !dots/.sup/config.yaml
 !dots/.sup/hooks
 
-dots/.ipython/profile_default/history.sqlite
-dots/.ipython/profile_default/security/
+.ycmlast

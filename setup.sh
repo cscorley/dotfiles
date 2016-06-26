@@ -1,7 +1,6 @@
 #!/bin/bash
 #set -e
 
-# I haven't tested any of these functions. No fucks given.
 function symlink_interactive(){
     for file in `ls -A ${PWD}/dots`; do
         if [[ -d ~/${file} ]] ; then
@@ -24,7 +23,7 @@ function symlink_force(){
     for file in `ls -A ${PWD}/dots`; do
         if [[ -d ~/${file} ]] ; then
             if [[ ! -L ~/${file} ]]; then
-                echo "Moving ~/${file} to ~/${file}.backup"
+                echo "-> Moving ~/${file} to ~/${file}.backup"
                 mv -f ~/${file} ~/${file}.backup
             fi
         fi
@@ -33,43 +32,43 @@ function symlink_force(){
 }
 
 if [ -d ~/.dotfiles ]; then
-    echo "A ~/.dotfiles directory already exists. Not cloning repo."
-    echo ">>> Please remove and re-run if necessary."
+    echo "!> A ~/.dotfiles directory already exists. Not cloning repo."
+    echo "!> Please remove and re-run if necessary."
 else
-    echo "Cloning main dotfile repo..."
+    echo "-> Cloning main dotfile repo..."
     git clone https://github.com/cscorley/dotfiles.git ~/.dotfiles
 fi
 
-echo "Installing..."
-
+echo "-> Installing..."
 cd ~/.dotfiles
 
 if [ "${1}" == "-f" ]; then
-    echo "Forcing symlink creation. Godspeed!"
+    echo "-> Forcing symlink creation. Godspeed!"
     symlink_force
 else
-    echo "Interactively symlinking ~/.dotfiles..."
+    echo "-> Interactively symlinking ~/.dotfiles..."
     symlink_interactive
 fi
 
 mkdir -p ~/.vim/tmp/{backup,swap,undo}
 
-echo "Setting up subrepos..."
-make install
-
-echo "Cloning some repos manually"
+echo "-> Cloning repos"
 git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
 git clone https://github.com/chriskempson/base16-shell ~/.config/base16-shell
 git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh
 git clone https://github.com/mozilla/rust ~/.rust
+# Adding a repository? Don't forget to include it in update.sh!
 
-echo "Copying files in 'manual' directory"
+echo "-> Copying files from 'manual' directory"
 cp manual/mortaldouchebag.zsh-theme ~/.oh-my-zsh/themes/
 
-echo "Installing powerline font"
+echo "-> Installing powerline font"
 mkdir -p ~/.fonts/
 cd ~/.fonts
 curl -O https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
 fc-cache -vf ~/.fonts/
 
-echo "Done."
+echo "-> Running update script to install Vundle plugins"
+./update.sh
+
+echo "-> Done."
