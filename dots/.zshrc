@@ -168,7 +168,6 @@ extract () {
 typeset -A key
 
 key[Home]=${terminfo[khome]}
-
 key[End]=${terminfo[kend]}
 key[Insert]=${terminfo[kich1]}
 key[Delete]=${terminfo[kdch1]}
@@ -178,6 +177,7 @@ key[Left]=${terminfo[kcub1]}
 key[Right]=${terminfo[kcuf1]}
 key[PageUp]=${terminfo[kpp]}
 key[PageDown]=${terminfo[knp]}
+
 
 # setup key accordingly
 [[ -n "${key[Home]}"     ]]  && bindkey  "${key[Home]}"     beginning-of-line
@@ -206,3 +206,6 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     zle -N zle-line-init
     zle -N zle-line-finish
 fi
+
+[[ -n "${TMUX}" ]] && bindkey '\e[1~' beginning-of-line
+[[ -n "${TMUX}" ]] && bindkey '\e[4~' end-of-line

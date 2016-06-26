@@ -1,8 +1,14 @@
 #!/bin/sh
 
+
 [ -f ~/.profileutil ] && . ~/.profileutil
 [ -f ~/.fehbg ] && sh ~/.fehbg
 
+runifhost transcanadahighway VBoxClient-all &
+runifhost transcanadahighway clipit &
+
+#runifhost transcanadahighway xmodmap ~/.Xmodmap-transcanadahighway &
+#runifhost aquarius xmodmap ~/.Xmodmap-aquarius &
 
 #runifos Linux runonce start-pulseaudio-x11 &
 #runifos Linux runonce clipit &

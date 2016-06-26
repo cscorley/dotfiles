@@ -19,9 +19,9 @@ runifos() {
 }
 
 runifhost () {
-    os=`hostname`
+    hostname=`hostname`
     cmd=(${@})
-    if [ ${1} = ${os} ]; then
+    if [ ${1} = ${hostname} ]; then
         ${cmd[@]:1}
     fi
 }
