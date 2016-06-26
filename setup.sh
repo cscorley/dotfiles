@@ -58,13 +58,13 @@ echo "Setting up subrepos..."
 make install
 
 echo "Cloning some repos manually"
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
+git clone https://github.com/chriskempson/base16-shell ~/.config/base16-shell
+git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh
+git clone https://github.com/mozilla/rust ~/.rust
 
-echo "Copying files in manual"
+echo "Copying files in 'manual' directory"
 cp manual/mortaldouchebag.zsh-theme ~/.oh-my-zsh/themes/
-
-echo "Building base16 themes"
-cd ~/.config/base16/ && ./base16 &> /dev/null
 
 echo "Installing powerline font"
 mkdir -p ~/.fonts/

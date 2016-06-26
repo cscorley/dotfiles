@@ -14,7 +14,7 @@ plugins=(
 # Base16 Shell
 export BASE16_SCHEME="summerfruit"
 export BASE16_SHADE="light"
-BASE16_SHELL="$HOME/.config/base16/output/shell/base16-$BASE16_SCHEME.$BASE16_SHADE.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.$BASE16_SHADE.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
 typeset -U path
@@ -56,7 +56,6 @@ source $(which virtualenvwrapper.sh)
 #eval "$(rbenv init -)"
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.autoenv/activate.sh
 if [ -f /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
     source /usr/local/opt/chruby/share/chruby/chruby.sh
     source /usr/local/opt/chruby/share/chruby/auto.sh
@@ -210,8 +209,9 @@ fi
 [[ -n "${TMUX}" ]] && bindkey '\e[1~' beginning-of-line
 [[ -n "${TMUX}" ]] && bindkey '\e[4~' end-of-line
 
-PATH="/home/cscorley/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/cscorley/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/cscorley/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/cscorley/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/cscorley/perl5"; export PERL_MM_OPT;
+# cpanmius junk
+PATH="${HOME}/.perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="${HOME}/.perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="${HOME}/.perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"${HOME}/.perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=${HOME}/.perl5"; export PERL_MM_OPT;

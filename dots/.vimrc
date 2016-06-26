@@ -19,8 +19,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'airblade/vim-gitgutter'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'chriskempson/base16-vim'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'embear/vim-localvimrc'
 Plugin 'junegunn/vim-easy-align'
@@ -31,9 +30,11 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
+Plugin 'valloric/YouCompleteMe'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'valloric/YouCompleteMe'
 "Plugin 'klen/python-mode'
 "Plugin 'racer-rust/vim-racer'
 
@@ -173,7 +174,7 @@ if ! has("gui_running")
     set t_Co=256
 endif
 
-let g:base16_shell_path="~/.config/base16/output/shell/"
+let g:base16_shell_path="~/.config/base16-shell/"
 
 let base16colorspace=256  " Access colors present in 256 colorspace
 "colorscheme molokai
