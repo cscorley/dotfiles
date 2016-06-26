@@ -10,3 +10,6 @@
 [submodule "dots/.config/awesome/cyclefocus"]
 	path = dots/.config/awesome/cyclefocus
 	url = https://github.com/blueyed/awesome-cyclefocus
+[submodule "dots/.rust"]
+	path = dots/.rust
+	url = https://github.com/mozilla/rust
