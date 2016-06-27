@@ -52,12 +52,9 @@ fi
 
 mkdir -p ~/.vim/tmp/{backup,swap,undo}
 
-echo "-> Cloning repos"
-git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
-git clone https://github.com/chriskempson/base16-shell ~/.config/base16-shell
-git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh
-git clone https://github.com/mozilla/rust ~/.rust
-# Adding a repository? Don't forget to include it in update.sh!
+echo "-> Running update script to clone git repos and install Vundle plugins"
+
+./update.sh
 
 echo "-> Copying files from 'manual' directory"
 cp manual/mortaldouchebag.zsh-theme ~/.oh-my-zsh/themes/
@@ -67,8 +64,5 @@ mkdir -p ~/.fonts/
 cd ~/.fonts
 curl -O https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
 fc-cache -vf ~/.fonts/
-
-echo "-> Running update script to install Vundle plugins"
-./update.sh
 
 echo "-> Done."

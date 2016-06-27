@@ -1,12 +1,21 @@
 #!/bin/bash
 
-echo "=> Updating git repos"
+echo "=> Upcloning git repos"
 
-cd ~/.vim/bundle/Vundle.vim && git pull 
-cd ~/.config/base16-shell && git pull
-cd ~/.oh-my-zsh && git pull
-cd ~/.rust && git pull
+function upclone {
+    if [ -d ${2} ]; then
+        echo "=> Directory ${2} exists, updating."
+        cd ${2} && git pull
+    else
+        echo "=> Directory ${2} does not exist, cloning."
+        git clone ${1} ${2}
+    fi
+}
 
+upclone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
+upclone https://github.com/chriskempson/base16-shell ~/.config/base16-shell
+upclone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh
+upclone https://github.com/mozilla/rust ~/.rust
 
 cd ~/.dotfiles
 
