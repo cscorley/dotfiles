@@ -30,11 +30,11 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
-Plugin 'valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'Valloric/YouCompleteMe'
 "Plugin 'klen/python-mode'
 "Plugin 'racer-rust/vim-racer'
 
@@ -174,11 +174,18 @@ if ! has("gui_running")
     set t_Co=256
 endif
 
-let g:base16_shell_path="~/.config/base16-shell/"
 
-let base16colorspace=256  " Access colors present in 256 colorspace
-"colorscheme molokai
-colorscheme base16-summerfruit
+if isdirectory(expand("~/.config/base16-shell/"))
+	let g:base16_shell_path=expand("~/.config/base16-shell/")
+endif
+
+if isdirectory(expand("~/.vim/bundle/base16-vim/"))
+	let base16colorspace=256  " Access colors present in 256 colorspace
+	colorscheme base16-summerfruit
+else
+    colorscheme default
+endif
+
 set background=light
 
 " Highlight VCS conflict markers

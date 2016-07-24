@@ -19,6 +19,12 @@ function symlink_interactive(){
     done
 }
 
+function copy_interactive(){
+    for file in `ls -A ${PWD}/dots`; do
+        cp -viR "${PWD}/dots/${file}" "${HOME}/${file}"
+    done
+}
+
 echo "-----> SETUP! --------------------------------------------------"
 echo "----->        This will interactively setup files from dots into ${HOME}."
 echo "----->        To skip interactivity, pipe 'yes' into this setup."
@@ -41,7 +47,7 @@ cd ${HOME}/.dotfiles
 
 if [ "${os}" == "Cygwin" ]; then
     echo "-> Interactively copying dotfiles instead of symlinking..."
-    cp -ivR dots/.* ${HOME}
+    copy_interactive 
 else
     echo "-> Interactively symlinking dotfiles..."
     symlink_interactive
@@ -51,10 +57,10 @@ mkdir -p ${HOME}/.vim/tmp/{backup,swap,undo}
 
 echo "-> Running update script to clone git repos and install Vundle plugins"
 
-./update.sh
+${PWD}/update.sh
 
 echo "-> Copying files from 'manual' directory"
-cp manual/mortaldouchebag.zsh-theme ${HOME}/.oh-my-zsh/themes/
+cp ${PWD}/manual/mortaldouchebag.zsh-theme ${HOME}/.oh-my-zsh/themes/
 
 if [ "${os}" == "Linux" ]; then
     echo "-> Installing powerline font"
@@ -66,3 +72,4 @@ if [ "${os}" == "Linux" ]; then
 fi
 
 echo "-> Done."
+echo "!> To update in the future, run './update.sh'"
