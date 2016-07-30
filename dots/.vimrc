@@ -486,8 +486,7 @@ command! -bang WQ wq<bang>
 set pastetoggle=<F9>
 
 " Make for the lazy (me)
-nnoremap <F8> :make<cr>
-nnoremap <leader><leader> :make<cr>
+nnoremap <leader><leader> :make!<cr>
 
 " }}}
 " }}}

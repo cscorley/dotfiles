@@ -87,7 +87,7 @@ zstyle ":completion:*:commands" rehash 1
 export BLOG_DIR="${HOME}/git/christop.club"
 
 
-nbconvert(){
+function nbconvert(){
     ipython nbconvert --config jekyll.py $@
     find ${BLOG_DIR}/notebooks/ -name '*.md' -exec mv {} ${BLOG_DIR}/_drafts/ \;
     cp $@ ${BLOG_DIR}/notebooks/
@@ -102,6 +102,12 @@ alias beep='paplay /usr/share/sounds/freedesktop/stereo/complete.oga'
 alias addon-sdk="cd /opt/addon-sdk && source bin/activate; cd -"
 alias pdflatex="pdflatex -halt-on-error"
 
+function smv(){
+    scp ${@} || exit
+    for each in ${@}; do
+        [ -f ${each} ] && rm ${each}
+    done
+}
 
 # alias sup='chruby ruby-1.9.3 && sup'
 
