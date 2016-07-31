@@ -2,7 +2,7 @@
 
 echo "=> Upcloning git repos"
 
-function upclone {
+upclone () {
     if [ -d ${2} ]; then
         echo "=> Directory ${2} exists, updating."
         cd ${2} && git pull

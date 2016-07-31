@@ -1,7 +1,7 @@
 #!/bin/bash
 #set -e
 
-function symlink_interactive {
+symlink_interactive () {
     for file in `ls -A ${PWD}/dots`; do
         if [[ -d ${HOME}/${file} ]] ; then
             if [[ -L ${HOME}/${file} ]] ; then
@@ -19,7 +19,7 @@ function symlink_interactive {
     done
 }
 
-function copy_interactive {
+copy_interactive () {
     for file in `ls -A ${PWD}/dots`; do
         cp -viR "${PWD}/dots/${file}" "${HOME}/${file}"
     done
