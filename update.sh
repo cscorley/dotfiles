@@ -30,7 +30,7 @@ ycmlast=`[ -e ${lastfile} ] && cat ${lastfile}`
 git --git-dir=${ycmdir}/.git rev-list --max-count=1 HEAD > ${lastfile}
 ycmhead=`cat ${lastfile}`
 
-if [[ "${ycmhead}" == "${ycmlast}" ]]; then
+if [ "${ycmhead}" == "${ycmlast}" ]; then
     echo "    YouCompleteMe should still be up to date, not compiling!"
     echo "    To compile again manually:"
     echo "        cd ${HOME}/.vim/bundle/YouCompleteMe/ && ./install.py --all"

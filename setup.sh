@@ -3,14 +3,14 @@
 
 symlink_interactive () {
     for file in `ls -A ${PWD}/dots`; do
-        if [[ -d ${HOME}/${file} ]] ; then
-            if [[ -L ${HOME}/${file} ]] ; then
+        if [ -d ${HOME}/${file} ] ; then
+            if [ -L ${HOME}/${file} ] ; then
                 rm -i ${HOME}/${file}
             else
                 mv -i ${HOME}/${file} ${HOME}/${file}.backup
             fi
 
-            if [[ ! -e ${HOME}/${file} ]] ; then
+            if [ ! -e ${HOME}/${file} ] ; then
                 ln -si "${PWD}/dots/${file}" ${HOME}/${file}
             fi
         else
