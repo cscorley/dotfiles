@@ -175,8 +175,8 @@ if ! has("gui_running")
 endif
 
 
-if isdirectory(expand("~/.config/base16-shell/"))
-	let g:base16_shell_path=expand("~/.config/base16-shell/")
+if isdirectory(expand("~/.config/base16-shell/scripts"))
+	let g:base16_shell_path=expand("~/.config/base16-shell/scripts")
 endif
 
 if isdirectory(expand("~/.vim/bundle/base16-vim/"))
