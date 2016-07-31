@@ -55,10 +55,6 @@ fi
 
 mkdir -p ${HOME}/.vim/tmp/{backup,swap,undo}
 
-echo "-> Running update script to clone git repos and install Vundle plugins"
-
-${PWD}/update.sh
-
 echo "-> Copying files from 'manual' directory"
 cp ${PWD}/manual/mortaldouchebag.zsh-theme ${HOME}/.oh-my-zsh/themes/
 
@@ -70,6 +66,10 @@ if [ "${os}" == "Linux" ]; then
 
     fc-cache -vf ${HOME}/.fonts/
 fi
+
+echo "-> Running update script to clone git repos and install Vundle plugins"
+
+${PWD}/update.sh
 
 echo "-> Done."
 echo "!> To update in the future, run './update.sh'"
