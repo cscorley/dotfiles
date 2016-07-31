@@ -25,7 +25,7 @@ echo "=> Running VundleInstall"
 vim +PluginInstall +qall
 
 echo "=> Updating YouCompleteMe"
-lastfile="${PWD}/.ycmlast"
+lastfile="${ycmdir}/ycmlast"
 ycmlast=`[ -e ${lastfile} ] && cat ${lastfile}`
 git --git-dir=${ycmdir}/.git rev-list --max-count=1 HEAD > ${lastfile}
 ycmhead=`cat ${lastfile}`
