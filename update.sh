@@ -35,5 +35,6 @@ if [ "${ycmhead}" == "${ycmlast}" ]; then
     echo "    To compile again manually:"
     echo "        cd ${HOME}/.vim/bundle/YouCompleteMe/ && ./install.py --all"
 else
-    cd ${HOME}/.vim/bundle/YouCompleteMe/ && ./install.py --all
+    # runs installer, if it fails we will remove the lastfile
+    cd ${HOME}/.vim/bundle/YouCompleteMe/ && ./install.py --all || rm ${lastfile}
 fi
