@@ -37,6 +37,9 @@ echo "!> Found OS: ${os}"
 if [ -d ${HOME}/.dotfiles ]; then
     echo "!> A '${HOME}/.dotfiles' directory already exists. Not cloning repo."
     echo "!> Please remove and re-run if necessary."
+    echo "-> Updating git"
+    cd ${HOME}/.dotfiles;
+    git pull
 else
     echo "-> Cloning main dotfile repo..."
     git clone https://github.com/cscorley/dotfiles.git ${HOME}/.dotfiles
