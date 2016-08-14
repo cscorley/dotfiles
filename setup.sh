@@ -62,7 +62,7 @@ ${HOME}/.dotfiles/update.sh || true
 echo "-> Copying files from 'manual' directory"
 cp ${HOME}/.dotfiles/manual/mortaldouchebag.zsh-theme ${HOME}/.oh-my-zsh/themes/
 
-if [ "${os}" == "Linux" ]; then
+if [ "${os}" == "Linux" ] || [ "${os}" == "GNU/Linux" ]; then
     echo "-> Installing powerline font"
     mkdir -p ${HOME}/.fonts/
     cd ${HOME}/.fonts
