@@ -2,7 +2,7 @@
 #set -e
 
 symlink_interactive () {
-    for file in `ls -A ${PWD}/dots`; do
+    for file in `ls -A`; do
         if [ -d ${HOME}/${file} ] ; then
             if [ -L ${HOME}/${file} ] ; then
                 rm -i ${HOME}/${file}
@@ -11,18 +11,18 @@ symlink_interactive () {
             fi
 
             if [ ! -e ${HOME}/${file} ] ; then
-                ln -si "${PWD}/dots/${file}" ${HOME}/${file}
+                ln -si "${PWD}/${file}" ${HOME}/${file}
             fi
         else
-            ln -si "${PWD}/dots/${file}" ${HOME}/${file}
+            ln -si "${PWD}/${file}" ${HOME}/${file}
         fi
     done
 }
 
-copy_interactive () {
-    for file in `ls -A ${PWD}/dots`; do
-        cp -viR "${PWD}/dots/${file}" "${HOME}/${file}"
-    done
+copy_cpio (){
+    echo "Press the any key to begin."
+    read okay
+    find . | cpio --unconditional --link --pass-through --verbose --make-directories --preserve-modification-time ${HOME}
 }
 
 echo "-----> SETUP! --------------------------------------------------"
@@ -43,11 +43,11 @@ else
 fi
 
 echo "-> Installing..."
-cd ${HOME}/.dotfiles
+cd ${HOME}/.dotfiles/dots/
 
 if [ "${os}" == "Cygwin" ]; then
-    echo "-> Interactively copying dotfiles instead of symlinking..."
-    copy_interactive 
+    echo "-> Copying dotfiles instead of symlinking..."
+    copy_cpio
 else
     echo "-> Interactively symlinking dotfiles..."
     symlink_interactive

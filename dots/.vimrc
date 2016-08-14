@@ -260,7 +260,6 @@ noremap <C-Left> :bp<CR>
 noremap <C-Right> :bn<CR>
 noremap ` <C-^>
 
-
 " }}}
 
 " }}}
