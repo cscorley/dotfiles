@@ -14,7 +14,7 @@ plugins=(
 # Base16 Shell
 export BASE16_SCHEME="summerfruit"
 export BASE16_SHADE="light"
-BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.$BASE16_SHADE.sh"
+BASE16_SHELL="${HOME}/.config/base16-shell/scripts/base16-${BASE16_SCHEME}-${BASE16_SHADE}.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
 typeset -U path
