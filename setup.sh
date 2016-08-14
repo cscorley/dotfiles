@@ -31,7 +31,7 @@ echo "----->        To skip interactivity, pipe 'yes' into this setup."
 echo "-----> SETUP! --------------------------------------------------"
 echo ""
 
-os=`uname -o`
+os=`uname -s`
 echo "!> Found OS: ${os}"
 
 if [ -d ${HOME}/.dotfiles ]; then
