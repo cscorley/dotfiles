@@ -48,7 +48,7 @@ fi
 echo "-> Installing..."
 cd ${HOME}/.dotfiles/dots/
 
-if [ "${os}" == "Cygwin" ]; then
+if [ "${os}" == "Cygwin" ] || [ "${os}" == "CYGWIN_NT-10.0" ]; then
     echo "-> Copying dotfiles instead of symlinking..."
     copy_cpio
 else
