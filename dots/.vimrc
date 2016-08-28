@@ -105,7 +105,7 @@ set ttimeoutlen=10
 set backupskip=/tmp/*,/private/tmp/*"
 
 " I still use a mouse to scroll.
-set mouse=a
+set mouse=n
 
 " Save when losing focus
 au FocusLost * :wa
