@@ -27,7 +27,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
@@ -93,7 +93,8 @@ set dictionary=/usr/share/dict/words
 set joinspaces " HI HATERS
 
 " Make the yank buffer copy into the clipboard
-set clipboard=unnamed
+set clipboard+=unnamed
+set clipboard+=unnamedplus
 
 " Time out on key codes but not mappings.
 " Basically this makes terminal Vim work sanely.
@@ -105,7 +106,7 @@ set ttimeoutlen=10
 set backupskip=/tmp/*,/private/tmp/*"
 
 " I still use a mouse to scroll.
-set mouse=n
+set mouse=a
 
 " Save when losing focus
 au FocusLost * :wa
@@ -563,11 +564,11 @@ let g:ycm_rust_src_path = expand("~/.rust/src/")
 
 " Syntastic {{{
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_aggregate_errors = 1
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 1
+"let g:syntastic_aggregate_errors = 1
 
 " }}}
 
