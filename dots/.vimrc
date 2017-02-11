@@ -573,6 +573,15 @@ let g:ycm_rust_src_path = expand("~/.rust/src/")
 
 " }}}
 
+" Vimwiki {{{
+
+let g:vimwiki_list = [{'path': '~/git/vimwiki',
+                    \ 'syntax': 'markdown',
+                    \ 'ext': '.md'}]
+
+" }}}
+
+
 " Environments (GUI/Console) ---------------------------------------------- {{{
 
 if has('gui_running')
