@@ -36,6 +36,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'vimwiki/vimwiki'
 "Plugin 'klen/python-mode'
 "Plugin 'racer-rust/vim-racer'
 
@@ -93,8 +94,8 @@ set dictionary=/usr/share/dict/words
 set joinspaces " HI HATERS
 
 " Make the yank buffer copy into the clipboard
-set clipboard+=unnamed
-set clipboard+=unnamedplus
+"set clipboard+=unnamed
+set clipboard=unnamedplus
 
 " Time out on key codes but not mappings.
 " Basically this makes terminal Vim work sanely.
