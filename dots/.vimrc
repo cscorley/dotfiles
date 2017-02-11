@@ -37,6 +37,7 @@ Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vimwiki/vimwiki'
+Plugin 'junegunn/goyo.vim'
 "Plugin 'klen/python-mode'
 "Plugin 'racer-rust/vim-racer'
 
@@ -577,7 +578,16 @@ let g:ycm_rust_src_path = expand("~/.rust/src/")
 
 let g:vimwiki_list = [{'path': '~/git/vimwiki',
                     \ 'syntax': 'markdown',
-                    \ 'ext': '.md'}]
+                    \ 'ext': '.wiki'}]
+
+" }}}
+"
+" gojo {{{
+
+let g:goyo_width = 120
+let g:goyo_height = 90
+let g:goyo_linenr = 0
+
 
 " }}}
 
