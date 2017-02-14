@@ -12,7 +12,7 @@ dots/.mpd/*
 
 dots/.config/*
 !dots/.config/awesome
-!dots/.config/redshift.conf
+!dots/.config/roxterm.sourceforge.net
 !dots/.config/zathura
 
 dots/.gconf/
@@ -20,5 +20,7 @@ dots/.gconf/
 dots/.sup/*
 !dots/.sup/config.yaml
 !dots/.sup/hooks
+
+dots/.mlterm/challenge
 
 .ycmlast
