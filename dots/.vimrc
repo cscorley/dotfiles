@@ -174,20 +174,26 @@ let maplocalleader = ","
 " Color scheme {{{
 
 syntax on
-if ! has("gui_running")
+if !has("gui_running")
     set t_Co=256
 endif
 
-
-if isdirectory(expand("~/.config/base16-shell/scripts/"))
-    let g:base16_shell_path=expand("~/.config/base16-shell/scripts")
-endif
-
-if isdirectory(expand("~/.vim/bundle/base16-vim/colors/"))
-    let base16colorspace=256  " Access colors present in 256 colorspace
-    colorscheme base16-summerfruit-light
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
 else
-    colorscheme default
+    if isdirectory(expand("~/.vim/bundle/base16-vim/colors/"))
+        if isdirectory(expand("~/.config/base16-shell/scripts/"))
+            " Access colors present in 256 colorspace
+            " This must come before we switch the colorscheme.
+            let base16colorspace=256
+            let g:base16_shell_path=expand("~/.config/base16-shell/scripts")
+        endif
+
+        colorscheme base16-summerfruit-light
+    else
+        colorscheme default
+    endif
 endif
 
 set background=light

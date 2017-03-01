@@ -64,8 +64,6 @@ ${HOME}/.dotfiles/update.sh || true
 
 echo "-> Copying files from 'manual' directory"
 cp -v ${HOME}/.dotfiles/manual/mortaldouchebag.zsh-theme ${HOME}/.oh-my-zsh/themes/
-cp -v ${HOME}/.dotfiles/manual/base16-summerfruit-*.vim ${HOME}/.vim/bundle/base16-vim/colors/
-cp -v ${HOME}/.dotfiles/manual/base16-summerfruit-*.sh ${HOME}/.config/base16-shell/scripts/
 
 if [ "${os}" == "Linux" ] || [ "${os}" == "GNU/Linux" ]; then
     echo "-> Installing powerline font"

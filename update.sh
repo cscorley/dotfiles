@@ -13,7 +13,6 @@ upclone () {
 }
 
 ycmdir="${HOME}/.vim/bundle/YouCompleteMe"
-upclone https://github.com/Valloric/YouCompleteMe ${ycmdir}
 upclone https://github.com/VundleVim/Vundle.vim ${HOME}/.vim/bundle/Vundle.vim
 upclone https://github.com/chriskempson/base16-shell ${HOME}/.config/base16-shell
 upclone https://github.com/robbyrussell/oh-my-zsh ${HOME}/.oh-my-zsh
@@ -23,6 +22,7 @@ cd ${HOME}/.dotfiles
 
 echo "=> Running VundleInstall"
 vim +PluginInstall +qall
+vim +PluginUpdate +qall
 
 echo "=> Updating YouCompleteMe"
 lastfile="${ycmdir}/ycmlast"
