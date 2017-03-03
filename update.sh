@@ -1,13 +1,19 @@
 #!/bin/bash
 
+
+echo "=> Updating this git repo"
+
+cd ${HOME}/.dotfiles
+git pull
+
 echo "=> Upcloning git repos"
 
 upclone () {
     if [ -d ${2} ]; then
-        echo "=> Directory ${2} exists, updating."
+        echo "-> Directory ${2} exists, updating."
         cd ${2} && git pull
     else
-        echo "=> Directory ${2} does not exist, cloning."
+        echo "-> Directory ${2} does not exist, cloning."
         git clone ${1} ${2}
     fi
 }
