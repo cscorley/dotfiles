@@ -31,7 +31,7 @@ vim +PluginInstall +qall
 vim +PluginUpdate +qall
 
 echo "=> Updating YouCompleteMe"
-lastfile="${ycmdir}/ycmlast"
+lastfile="${HOME}/.dotfiles/.ycmlast"
 ycmlast=`[ -e ${lastfile} ] && cat ${lastfile}`
 git --git-dir=${ycmdir}/.git rev-list --max-count=1 HEAD > ${lastfile}
 ycmhead=`cat ${lastfile}`
