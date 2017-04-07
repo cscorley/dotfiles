@@ -22,13 +22,12 @@ ycmdir="${HOME}/.vim/bundle/YouCompleteMe"
 upclone https://github.com/VundleVim/Vundle.vim ${HOME}/.vim/bundle/Vundle.vim
 upclone https://github.com/chriskempson/base16-shell ${HOME}/.config/base16-shell
 upclone https://github.com/robbyrussell/oh-my-zsh ${HOME}/.oh-my-zsh
-upclone https://github.com/mozilla/rust ${HOME}/.rust
+#upclone https://github.com/mozilla/rust ${HOME}/.rust
 
 cd ${HOME}/.dotfiles
 
-echo "=> Running VundleInstall"
-vim +PluginInstall +qall
-vim +PluginUpdate +qall
+echo "=> Installing and Updating Vundle plugins"
+vim +PluginInstall +PluginUpdate +qall
 
 echo "=> Updating YouCompleteMe"
 lastfile="${HOME}/.dotfiles/.ycmlast"
