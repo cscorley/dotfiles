@@ -148,7 +148,7 @@ set textwidth=80
 set formatoptions=croqj12
 
 if version >= 703
-    set colorcolumn=+1
+    "set colorcolumn=+1
 endif
 
 " }}}
